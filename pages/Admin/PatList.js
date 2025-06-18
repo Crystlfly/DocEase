@@ -1,11 +1,25 @@
 'use client'; // Only needed if you're using Next.js 13+ with App Router
 
 import React, { useEffect, useState } from 'react';
-import { AllCommunityModules } from 'ag-grid-community';
+import {
+  ModuleRegistry,
+  ClientSideRowModelModule,
+  MenuModule,
+  ColumnsToolPanelModule,
+  CsvExportModule
+} from 'ag-grid-community';
 import { AgGridReact } from 'ag-grid-react';
 
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
+
+// Register required modules
+ModuleRegistry.registerModules([
+  ClientSideRowModelModule,
+  MenuModule,
+  ColumnsToolPanelModule,
+  CsvExportModule
+]);
 
 export default function DoctorGrid() {
   const [rowData, setRowData] = useState([]);
@@ -44,7 +58,6 @@ export default function DoctorGrid() {
           rowData={rowData}
           columnDefs={colDefs}
           defaultColDef={defaultColDef}
-          modules={AllCommunityModules}
         />
       </div>
     </div>
