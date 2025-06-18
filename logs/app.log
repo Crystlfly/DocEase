@@ -1,0 +1,181 @@
+[2025-06-14T11:43:36.620Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-14T11:43:38.669Z] [SUCCESS] Dashboard data fetched successfully for doctor: lalad
+[2025-06-14T11:43:38.671Z] [SUCCESS] Dashboard data fetched successfully for doctor: lalad
+[2025-06-14T11:46:14.617Z] [ERROR] Login error: MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+[2025-06-14T11:46:29.128Z] [ERROR] Login error: MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+[2025-06-14T11:46:30.532Z] [ERROR] Login error: MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+[2025-06-14T11:46:30.673Z] [ERROR] Login error: MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+[2025-06-14T11:46:30.885Z] [ERROR] Login error: MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+[2025-06-14T11:46:31.066Z] [ERROR] Login error: MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+[2025-06-14T11:46:41.650Z] [ERROR] User not found for email: lala@gmail.com and role: doctor
+[2025-06-14T11:46:45.442Z] [ERROR] User not found for email: lala@gmail.com and role: doctor
+[2025-06-14T11:46:55.269Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-14T11:46:58.284Z] [SUCCESS] Dashboard data fetched successfully for doctor: lalad
+[2025-06-14T11:46:58.286Z] [SUCCESS] Dashboard data fetched successfully for doctor: lalad
+[2025-06-14T18:05:49.649Z] [SUCCESS] Fetched doctors successfully
+[2025-06-14T18:09:53.950Z] [SUCCESS] Fetched doctors successfully
+[2025-06-14T18:13:41.435Z] [SUCCESS] Fetched doctors successfully
+[2025-06-14T18:13:41.546Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T05:29:16.335Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T05:29:16.348Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T05:50:12.528Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T05:50:12.543Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T05:52:22.513Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T05:52:22.528Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T05:54:52.066Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T05:56:32.504Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T05:56:32.518Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T05:58:49.594Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T05:59:09.289Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T06:21:34.675Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T06:23:22.397Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T06:28:07.148Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T06:35:48.930Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T06:37:47.613Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T06:40:54.286Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T07:47:51.130Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T07:48:01.073Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T07:48:01.093Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T08:24:27.684Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T08:24:27.697Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T08:38:35.466Z] [ERROR] Booking failed: Appointment validation failed: patientId: Cast to ObjectId failed for value "" (type string) at path "patientId" because of "BSONError", datetime: Path `datetime` is required.
+[2025-06-15T08:50:45.938Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T08:52:01.233Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-15: 
+[2025-06-15T08:52:19.945Z] [ERROR] Booking failed: Appointment validation failed: patientId: Cast to ObjectId failed for value "" (type string) at path "patientId" because of "BSONError", datetime: Path `datetime` is required.
+[2025-06-15T09:05:17.723Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T09:05:17.765Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T09:06:24.899Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-25: 
+[2025-06-15T09:06:34.381Z] [ERROR] Booking failed: Appointment validation failed: patientId: Cast to ObjectId failed for value "" (type string) at path "patientId" because of "BSONError", datetime: Path `datetime` is required.
+[2025-06-15T10:10:36.777Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T11:58:58.730Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T12:24:57.584Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T12:44:23.240Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T14:35:31.796Z] [ERROR] User not found for email: anusha@gmail.com and role: patient
+[2025-06-15T14:36:01.163Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-15T14:42:39.070Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T14:42:39.083Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T14:42:56.904Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T14:42:56.915Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T14:47:05.737Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T14:47:25.279Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-15T14:51:06.242Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-15T14:51:35.865Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-15T14:55:04.847Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-15T14:58:21.298Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-15T14:59:33.926Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-15T15:01:41.536Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-15T15:02:23.786Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-15T15:08:32.558Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-15T15:13:25.107Z] [SUCCESS] User logged in successfully: lalad@gmail.com
+[2025-06-15T15:31:00.646Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T15:31:00.653Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T15:31:54.969Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T15:51:12.328Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T15:51:40.284Z] [ERROR] Booking failed: Appointment validation failed: patientId: Cast to ObjectId failed for value "P683eb6515293b1bf68919999" (type string) at path "patientId" because of "BSONError", datetime: Path `datetime` is required., doctorId: Path `doctorId` is required.
+[2025-06-15T16:02:00.665Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T16:02:13.477Z] [ERROR] Booking failed: Appointment validation failed: patientId: Cast to ObjectId failed for value "P683eb6515293b1bf68919999" (type string) at path "patientId" because of "BSONError", datetime: Path `datetime` is required.
+[2025-06-15T16:06:11.604Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T16:06:34.352Z] [ERROR] Booking failed: Appointment validation failed: patientId: Cast to ObjectId failed for value "P683eb6515293b1bf68919999" (type string) at path "patientId" because of "BSONError", datetime: Path `datetime` is required.
+[2025-06-15T16:09:27.747Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-15T16:09:33.358Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T16:09:33.380Z] [SUCCESS] Fetched doctors successfully
+[2025-06-15T16:09:47.550Z] [SUCCESS] Appointment booked for doctor=6847f32ca9676376f44e211e, patient=683eb6515293b1bf68919999, at 12:00 PM
+[2025-06-15T16:13:11.013Z] [SUCCESS] Appointment booked for doctor=6849c7f5adcc319d7724d3ef, patient=683eb6515293b1bf68919999, at 10:30 AM
+[2025-06-16T08:04:27.506Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T08:04:27.524Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T08:06:58.606Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-16T08:07:05.733Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T08:07:05.748Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T08:07:18.110Z] [SUCCESS] Appointment booked for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999, at 2:30 PM
+[2025-06-16T08:08:02.428Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T09:15:46.157Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T09:19:07.948Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T09:25:24.826Z] [SUCCESS] Fetched booked slots for doctor=6847f32ca9676376f44e211e on 2025-06-16: 12:00 PM
+[2025-06-16T09:52:24.968Z] [SUCCESS] Appointment booked for doctor=6847f32ca9676376f44e211e, patient=683eb6515293b1bf68919999, at 2:30 PM
+[2025-06-16T09:53:46.173Z] [SUCCESS] Fetched booked slots for doctor=6847f32ca9676376f44e211e on 2025-06-16: 12:00 PM,2:30 PM
+[2025-06-16T09:53:49.949Z] [SUCCESS] Appointment booked for doctor=6847f32ca9676376f44e211e, patient=683eb6515293b1bf68919999, at 10:00 AM
+[2025-06-16T09:53:54.088Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T09:53:59.526Z] [SUCCESS] Fetched booked slots for doctor=6847f32ca9676376f44e211e on 2025-06-16: 12:00 PM,2:30 PM,10:00 AM
+[2025-06-16T14:03:20.167Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T14:26:10.221Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T14:26:10.223Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T14:35:17.986Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T14:36:16.412Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T14:37:17.273Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T14:37:27.768Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T14:38:54.574Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T14:47:04.952Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T15:08:02.729Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T15:53:07.281Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T15:54:08.760Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:25:03.403Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:25:31.577Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-16T16:25:35.032Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:25:35.028Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:27:36.261Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-16T16:27:41.031Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:27:41.041Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:31:54.344Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-16T16:31:58.137Z] [ERROR] Error fetching patient appointments: Cannot read properties of undefined (reading 'ObjectId')
+[2025-06-16T16:31:58.138Z] [ERROR] Error fetching patient appointments: Cannot read properties of undefined (reading 'ObjectId')
+[2025-06-16T16:33:55.610Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:34:51.350Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-16T16:35:01.119Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:35:01.128Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:36:20.087Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:36:57.485Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:38:33.340Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:38:45.224Z] [SUCCESS] Appointment 684ef04bcf4fcc89d37f09d5 cancelled successfully
+[2025-06-16T16:39:29.523Z] [SUCCESS] Appointment 684ef117cf4fcc89d37f09d8 cancelled successfully
+[2025-06-16T16:39:50.417Z] [SUCCESS] Appointment 684fe9ada265b6976a3b3e82 cancelled successfully
+[2025-06-16T16:43:30.967Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T16:43:30.976Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T16:47:21.685Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:47:21.688Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T16:48:59.190Z] [SUCCESS] Appointment 684fd0b6a265b6976a3b3e77 cancelled successfully
+[2025-06-16T16:49:39.446Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T16:49:39.473Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T16:49:48.084Z] [SUCCESS] Fetched booked slots for doctor=6847f32ca9676376f44e211e on 2025-06-17: 
+[2025-06-16T16:49:53.797Z] [SUCCESS] Fetched booked slots for doctor=6847f32ca9676376f44e211e on 2025-06-16: 12:00 PM,2:30 PM,10:00 AM
+[2025-06-16T17:35:32.801Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T17:35:32.804Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T17:35:55.917Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T17:35:55.928Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T17:35:57.295Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T17:36:00.802Z] [SUCCESS] Appointment 684fe958a265b6976a3b3e7e cancelled successfully
+[2025-06-16T17:36:22.510Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T17:36:22.518Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T17:36:25.640Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T17:36:25.653Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T17:36:30.246Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T17:36:30.261Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T17:36:39.383Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T17:36:39.403Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T17:43:00.167Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T17:43:00.164Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 6 found
+[2025-06-16T17:43:03.744Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T17:43:03.760Z] [SUCCESS] Fetched doctors successfully
+[2025-06-16T17:43:08.845Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-17: 
+[2025-06-16T17:43:13.083Z] [SUCCESS] Appointment booked for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999, at 12:00 PM
+[2025-06-16T17:43:26.027Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 7 found
+[2025-06-16T17:43:26.031Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 7 found
+[2025-06-16T17:53:50.207Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 7 found
+[2025-06-16T18:12:07.999Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 7 found
+[2025-06-16T18:21:25.593Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 7 found
+[2025-06-17T10:16:06.494Z] [SUCCESS] Fetched doctors successfully
+[2025-06-17T10:16:06.508Z] [SUCCESS] Fetched doctors successfully
+[2025-06-17T11:37:29.041Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-17T11:37:33.103Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 7 found
+[2025-06-17T11:37:33.243Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 7 found
+[2025-06-17T16:15:56.099Z] [SUCCESS] Fetched doctors successfully
+[2025-06-17T16:15:56.123Z] [SUCCESS] Fetched doctors successfully
+[2025-06-17T16:16:01.994Z] [SUCCESS] Fetched booked slots for doctor=6847f32ca9676376f44e211e on 0008-08-07: 
+[2025-06-17T16:16:02.307Z] [SUCCESS] Fetched booked slots for doctor=6847f32ca9676376f44e211e on 0087-08-07: 
+[2025-06-17T16:16:02.761Z] [SUCCESS] Fetched booked slots for doctor=6847f32ca9676376f44e211e on 0878-08-07: 
+[2025-06-17T16:16:03.211Z] [SUCCESS] Fetched booked slots for doctor=6847f32ca9676376f44e211e on 8789-08-07: 
+[2025-06-17T16:17:04.817Z] [SUCCESS] Appointment booked for doctor=6847f32ca9676376f44e211e, patient=683eb6515293b1bf68919999, at 4:00 PM
+[2025-06-17T18:29:28.857Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-17T18:46:51.673Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-17T18:52:17.382Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-17T18:55:48.688Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-17T18:56:13.675Z] [SUCCESS] ✅ Profile completed for: lalad@gmail.com

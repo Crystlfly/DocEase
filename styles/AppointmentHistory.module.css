@@ -1,0 +1,133 @@
+.main {
+  min-height: 100vh;
+  background: url('/newBg.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Change to center if content is short */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgba(255, 255, 255, 0.80);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.heading {
+  text-align: center;
+  font-size: 26px;
+  color: var(--primary);
+  margin-bottom: 30px;
+}
+
+.noAppointments {
+  text-align: center;
+  color: var(--text);
+  font-size: 18px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 10px rgba(109, 93, 252, 0.1); /* var(--primary) glow */
+}
+
+.label {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.value {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.upcoming {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.completed {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.cancelled {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.cancelBtn {
+  margin-top: 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cancelBtn:hover {
+  background-color: #b02a37;
+}
+
+.confirmOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.confirmBox {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 0 15px rgba(109, 93, 252, 0.25); /* var(--primary) glow */
+}
+
+.confirmButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.yesBtn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.noBtn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.noBtn:hover {
+  background-color: #5743d1; /* slightly darker shade of primary */
+}

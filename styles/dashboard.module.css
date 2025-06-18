@@ -1,0 +1,102 @@
+.main{
+    background: url('/newBg.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    /* justify-content: center; */
+
+}
+.dashboardContainer {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9faff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: #333;
+  /* background: url('/newBg.jpg') no-repeat center center/cover; */
+ 
+}
+
+.header {
+  border-bottom: 2px solid #4f46e5;
+  padding-bottom: 12px;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #4f46e5;
+}
+
+.statsSection {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.statCard {
+  background: rgb(255, 255, 255);
+  padding: 25px 35px;
+  border-radius: 10px;
+  width: 28%;
+  box-shadow: 0 3px 8px rgba(79, 70, 229, 0.2);
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+  overflow: hidden;
+}
+
+.statCard:hover {
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+}
+
+.statCard h2 {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.statCard p {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.appointmentsSection {
+  background: white;
+  border-radius: 10px;
+  padding: 20px 30px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.appointmentsSection h2 {
+  margin-bottom: 20px;
+  color: #1e40af;
+  font-weight: 600;
+  border-bottom: 2px solid #c7d2fe;
+  padding-bottom: 8px;
+}
+
+.appointmentsList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.appointmentItem {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 15px 0;
+  transition: background-color 0.2s ease;
+}
+
+.appointmentItem:last-child {
+  border-bottom: none;
+}
+
+.appointmentItem:hover {
+  background-color: #eef2ff;
+  cursor: pointer;
+}
+
+.appointmentItem p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #334155;
+}

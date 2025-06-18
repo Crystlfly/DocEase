@@ -1,0 +1,116 @@
+/* :root {
+  --primary: #6d5dfc; 
+  --secondary: #5de0e6; 
+  --bg: #f5f7fa;
+  --text: #2d2d2d;
+} */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: var(--bg); */
+  min-height: 93.7vh;
+  padding: 2rem;
+  font-family: sans-serif;
+  background: url('/newBg.jpg') no-repeat center center/cover;
+}
+
+.title {
+  padding-top: 5rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary);
+  font-size: 3rem;
+}
+
+.cardContainer {
+  margin-top: 7rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.80);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.card h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 35px;
+}
+
+.card p {
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.btnPrimary,
+.btnSecondary {
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0.25rem;
+  background-color: #4f46e5;
+}
+
+.btnPrimary {
+  background-color: var(--primary);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btnSecondary {
+ background-color: #4f46e5;
+  color: white;
+}
+
+.authButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer {
+  
+  padding: 0.5rem;
+  color: #4f46e5;
+  background-color: #000f26;
+
+}
+@media (max-width: 768px) {
+  .cardContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .btnPrimary,
+  .btnSecondary {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}

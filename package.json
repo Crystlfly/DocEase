@@ -1,0 +1,40 @@
+{
+  "name": "dappp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@material/data-table": "^14.0.0",
+    "ag-grid-react": "^33.3.2",
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.6.1",
+    "lucide-react": "^0.511.0",
+    "mongoose": "^8.15.1",
+    "multer": "^2.0.1",
+    "next": "15.3.3",
+    "next-auth": "4",
+    "next-connect": "^1.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.1.0",
+    "twilio": "^5.7.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8"
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

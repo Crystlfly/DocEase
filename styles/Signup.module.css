@@ -1,0 +1,145 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('/newBg.jpg') no-repeat center center/cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 900px;           /* ✅ Limit max width for responsiveness */
+  background-color: rgba(255, 255, 255, 0.1); /* Optional background */
+  display: flex;
+  gap: 0;                     /* Optional: no internal gap */
+}
+
+
+/* RIGHT SIDE - Form now on left visually */
+.MainRight {
+  display: flex;
+  width: 55%; 
+  background-color: rgba(0,0,0,0.6);
+  padding: 30px;
+}
+
+.right {
+  /* flex: 2;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  padding-right: 20px;
+  width: 100%;
+}
+
+.left {
+  flex: 1;
+  /* background: linear-gradient(135deg, rgba(184, 224, 229, 0.6), rgba(209, 207, 226, 0.1)); */
+  background-color: rgba(162,217,245,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.title {
+  margin: 0 0 1.5rem 0;
+  font-size: 4rem;
+  color: #a0d8f4;
+  /* font-family: 'Noto Sans', sans-serif;  */
+  padding-top: 10%;
+  overflow: hidden;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #a0d8f4;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #8ecae6;
+  box-shadow: 0 0 5px #a0d8f4;
+}
+
+.button {
+  background-color: #0a3990;
+  color: #a0d8f4;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #00103c;
+}
+
+.userIcon {
+  color: #a0d8f4;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.link {
+  margin-top: 1rem;
+  text-align: center;
+  color: #a0d8f4;
+}
+
+.link a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}
+
+.rightLogin{
+  display: flex;
+  margin-top:20px; 
+  justify-content: center;
+  gap: 3rem;
+}
+
+.radioGroup{
+  display: flex;
+  gap: 30px;
+  /* margin-bottom: 1px; */
+  align-items: center;
+  justify-content: center;
+}
+.radioGroup label {
+  font-size: 16px;
+  color: #4fa1eb;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
