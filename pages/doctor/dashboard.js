@@ -13,6 +13,9 @@ export default function DoctorDashboard() {
       const email = localStorage.getItem("UserEmail");
       if (!email) return;
 
+      console.log("Email being sent to API:", email);
+
+
       try {
         const res = await fetch("/api/doc/dashboard", {
   method: "POST",
