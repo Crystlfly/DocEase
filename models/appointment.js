@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+console.log("✅ [MODEL] Appointment schema file loaded");
+
 const appointmentSchema = new mongoose.Schema({
   doctorId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -15,11 +17,13 @@ const appointmentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  time:{
+  time: {
     type: String,
     required: true,
   },
-  reason: String,
+  reason: {
+    type: String,
+  },
   status: {
     type: String,
     enum: ["upcoming", "completed", "cancelled"],
@@ -31,7 +35,11 @@ const appointmentSchema = new mongoose.Schema({
   },
 });
 
+console.log("🔧 [MODEL] Appointment schema defined with status enum:", appointmentSchema.path("status").enumValues);
+
 const Appointment =
   mongoose.models.Appointment || mongoose.model("Appointment", appointmentSchema);
+
+console.log("✅ [MODEL] Appointment model registered:", !!Appointment);
 
 export default Appointment;

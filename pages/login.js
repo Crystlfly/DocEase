@@ -1,3 +1,6 @@
+// ⬇️ Add this at the very top
+console.log("🟢 [LoginPage] Component Loaded");
+
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
@@ -27,40 +30,52 @@ export default function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log("🔵 [Login Attempt] Role:", role, "| Email:", email);
     setErrorMsg("");
 
-    const res = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password, role }),
-    });
+    try {
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, role }),
+      });
 
-    const data = await res.json();
-    console.log("USER OBJECT:", data);
+      const data = await res.json();
+      console.log("🟡 [Login Response]:", data);
 
-    if (res.ok) {
-      alert("Login successful!");
-      localStorage.setItem("UserName", data.user.name);
-      localStorage.setItem("userRole", data.user.role);
-      localStorage.setItem("UserEmail", data.user.email);
-      localStorage.setItem("UserId", data.user.id);
+      if (res.ok) {
+        alert("Login successful!");
+        localStorage.setItem("UserName", data.user.name);
+        localStorage.setItem("userRole", data.user.role);
+        localStorage.setItem("UserEmail", data.user.email);
+        localStorage.setItem("UserId", data.user.id);
+        console.log("✅ [Login Success] LocalStorage populated");
 
-      if (data.user.role.toLowerCase() === "doctor") {
-        if (data.user.profileCompleted === false) {
-          router.push("/doctor/complete-profile");
-          return;
+        if (data.user.role.toLowerCase() === "doctor") {
+          if (data.user.profileCompleted === false) {
+            console.log("🛠️ Doctor profile not completed. Redirecting...");
+            router.push("/doctor/complete-profile");
+            return;
+          }
+          console.log("➡️ Redirecting to /doctor/dashboard");
+          router.push("/doctor/dashboard");
+        } else if (data.user.role.toLowerCase() === "patient") {
+          console.log("➡️ Redirecting to /patient/dashboard");
+          router.push("/patient/dashboard");
+        } else if (data.user.role.toLowerCase() === "admin") {
+          console.log("➡️ Redirecting to /admin/dashboard");
+          router.push("/admin/dashboard");
+        } else {
+          console.warn("⚠️ Unknown user role:", data.user.role);
+          setErrorMsg("Unknown user role");
         }
-        console.log("page routed successfully");
-        router.push("/doctor/dashboard");
-      } else if (data.user.role.toLowerCase() === "patient") {
-        router.push("/patient/dashboard");
-      } else if (data.user.role.toLowerCase() === "admin") {
-        router.push("/admin/dashboard");
       } else {
-        setErrorMsg("Unknown user role");
+        console.error("❌ Login failed:", data.message);
+        setErrorMsg(data.message || "Something went wrong");
       }
-    } else {
-      setErrorMsg(data.message || "Something went wrong");
+    } catch (err) {
+      console.error("🔥 [Login Error]:", err.message);
+      setErrorMsg("Login failed. Please try again.");
     }
   };
 
