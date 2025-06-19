@@ -50,6 +50,7 @@ export default function LoginPage() {
           router.push("/doctor/complete-profile");
           return;
         }
+        console.log("page routed successfully");
         router.push("/doctor/dashboard");
       } else if (data.user.role.toLowerCase() === "patient") {
         router.push("/patient/dashboard");

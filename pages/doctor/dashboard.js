@@ -9,6 +9,7 @@ export default function DoctorDashboard() {
   const [activeSection, setActiveSection] = useState("today");
 
   useEffect(() => {
+    console.log("Fetching dashboard data...");
   // Ensure it's running only in the browser
   if (typeof window === "undefined") return;
 
