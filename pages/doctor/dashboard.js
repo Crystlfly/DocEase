@@ -9,37 +9,44 @@ export default function DoctorDashboard() {
   const [activeSection, setActiveSection] = useState("today");
 
   useEffect(() => {
-    const fetchDashboardData = async () => {
-      const email = localStorage.getItem("UserEmail");
-      if (!email) return;
+  // Ensure it's running only in the browser
+  if (typeof window === "undefined") return;
 
+  const email = localStorage.getItem("UserEmail");
+  if (!email) {
+    console.warn("No email found in localStorage");
+    return;
+  }
+
+  const fetchDashboardData = async () => {
+    try {
       console.log("Email being sent to API:", email);
 
+      const res = await fetch("/api/doc/dashboard", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
 
-      try {
-        const res = await fetch("/api/doc/dashboard", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ email }),
-});
-        const data = await res.json();
+      const data = await res.json();
 
-        setAppointments({
-          today: data.todayAppointments,
-          upcoming: data.upcomingAppointments,
-        });
-        setTotalPatients(data.totalPatients);
-        setDoctorName(data.doctorName);
-        setLoading(false);
-      } catch (err) {
-        console.error("Error fetching dashboard data:", err);
-      }
-    };
+      setAppointments({
+        today: data.todayAppointments,
+        upcoming: data.upcomingAppointments,
+      });
+      setTotalPatients(data.totalPatients);
+      setDoctorName(data.doctorName);
+      setLoading(false);
+    } catch (err) {
+      console.error("Error fetching dashboard data:", err);
+    }
+  };
 
-    fetchDashboardData();
-  }, []);
+  fetchDashboardData();
+}, []);
+
 
   if (loading) return <p>Loading...</p>;
 
