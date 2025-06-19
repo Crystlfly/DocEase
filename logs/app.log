@@ -190,3 +190,13 @@
 [2025-06-19T09:00:37.494Z] [SUCCESS] Dashboard data fetched successfully for doctor: lalad
 [2025-06-19T09:00:37.498Z] [SUCCESS] Dashboard data fetched successfully for doctor: lalad
 [2025-06-19T09:01:44.947Z] [SUCCESS] Dashboard data fetched successfully for doctor: lalad
+[2025-06-19T09:06:31.811Z] [SUCCESS] Dashboard data fetched successfully for doctor: lalad
+[2025-06-19T11:01:23.916Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-19T11:04:13.856Z] [SUCCESS] Fetched doctors successfully
+[2025-06-19T11:04:13.868Z] [SUCCESS] Fetched doctors successfully
+[2025-06-19T11:04:22.757Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-19: 
+[2025-06-19T11:04:33.828Z] [SUCCESS] Appointment booked for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999, at 4:00 PM
+[2025-06-19T11:04:45.916Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-19: 4:00 PM
+[2025-06-19T11:04:51.736Z] [ERROR] Error fetching patient appointments: Appointment validation failed: status: `today` is not a valid enum value for path `status`.
+[2025-06-19T11:04:51.737Z] [ERROR] Error fetching patient appointments: Appointment validation failed: status: `today` is not a valid enum value for path `status`.
+[2025-06-19T11:26:43.401Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 9 found
