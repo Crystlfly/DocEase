@@ -5,6 +5,7 @@ import User from "@/models/user";
 
 import mongoose from "mongoose";
 
+console.log("✅ Registered models:", Object.keys(mongoose.models));
 
 
 export default async function handler(req, res) {

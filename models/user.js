@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+console.log("✅ User model loaded");
 
 const userSchema = new mongoose.Schema(
   {
