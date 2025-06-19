@@ -10,7 +10,7 @@ export default function DoctorDashboard() {
 
   useEffect(() => {
     const fetchDashboardData = async () => {
-      const email = localStorage.getItem("doctorEmail");
+      const email = localStorage.getItem("UserEmail");
       if (!email) return;
 
       try {
