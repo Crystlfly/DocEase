@@ -1,6 +1,7 @@
 import { connectToDatabase } from "@/lib/mongodb";
 import Appointment from "@/models/appointment";
 import { logger } from "@/lib/logger";
+import User from "@/models/user"; 
 
 import mongoose from "mongoose";
 
