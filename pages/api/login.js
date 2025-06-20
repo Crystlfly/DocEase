@@ -26,6 +26,8 @@ export default async function handler(req, res) {
     // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
+      logger.error("user's existing password", user.password);
+      logger.error("Given password", password);
       logger.error(`Invalid password for user: ${email}`);
       return res.status(401).json({ message: "Invalid email or password" });
     }

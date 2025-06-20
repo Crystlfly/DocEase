@@ -236,3 +236,5 @@
 [2025-06-20T12:09:40.017Z] [SUCCESS] Fetched doctors successfully
 [2025-06-20T12:11:21.386Z] [SUCCESS] Fetched doctors successfully
 [2025-06-20T12:11:21.397Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T12:46:38.759Z] [SUCCESS] User registered successfully: gadhi@gmail.com
+[2025-06-20T12:46:44.382Z] [SUCCESS] User logged in successfully and the data is returned: gadhi@gmail.com
