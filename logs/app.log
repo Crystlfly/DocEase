@@ -200,3 +200,7 @@
 [2025-06-19T11:04:51.736Z] [ERROR] Error fetching patient appointments: Appointment validation failed: status: `today` is not a valid enum value for path `status`.
 [2025-06-19T11:04:51.737Z] [ERROR] Error fetching patient appointments: Appointment validation failed: status: `today` is not a valid enum value for path `status`.
 [2025-06-19T11:26:43.401Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999: 9 found
+[2025-06-20T06:39:36.381Z] [ERROR] Signup error: ValidationError: profileImage: Path `profileImage` is required.
+[2025-06-20T06:42:11.955Z] [ERROR] Signup error: ValidationError: profileImage: Path `profileImage` is required.
+[2025-06-20T06:42:29.772Z] [ERROR] Signup error: ValidationError: profileImage: Path `profileImage` is required.
+[2025-06-20T06:43:15.181Z] [SUCCESS] User registered successfully: lalad3333333333@gmail.com
