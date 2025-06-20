@@ -204,3 +204,35 @@
 [2025-06-20T06:42:11.955Z] [ERROR] Signup error: ValidationError: profileImage: Path `profileImage` is required.
 [2025-06-20T06:42:29.772Z] [ERROR] Signup error: ValidationError: profileImage: Path `profileImage` is required.
 [2025-06-20T06:43:15.181Z] [SUCCESS] User registered successfully: lalad3333333333@gmail.com
+[2025-06-20T07:27:20.523Z] [SUCCESS] User registered successfully: lalad1233@gmail.com
+[2025-06-20T10:55:36.908Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-20T10:55:42.779Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T10:55:42.796Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T10:55:54.494Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-20: 
+[2025-06-20T10:56:07.306Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T10:56:36.734Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T10:56:58.914Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-20: 
+[2025-06-20T10:58:05.000Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-06-20, time=3:00 PM, reason=ghj
+[2025-06-20T10:58:05.000Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-20T10:58:04.999Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-20T10:58:05.033Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-06-20 3:00 PM
+[2025-06-20T11:05:27.044Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T11:12:48.277Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T11:12:54.724Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-20: 3:00 PM
+[2025-06-20T11:13:02.387Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-21: 
+[2025-06-20T11:38:16.736Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T11:39:13.951Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T11:39:43.815Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T11:40:54.841Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T11:42:39.511Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T11:50:14.330Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T11:50:14.337Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T11:52:31.195Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T11:52:39.027Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T11:52:55.292Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T12:04:49.480Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T12:09:20.657Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T12:09:28.826Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T12:09:40.017Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T12:11:21.386Z] [SUCCESS] Fetched doctors successfully
+[2025-06-20T12:11:21.397Z] [SUCCESS] Fetched doctors successfully

@@ -1,11 +1,27 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/styles/BookAppointment.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserDoctor } from "@fortawesome/free-solid-svg-icons";
 
 const timeSlots = [
   "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
   "12:00 PM", "12:30 PM", "2:00 PM", "2:30 PM",
   "3:00 PM", "3:30 PM", "4:00 PM"
 ];
+
+function convertTo24Hour(timeStr) {
+  const [time, modifier] = timeStr.split(" ");
+  let [hours, minutes] = time.split(":");
+
+  if (modifier === "PM" && hours !== "12") {
+    hours = parseInt(hours, 10) + 12;
+  }
+  if (modifier === "AM" && hours === "12") {
+    hours = "00";
+  }
+
+  return `${hours.toString().padStart(2, "0")}:${minutes}`;
+}
 
 export default function BookAppointment() {
   const [doctors, setDoctors] = useState([]);
@@ -120,10 +136,27 @@ export default function BookAppointment() {
                 className={styles.card}
                 onClick={() => setSelectedDoctor(doc)}
               >
-                <h3 className={styles.doctorNameLeft}>Dr. {doc.name}</h3>
-                <p><strong>Specialization:</strong> {doc.specialization || "N.A." }</p>
-                <p><strong>Experience:</strong> {doc.experience || "N.A."}</p>
-                <p><strong>Address:</strong> {doc.address || "N.A."}</p>
+                <div className={styles.doctorImage}>
+                  {doc.profileImage ? (
+                    <img src={doc.profileImage} alt="Doctor" />
+                  ) : (
+                    <FontAwesomeIcon icon={faUserDoctor} size="6x" className={styles.userIcon} />
+                  )}
+                </div>
+
+                  <h3 className={styles.doctorName}>{"Dr. " + doc.name}</h3>
+                  <p>
+                    <span className={styles.key}>Specialization:</span>{" "}
+                    <span className={styles.value}>{doc.specialization || "N.A."}</span>
+                  </p>
+                  <p>
+                    <span className={styles.key}>Experience:</span>{" "}
+                    <span className={styles.value}>{doc.experience || "N.A."}</span>
+                  </p>
+                  <p>
+                    <span className={styles.key}>Address:</span>{" "}
+                    <span className={styles.value}>{doc.address || "N.A."}</span>
+                  </p>
               </div>
             ))}
           </div>
@@ -141,6 +174,13 @@ export default function BookAppointment() {
                   }`}
                   onClick={() => setSelectedDoctor(doc)}
                 >
+                  <div className={styles.doctorImage}>
+                    {doc.profileImage ? (
+                      <img src={doc.profileImage} alt="Doctor" />
+                    ) : (
+                      <FontAwesomeIcon icon={faUserDoctor} size="6x" className={styles.userIcon} />
+                    )}
+                  </div>
                   <h3 className={styles.doctorName}>{"Dr. " + doc.name}</h3>
                   <p>
                     <span className={styles.key}>Specialization:</span>{" "}
@@ -174,11 +214,19 @@ export default function BookAppointment() {
                 <label>Time Slot:</label>
                 <select value={time} onChange={(e) => setTime(e.target.value)}>
                   <option value="">Select</option>
-                  {timeSlots.map((slot) => (
-                    <option key={slot} value={slot} disabled={bookedSlots.includes(slot)}>
+                  {timeSlots.map((slot) => {
+                    const slot24 = convertTo24Hour(slot); // Convert to 24-hour
+                    const currentTime = new Date().toTimeString().slice(0, 5);
+                    const isPast = date === new Date().toISOString().split("T")[0] && slot24 < currentTime;
+                    const isDisabled = bookedSlots.includes(slot) || isPast;
+
+                  return (
+                    <option key={slot} value={slot} disabled={isDisabled}>
                       {slot} {bookedSlots.includes(slot) ? " (Booked)" : ""}
+                      {/* {isPast ? " (Past)" : ""} */}
                     </option>
-                  ))}
+                  );
+                  })}
                 </select>
               </div>
 
