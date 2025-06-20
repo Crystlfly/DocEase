@@ -33,45 +33,66 @@ export default function Signup() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setSuccess("");
+  e.preventDefault();
+  setError("");
+  setSuccess("");
 
-    const { name, email, phone, password } = formData;
+  const { name, email, phone, password } = formData;
 
-    if (!name || !email || !phone || !password || !role) {
-      setError("Please fill in all required fields.");
-      return;
-    }
+  if (!name || !email || !phone || !password || !role) {
+    setError("Please fill in all required fields.");
+    return;
+  }
 
-    try {
-      const res = await fetch("/api/signUp", {
+  try {
+    const res = await fetch("/api/signUp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...formData, role }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      setError(data.message || "Signup failed");
+    } else {
+      setSuccess("Signup successful! Redirecting you....");
+
+      // 🟢 Attempt login immediately after signup
+      const loginRes = await fetch("/api/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, role }),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          role: role
+        })
       });
 
-      const data = await res.json();
+      const loginData = await loginRes.json();
 
-      if (!res.ok) {
-        setError(data.message || "Signup failed");
+      if (loginRes.ok) {
+        localStorage.setItem("UserId", loginData.user.id);
+        localStorage.setItem("UserName", loginData.user.name);
+        localStorage.setItem("userRole", loginData.user.role);
+        localStorage.setItem("UserEmail", loginData.user.email);
+
+        if (role === "patient") {
+          router.push("/patient/dashboard");
+        } else if (role === "doctor") {
+          router.push("/doctor/complete-profile");
+        }
       } else {
-        setSuccess("Signup successful! Redirecting to login...");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          password: "",
-        });
-
-        setTimeout(() => {
-          router.push("/login"); // ✅ Redirect after success
-        }, 1000);
+        setError("Signup worked, but login failed.");
       }
-    } catch (err) {
-      setError("Something went wrong.");
     }
-  };
+  } catch (err) {
+    setError("Something went wrong.");
+  }
+};
+
 
   return (
     <>
