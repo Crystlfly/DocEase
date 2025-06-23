@@ -1,12 +1,37 @@
 import { useState } from "react";
+import { useEffect } from 'react';
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+
 import styles from "@/styles/CompleteProfile.module.css";
+import jwtDecode from 'jwt-decode';
 
 export default function CompleteDoctorProfile() {
   const router = useRouter();
+  // const [checkingAuth, setCheckingAuth] = useState(true);
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      router.replace('/login'); // Not logged in, redirect
+      return;
+    }
+
+    // try {
+    //   const decoded = jwtDecode(token);
+    //   if (decoded.role !== 'doctor') {
+    //     router.replace('/unauthorized'); // Logged in but wrong role
+    //   }else{
+    //     setCheckingAuth(false);
+    //   }
+    // } catch (err) {
+    //   router.replace('/login'); // Invalid token
+    // }
+  }, []);
+
   const [formData, setFormData] = useState({
     email: "",
     specialization: "",
@@ -15,9 +40,11 @@ export default function CompleteDoctorProfile() {
     about: "",
   });
 
+
   const [imageFile, setImageFile] = useState(null);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [preview, setPreview] = useState(null);
   const [uploading, setUploading] = useState(false);
 
   const handleChange = (e) => {
@@ -25,7 +52,15 @@ export default function CompleteDoctorProfile() {
   };
 
   const handleImageChange = (e) => {
-    setImageFile(e.target.files[0]);
+    const file = e.target.files[0];
+    if (file) {
+      setImageFile(file); // 👈 You missed setting this earlier!
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -45,7 +80,7 @@ export default function CompleteDoctorProfile() {
     try {
       const res = await fetch("/api/doc/complete-profile", {
         method: "POST",
-        body: submissionData, // no need to set Content-Type, browser handles it
+        body: submissionData,
       });
 
       const data = await res.json();
@@ -63,6 +98,8 @@ export default function CompleteDoctorProfile() {
     }
   };
 
+  // if (checkingAuth) return <p>Checking authentication...</p>;
+
   return (
     <main className={styles.main}>
       <div className={styles.container}>
@@ -73,9 +110,33 @@ export default function CompleteDoctorProfile() {
               <FontAwesomeIcon icon={faXmark} />
             </Link>
           </div>
+          {/* Custom Image Upload */}
+          <div className={styles.avatarWrapper}>
+            <label htmlFor="profile-upload" className={styles.avatarLabel}>
+              {preview?(
+                <img
+                src={preview || "/default-avatar.png"}
+                alt="Profile Preview"
+                className={styles.avatarImage}
+              />
+              ):(<FontAwesomeIcon icon={faCircleUser} size="6x" className={styles.userIcon} />)}
+              <div className={styles.overlay}>
+                <span className={styles.overlayText}>Edit</span>
+              </div>
+            </label>
+
+            <input
+              id="profile-upload"
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              style={{ display: "none" }}
+              disabled={uploading}
+            />
+          </div>
 
           <input
-            className={styles.input}
+            className={styles.inputField}
             type="email"
             name="email"
             placeholder="Email Address"
@@ -124,20 +185,13 @@ export default function CompleteDoctorProfile() {
             required
             disabled={uploading}
           />
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            className={styles.inputField}
-            disabled={uploading}
-          />
-
-          <button type="submit" className={styles.button}disabled={uploading}>
-            {uploading ? "Uploading..." : "Submit"}
-           
-          </button>
+          {/* Show error/success */}
           {error && <p className={styles.error}>{error}</p>}
           {success && <p className={styles.success}>{success}</p>}
+
+          <button type="submit" className={styles.button} disabled={uploading}>
+            {uploading ? "Submitting..." : "Submit"}
+          </button>
         </form>
       </div>
     </main>

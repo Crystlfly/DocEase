@@ -6,6 +6,9 @@
   background: url('/light.jpg') no-repeat center center/cover;
   font-family: 'Segoe UI', sans-serif;
   padding: 2rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .container {
@@ -30,10 +33,17 @@
   gap: 1rem;
   position: relative;
 }
+.cancelButtonWrapper {
+  position: absolute;
+  bottom: 39rem;
+  right: 0rem;
+  z-index: 2;
+}
+
 
 .cancelButton {
-  position: absolute;
-  bottom: 430px;
+  /* position: absolute; */
+  bottom: 39rem;
   left: 415px;
   text-decoration: none;
   color: #333;
@@ -94,3 +104,116 @@
   color: green;
   text-align: center;
 }
+.hoverOverlay:hover {
+  opacity: 1 !important;
+}
+.avatarWrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 25px;
+}
+
+.avatarLabel {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(78, 137, 174, 0.7); /* subtle glow */
+  transition: transform 0.3s ease;
+}
+
+.avatarLabel:hover {
+  transform: scale(1.05);
+}
+.userIcon{
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #4e89ae;
+  transition: 0.3s ease;
+  box-shadow: 0 0 20px #4e89ae; /* main glow */
+  /* overflow: hidden; */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.avatarLabel:hover .overlay {
+  opacity: 1;
+}
+
+.overlayText {
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 0 0 5px #000;
+}
+@media (max-width: 600px) {
+  .container {
+    padding: 1.2rem;
+    max-width: 95vw;
+  }
+
+  .avatarWrapper {
+    width: 100px;
+    height: 100px;
+  }
+
+  .avatarLabel {
+    box-shadow: 0 0 10px rgba(78, 137, 174, 0.6);
+  }
+
+  .avatarImage {
+    border: 2px solid #4e89ae;
+    box-shadow: 0 0 12px #4e89ae;
+  }
+
+  .userIcon {
+    font-size: 4rem; /* Resize user icon on small screens */
+  }
+
+  .overlayText {
+    font-size: 12px;
+  }
+
+  .inputField,
+  .textareaField,
+  .button {
+    font-size: 1rem;
+  }
+
+  .cancelButtonWrapper {
+    bottom: 35rem;
+    right: 0rem;
+  }
+
+  .cancelButton {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+

@@ -2,12 +2,21 @@ import { connectToDatabase } from "@/lib/mongodb";
 import Appointment from "@/models/appointment";
 import User from "@/models/user";
 import { logger } from "@/lib/logger";
+import { verifyToken } from "@/lib/auth";
+import { dbLogger } from "@/lib/dbLogger";
 
 export default async function handler(req, res) {
-  console.log("🚀 [API] /api/doc/dashboard hit");
-
+  console.log("[API] /api/doc/dashboard hit");
+  const isVerified = await verifyToken(req, res);
+  if (!isVerified) return; // 🚨 Exit early if token is invalid
+  const allowedRoles= ["doctor"];
+  if (!req.user || !allowedRoles.includes(req.user.role)) {
+    return res.status(403).json({ message: "Access Denied" });
+  }
+  
   if (req.method !== "POST") {
-    console.warn("❌ [API] Invalid method");
+      await dbLogger("info", "Dashboard API hit", { ip: req.headers["x-forwarded-for"] || req.socket.remoteAddress });
+
     return res.status(405).json({ message: "Method not allowed" });
   }
 
@@ -54,6 +63,7 @@ export default async function handler(req, res) {
     console.log(`📅 [Appointments] Upcoming: ${upcomingAppointments.length} appointments`);
 
     logger.success(`✅ Dashboard data fetched successfully for doctor: ${doctor.name}`);
+    await dbLogger("success", "Dashboard data fetched successfully", { email: req.body.email });
 
     res.status(200).json({
       doctorName: doctor.name,
@@ -64,6 +74,8 @@ export default async function handler(req, res) {
   } catch (error) {
     logger.error(`🔥 [Dashboard API Error]: ${error.message}`);
     console.error("❌ [Catch Block] Dashboard error:", error);
+    await dbLogger("error", "Dashboard fetch failed", { error: error.message });
+
     res.status(500).json({ message: "Server error", error: error.message });
   }
 }

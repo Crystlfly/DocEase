@@ -15,6 +15,8 @@ import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 
 import { signIn } from "next-auth/react";
 import { Niconne } from 'next/font/google';
+import { dbLogger } from "@/lib/dbLogger";
+
 
 const niconne = Niconne({
   subsets: ['latin'],
@@ -31,9 +33,12 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     console.log("🔵 [Login Attempt] Role:", role, "| Email:", email);
+    await dbLogger("info", "Login attempt", { role, email });
     setErrorMsg("");
 
     try {
+      
+
       const res = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -49,32 +54,41 @@ export default function LoginPage() {
         localStorage.setItem("userRole", data.user.role);
         localStorage.setItem("UserEmail", data.user.email);
         localStorage.setItem("UserId", data.user.id);
+        localStorage.setItem("token", data.user.token); // Store JWT token
         console.log("✅ [Login Success] LocalStorage populated");
+        await dbLogger("info", "Login successful", { email, role });
 
         if (data.user.role.toLowerCase() === "doctor") {
           if (data.user.profileCompleted === false) {
             console.log("🛠️ Doctor profile not completed. Redirecting...");
+            await dbLogger("info", "Doctor profile not completed, redirecting to complete profile", { email });
             router.push("/doctor/complete-profile");
             return;
           }
           console.log("➡️ Redirecting to /doctor/dashboard");
+          await dbLogger("info", "Doctor logged in successfully", { email });
           router.push("/doctor/dashboard");
         } else if (data.user.role.toLowerCase() === "patient") {
           console.log("➡️ Redirecting to /patient/dashboard");
+          await dbLogger("info", "Patient logged in successfully", { email });
           router.push("/patient/dashboard");
         } else if (data.user.role.toLowerCase() === "admin") {
-          console.log("➡️ Redirecting to /admin/dashboard");
-          router.push("/admin/dashboard");
+          console.log("➡️ Redirecting to /Admin/dashboard");
+          await dbLogger("info", "Admin logged in successfully", { email });
+          router.push("/Admin/dashboard");
         } else {
           console.warn("⚠️ Unknown user role:", data.user.role);
+          await dbLogger("error", "Unknown user role during login", { email, role: data.user.role });
           setErrorMsg("Unknown user role");
         }
       } else {
         console.error("❌ Login failed:", data.message);
+        await dbLogger("error", "Login failed", { email, role, error: data.message });
         setErrorMsg(data.message || "Something went wrong");
       }
     } catch (err) {
       console.error("🔥 [Login Error]:", err.message);
+      await dbLogger("error", "Login API error", { email, role, error: err.message });
       setErrorMsg("Login failed. Please try again.");
     }
   };

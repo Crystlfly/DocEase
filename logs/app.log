@@ -238,3 +238,74 @@
 [2025-06-20T12:11:21.397Z] [SUCCESS] Fetched doctors successfully
 [2025-06-20T12:46:38.759Z] [SUCCESS] User registered successfully: gadhi@gmail.com
 [2025-06-20T12:46:44.382Z] [SUCCESS] User logged in successfully and the data is returned: gadhi@gmail.com
+[2025-06-21T11:53:28.548Z] [SUCCESS] Fetched doctors successfully
+[2025-06-21T11:53:28.561Z] [SUCCESS] Fetched doctors successfully
+[2025-06-21T15:51:44.087Z] [ERROR] Login error: Error: secretOrPrivateKey must have a value
+[2025-06-21T15:54:27.634Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-21T15:55:13.727Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-21T15:58:18.449Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-21T16:00:25.274Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-21T16:03:52.277Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-21T16:05:47.721Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-21T16:22:20.679Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-21T16:25:05.767Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-21T18:06:56.538Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-21T18:11:22.959Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-22T05:11:22.275Z] [INFO] Admin login attempt with hardcoded credentials
+[2025-06-22T05:12:27.776Z] [SUCCESS] Fetched doctors successfully
+[2025-06-22T05:12:27.975Z] [SUCCESS] Fetched doctors successfully
+[2025-06-22T05:12:37.651Z] [SUCCESS] Fetched patients successfully
+[2025-06-22T05:12:37.668Z] [SUCCESS] Fetched patients successfully
+[2025-06-22T06:31:58.711Z] [SUCCESS] Fetched logs successfully
+[2025-06-22T06:31:58.720Z] [SUCCESS] Fetched logs successfully
+[2025-06-22T07:30:00.077Z] [SUCCESS] Fetched logs successfully
+[2025-06-22T09:48:02.961Z] [SUCCESS] Fetched doctors successfully
+[2025-06-22T09:48:02.981Z] [SUCCESS] Fetched doctors successfully
+[2025-06-22T11:17:38.268Z] [SUCCESS] User registered successfully: laladqwertyu@gmail.com
+[2025-06-22T11:17:38.656Z] [SUCCESS] User logged in successfully and the data is returned: laladqwertyu@gmail.com
+[2025-06-22T15:20:35.062Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-22T15:21:25.889Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-22T16:46:08.422Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-22T16:49:25.835Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-22T16:51:37.276Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-22T17:01:51.492Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-22T17:03:18.924Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-22T17:06:59.310Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-22T17:22:05.997Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T01:17:15.844Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T01:21:12.032Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T01:29:42.049Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T01:29:44.548Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-23T01:47:11.345Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:18:11.398Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:18:36.643Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:18:38.555Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-23T02:18:53.565Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-23T02:19:16.369Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:19:17.952Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-23T02:20:09.710Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:20:41.133Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:20:42.988Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-23T02:21:11.853Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:21:43.150Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:23:29.697Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:24:37.930Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:41:46.519Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:43:05.874Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:44:25.406Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:45:09.769Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:45:48.346Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T02:45:52.500Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-23T02:46:50.404Z] [SUCCESS] User registered successfully: er@gmail.com
+[2025-06-23T02:46:50.772Z] [SUCCESS] User logged in successfully and the data is returned: er@gmail.com
+[2025-06-23T02:47:09.653Z] [SUCCESS] User logged in successfully and the data is returned: er@gmail.com
+[2025-06-23T02:47:40.611Z] [SUCCESS] User logged in successfully and the data is returned: er@gmail.com
+[2025-06-23T02:49:07.227Z] [SUCCESS] User logged in successfully and the data is returned: er@gmail.com
+[2025-06-23T02:51:17.506Z] [SUCCESS] User logged in successfully and the data is returned: er@gmail.com
+[2025-06-23T02:54:24.428Z] [SUCCESS] ✅ Profile completed for: er@gmail.com
+[2025-06-23T02:54:27.081Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: er
+[2025-06-23T03:00:46.389Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: er
+[2025-06-23T03:01:50.669Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: er
+[2025-06-23T03:02:08.261Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: er
+[2025-06-23T03:03:26.238Z] [SUCCESS] User logged in successfully and the data is returned: er@gmail.com
+[2025-06-23T03:03:29.880Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: er
