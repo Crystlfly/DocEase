@@ -450,3 +450,5 @@
 [2025-06-25T16:03:27.899Z] [SUCCESS] Fetched appointments for patient=685c1bd60ddb4e865b0678e2
 [2025-06-25T16:03:56.104Z] [SUCCESS] User logged in successfully and the data is returned: vijay.singh5@edisphere.com
 [2025-06-25T16:04:00.769Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: vijay2
+[2025-06-26T09:46:46.533Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-26T09:46:52.708Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad

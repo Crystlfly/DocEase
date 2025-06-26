@@ -2,24 +2,36 @@ import mongoose from "mongoose";
 import User from "@/models/user";
 import Appointment from "@/models/appointment";
 
-let isConnected = false;
+const MONGODB_URI = process.env.MONGODB_URI;
+
+if (!MONGODB_URI) {
+  throw new Error("❌ MONGODB_URI is not defined");
+}
+
+// Vercel-safe global connection caching
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
 
 export async function connect() {
-  if (isConnected) return;
-
-  const MONGODB_URI = process.env.MONGODB_URI;
-  if (!MONGODB_URI) {
-    throw new Error("MONGODB_URI is not defined");
+  if (cached.conn) {
+    return cached.conn;
   }
 
-  try {
-    await mongoose.connect(MONGODB_URI);
-    isConnected = true;
-    console.log("✅ [MongoDB] Connected");
-  } catch (error) {
-    console.error("❌ [MongoDB] Connection failed:", error.message);
-    throw error;
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }).then((mongoose) => {
+      console.log("✅ [MongoDB] Connected");
+      return mongoose;
+    });
   }
+
+  cached.conn = await cached.promise;
+  return cached.conn;
 }
 //~~dashboard~~
 export async function getDoctorByEmail(email) {
