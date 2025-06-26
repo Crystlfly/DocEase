@@ -1,5 +1,4 @@
-import { connectToDatabase } from "@/lib/mongodb";
-import Appointment from "@/models/appointment";
+import * as db from "@/db";
 import { logger } from "@/lib/logger";
 
 export default async function handler(req, res) {
@@ -9,8 +8,7 @@ export default async function handler(req, res) {
   if (!appointmentId) return res.status(400).json({ message: "Appointment ID required" });
 
   try {
-    await connectToDatabase();
-    await Appointment.findByIdAndUpdate(appointmentId, { status: "cancelled" });
+    await db.cancelAppointment(appointmentId);
     logger.success(`Appointment ${appointmentId} cancelled successfully`);
     return res.status(200).json({ message: "Appointment cancelled" });
   } catch (error) {

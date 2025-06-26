@@ -1,5 +1,4 @@
-import { connectToDatabase } from "@/lib/mongodb";
-import User from "@/models/user";
+import * as db from "@/db";
 import bcrypt from "bcryptjs";
 import { logger } from "@/lib/logger";
 import jwt from 'jsonwebtoken';
@@ -33,10 +32,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    await connectToDatabase();
-
     // Find user by email and role
-    const user = await User.findOne({ email, role: role.toLowerCase() });
+    const user = await db.findUserByEmailAndRole(email.toLowerCase(), role.toLowerCase());
 
     if (!user) {
       logger.error(`User not found for email: ${email} and role: ${role}`);

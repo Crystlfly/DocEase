@@ -2,8 +2,7 @@
 
 import multer from "multer";
 import { v2 as cloudinary } from "cloudinary";
-import { connectToDatabase } from "@/lib/mongodb";
-import User from "@/models/user";
+import * as db from "@/db"; // ← now uses your new interface
 import { logger } from "@/lib/logger";
 
 // 1. Disable default body parser (required for multer)
@@ -49,7 +48,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    await connectToDatabase();
+    
 
     let profileImage = "";
 
@@ -67,27 +66,20 @@ export default async function handler(req, res) {
     }
 
     // 7. Update user
-    const updatedUser = await User.findOneAndUpdate(
-      { email: email.toLowerCase(), role: "doctor" },
-      {
-        specialization,
-        experience,
-        address,
-        about,
-        profileImage,
-        profileCompleted: true,
-        updatedAt: new Date(),
-      },
-      { new: true }
-    );
-
-    if (!updatedUser) {
+    const updated = await db.UpdateDoctorProfile(email, {
+  specialization,
+  experience,
+  address,
+  about,
+  profileImage,
+});
+    if (!updated) {
       logger.error(`Doctor not found for email: ${email}`);
       return res.status(404).json({ message: "Doctor not found" });
     }
 
     logger.success(`✅ Profile completed for: ${email}`);
-    return res.status(200).json({ message: "Profile completed", user: updatedUser });
+    return res.status(200).json({ message: "Profile completed", user: updated });
   } catch (error) {
     logger.error("❌ Profile completion error: " + error.message);
     return res.status(500).json({ message: "Server error" });

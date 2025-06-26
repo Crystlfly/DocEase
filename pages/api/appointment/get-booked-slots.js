@@ -1,5 +1,4 @@
-import { connectToDatabase } from "@/lib/mongodb";
-import Appointment from "@/models/appointment";
+import * as db from "@/db";
 import { logger } from "@/lib/logger";
 
 export default async function handler(req, res) {
@@ -14,10 +13,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    await connectToDatabase();
 
     // Find all appointments for the doctor on the selected date
-    const appointments = await Appointment.find({ doctorId, date });
+    const appointments = await db.getTodaysAppointmentsOnly(doctorId, date);
 
     // Extract the time slots that are already booked
     const bookedSlots = appointments.map((appt) => appt.time);

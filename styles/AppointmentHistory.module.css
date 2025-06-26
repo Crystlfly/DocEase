@@ -1,7 +1,7 @@
 .main {
   min-height: 100vh;
   background: url('/newBg.jpg') no-repeat center center/cover;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: flex-start; /* Change to center if content is short */
   padding: 40px 20px;
@@ -17,6 +17,8 @@
   padding: 30px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .heading {

@@ -1,6 +1,4 @@
-import { connectToDatabase } from "@/lib/mongodb";
-import Appointment from "@/models/appointment";
-import User from "@/models/user";
+import * as db from "@/db"; // ← now uses your new interface
 import { logger } from "@/lib/logger";
 import { verifyToken } from "@/lib/auth";
 import { dbLogger } from "@/lib/dbLogger";
@@ -24,23 +22,23 @@ export default async function handler(req, res) {
   console.log("📥 [API] Received email:", email);
 
   try {
-    await connectToDatabase();
-    console.log("✅ [MongoDB] Connected");
+  
 
     // 1. Find the doctor by email
-    const doctor = await User.findOne({ email, role: "doctor" });
+    const doctor = await db.getDoctorByEmail(email);
     console.log("🔍 [DB] Doctor fetched:", doctor?.name || "Not found");
-
+    // const doctor_id= localStorage.getItem("UserId");
+    // const doctor_name= localStorage.getItem("UserName");
     if (!doctor) {
       logger.error(`❌ [API] Doctor not found for email: ${email}`);
       return res.status(404).json({ message: "Doctor not found" });
     }
 
     // 2. Get total patients linked to this doctor
-    const totalPatients = await Appointment.distinct("patientId", {
-      doctorId: doctor._id,
-    });
-    console.log(`📊 [Stats] Total unique patients: ${totalPatients.length}`);
+    const patientIds = await db.getPatientIdsByDoctor(doctor._id);
+    const patientList = await db.getPatientsByIds(patientIds);
+    const totalPatients = patientList.length;
+    console.log(`📊 [Stats] Total unique patients: ${totalPatients}`);
 
     // 3. Get today's and upcoming appointments
     const today = new Date();
@@ -50,17 +48,9 @@ export default async function handler(req, res) {
     const todayDateStr = `${yyyy}-${mm}-${dd}`;
     console.log("📅 [Date] Today:", todayDateStr);
 
-    const todaysAppointments = await Appointment.find({
-      doctorId: doctor._id,
-      date: todayDateStr,
-    }).populate("patientId");
-    console.log(`📆 [Appointments] Today: ${todaysAppointments.length} appointments`);
+    const todaysAppointments = await db.getTodaysAppointments(doctor._id, todayDateStr);
 
-    const upcomingAppointments = await Appointment.find({
-      doctorId: doctor._id,
-      date: { $gt: todayDateStr },
-    }).populate("patientId");
-    console.log(`📅 [Appointments] Upcoming: ${upcomingAppointments.length} appointments`);
+    const upcomingAppointments = await db.getUpcomingAppointments(doctor._id, todayDateStr);
 
     logger.success(`✅ Dashboard data fetched successfully for doctor: ${doctor.name}`);
     await dbLogger("success", "Dashboard data fetched successfully", { email: req.body.email });
@@ -69,7 +59,8 @@ export default async function handler(req, res) {
       doctorName: doctor.name,
       todayAppointments: todaysAppointments,
       upcomingAppointments,
-      totalPatients: totalPatients.length,
+      totalPatients: totalPatients,
+      patients: patientList,
     });
   } catch (error) {
     logger.error(`🔥 [Dashboard API Error]: ${error.message}`);

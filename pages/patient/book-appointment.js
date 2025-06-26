@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import styles from "@/styles/BookAppointment.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserDoctor } from "@fortawesome/free-solid-svg-icons";
+import PatientHeader from "@/components/patientHeader";
+
 
 const timeSlots = [
   "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
@@ -126,6 +128,7 @@ export default function BookAppointment() {
 
   return (
     <div className={styles.container}>
+      <PatientHeader />
       {!selectedDoctor ? (
         <div className={styles.fullWidthDoctorList}>
           <h2 className={styles.title}>Available Doctors</h2>

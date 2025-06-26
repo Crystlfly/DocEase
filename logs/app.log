@@ -309,3 +309,144 @@
 [2025-06-23T03:02:08.261Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: er
 [2025-06-23T03:03:26.238Z] [SUCCESS] User logged in successfully and the data is returned: er@gmail.com
 [2025-06-23T03:03:29.880Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: er
+[2025-06-23T11:17:07.278Z] [SUCCESS] User logged in successfully and the data is returned: er@gmail.com
+[2025-06-23T11:17:09.434Z] [ERROR] 🔥 [Dashboard API Error]: _db__WEBPACK_IMPORTED_MODULE_0__.getDoctorByEmail is not a function
+[2025-06-23T11:28:40.580Z] [ERROR] 🔥 [Dashboard API Error]: _db__WEBPACK_IMPORTED_MODULE_0__.getDoctorByEmail is not a function
+[2025-06-23T11:29:40.639Z] [SUCCESS] User logged in successfully and the data is returned: er@gmail.com
+[2025-06-23T11:29:42.715Z] [ERROR] 🔥 [Dashboard API Error]: _db__WEBPACK_IMPORTED_MODULE_0__.getDoctorByEmail is not a function
+[2025-06-23T11:31:55.136Z] [SUCCESS] User logged in successfully and the data is returned: er@gmail.com
+[2025-06-23T11:31:56.808Z] [ERROR] 🔥 [Dashboard API Error]: _db__WEBPACK_IMPORTED_MODULE_0__.getDoctorByEmail is not a function
+[2025-06-23T11:39:41.064Z] [ERROR] 🔥 [Dashboard API Error]: _db__WEBPACK_IMPORTED_MODULE_0__.getDoctorByEmail is not a function
+[2025-06-23T11:43:22.494Z] [SUCCESS] User logged in successfully and the data is returned: er@gmail.com
+[2025-06-23T11:43:24.532Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: er
+[2025-06-23T11:43:46.771Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-23T11:43:47.958Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-23T16:50:00.378Z] [ERROR] Signup error: MongoServerError: E11000 duplicate key error collection: dapp.users index: email_1_role_1 dup key: { email: "vijay.singh@edisphere.com", role: "patient" }
+[2025-06-23T16:56:46.034Z] [ERROR] Signup error: MongoServerError: E11000 duplicate key error collection: dapp.users index: email_1_role_1 dup key: { email: "vijay.singh@edisphere.com", role: "patient" }
+[2025-06-23T16:58:53.796Z] [ERROR] Signup error: MongoServerError: E11000 duplicate key error collection: dapp.users index: email_1_role_1 dup key: { email: "vijay.singh@edisphere.com", role: "patient" }
+[2025-06-23T17:00:55.861Z] [ERROR] Signup error: MongoServerError: E11000 duplicate key error collection: dapp.users index: email_1_role_1 dup key: { email: "vijay.singh@edisphere.com", role: "patient" }
+[2025-06-23T17:03:11.825Z] [ERROR] Signup error: MongoServerError: E11000 duplicate key error collection: dapp.users index: email_1_role_1 dup key: { email: "vijay.singh@edisphere.com", role: "patient" }
+[2025-06-23T17:03:54.621Z] [ERROR] Signup error: MongoServerError: E11000 duplicate key error collection: dapp.users index: email_1_role_1 dup key: { email: "vijay.singh@edisphere.com", role: "patient" }
+[2025-06-23T17:07:33.658Z] [ERROR] Signup error: MongoServerError: E11000 duplicate key error collection: dapp.users index: email_1_role_1 dup key: { email: "vijay.singh@edisphere.com", role: "patient" }
+[2025-06-23T17:11:09.418Z] [ERROR] Signup error: TypeError: Cannot read properties of undefined (reading 'toLowerCase')
+[2025-06-23T17:14:48.358Z] [SUCCESS] User registered successfully: vijay.singh2@edisphere.com
+[2025-06-23T17:14:49.187Z] [SUCCESS] User logged in successfully and the data is returned: vijay.singh2@edisphere.com
+[2025-06-23T17:15:53.711Z] [SUCCESS] Fetched doctors successfully
+[2025-06-23T17:16:34.573Z] [SUCCESS] Fetched booked slots for doctor=6849c7f5adcc319d7724d3ef on 2025-06-24: 
+[2025-06-23T17:16:56.110Z] [SUCCESS] Fetched booked slots for doctor=6849c7f5adcc319d7724d3ef on 2025-06-23: 
+[2025-06-23T17:17:24.564Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-23T17:17:24.565Z] [INFO] 📩 [API] Incoming data - doctorId=6849c7f5adcc319d7724d3ef, patientId=68598b88c6592fe84d1b3a75, date=2025-06-23, time=3:00 PM, reason=ss
+[2025-06-23T17:17:24.568Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-23T17:17:24.578Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=6849c7f5adcc319d7724d3ef, patient=68598b88c6592fe84d1b3a75 at 2025-06-23 3:00 PM
+[2025-06-23T17:35:21.802Z] [INFO] Admin login attempt with hardcoded credentials
+[2025-06-24T01:43:44.382Z] [ERROR] User not found for email: vijay@edisphere2.com and role: patient
+[2025-06-24T01:43:55.841Z] [ERROR] User not found for email: vijay2@edisphere.com and role: patient
+[2025-06-24T01:57:57.284Z] [SUCCESS] User registered successfully: vijay.singh34343@edisphere.com
+[2025-06-24T01:57:57.937Z] [SUCCESS] User logged in successfully and the data is returned: vijay.singh34343@edisphere.com
+[2025-06-24T02:01:38.727Z] [ERROR] Signup error: Error: Error creating user:~~~~~~~~~~~ Error: User validation failed: phone: Path `phone` is required.
+[2025-06-24T02:03:08.372Z] [ERROR] Signup error: ValidationError: phone: Path `phone` is required.
+[2025-06-24T02:22:21.843Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-24T12:09:43.779Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-24T15:24:58.306Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-24T15:38:34.263Z] [SUCCESS] User registered successfully: vijay.singh3@edisphere.com
+[2025-06-24T15:38:34.451Z] [SUCCESS] User logged in successfully and the data is returned: vijay.singh3@edisphere.com
+[2025-06-24T15:39:51.698Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-25: 
+[2025-06-24T15:39:57.030Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-24T15:39:57.031Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=685ac67abfa5bd9ed2290fab, date=2025-06-25, time=3:30 PM, reason=ddd
+[2025-06-24T15:39:57.031Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-24T15:39:57.044Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=685ac67abfa5bd9ed2290fab at 2025-06-25 3:30 PM
+[2025-06-24T16:08:06.744Z] [ERROR] Error fetching patient appointments: objectPatientId is not defined
+[2025-06-24T16:09:34.183Z] [ERROR] Error fetching patient appointments: objectPatientId is not defined
+[2025-06-24T16:09:45.920Z] [ERROR] Error fetching patient appointments: objectPatientId is not defined
+[2025-06-24T16:09:59.063Z] [ERROR] Error fetching patient appointments: objectPatientId is not defined
+[2025-06-24T16:12:31.284Z] [ERROR] Error fetching patient appointments: objectPatientId is not defined
+[2025-06-24T16:15:26.641Z] [SUCCESS] Fetched appointments for patient=685ac67abfa5bd9ed2290fab
+[2025-06-24T16:16:22.620Z] [SUCCESS] Appointment 685ac6cdbfa5bd9ed2290fb5 cancelled successfully
+[2025-06-24T17:57:11.646Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-24T17:57:13.778Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-24T17:57:59.455Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-24T19:15:32.078Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-24T19:16:37.207Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-24T19:19:01.262Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T01:24:57.446Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T02:17:17.004Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T02:17:27.296Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999
+[2025-06-25T03:42:50.327Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T03:43:37.290Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T03:44:05.696Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T03:56:27.766Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T04:11:11.710Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999
+[2025-06-25T07:17:03.289Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T07:33:12.784Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T07:35:27.539Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T07:42:22.989Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T07:45:15.148Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T07:46:33.627Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T07:48:08.019Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T08:10:30.122Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T08:32:12.685Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T08:32:17.697Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999
+[2025-06-25T08:35:43.507Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T08:40:23.124Z] [ERROR] User not found for email: lalad@gmail.com and role: doctor
+[2025-06-25T08:45:20.975Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T08:57:53.225Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T09:11:42.726Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T09:12:51.730Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T09:13:10.809Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999
+[2025-06-25T09:13:32.321Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T09:16:31.158Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T11:25:29.972Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T15:24:49.317Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-25T15:24:51.551Z] [ERROR] 🔥 [Dashboard API Error]: localStorage is not defined
+[2025-06-25T15:27:43.212Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-25T15:28:12.520Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-25T15:28:57.898Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-25T15:31:54.265Z] [ERROR] 🔥 [Dashboard API Error]: _db__WEBPACK_IMPORTED_MODULE_0__.getTotalPatients is not a function
+[2025-06-25T15:36:14.506Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-25T15:53:33.632Z] [ERROR] User not found for email: vijay.singh@ediswphere.om and role: patient
+[2025-06-25T15:53:46.191Z] [ERROR] User not found for email: vijay.singh@edisphere.om and role: patient
+[2025-06-25T15:53:55.374Z] [ERROR] user's existing password
+[2025-06-25T15:53:55.374Z] [ERROR] Given password
+[2025-06-25T15:53:55.374Z] [ERROR] Invalid password for user: vijay.singh@edisphere.com
+[2025-06-25T15:54:21.515Z] [ERROR] Given password
+[2025-06-25T15:54:21.515Z] [ERROR] user's existing password
+[2025-06-25T15:54:21.515Z] [ERROR] Invalid password for user: vijay.singh3@edisphere.com
+[2025-06-25T15:55:02.502Z] [SUCCESS] User registered successfully: vijay.singh4@edisphere.com
+[2025-06-25T15:55:02.651Z] [SUCCESS] User logged in successfully and the data is returned: vijay.singh4@edisphere.com
+[2025-06-25T15:55:19.315Z] [SUCCESS] Fetched appointments for patient=685c1bd60ddb4e865b0678e2
+[2025-06-25T15:55:50.515Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-26: 
+[2025-06-25T15:55:56.704Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-25T15:55:56.704Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=685c1bd60ddb4e865b0678e2, date=2025-06-26, time=3:30 PM, reason=aa
+[2025-06-25T15:55:56.704Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-25T15:55:56.719Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=685c1bd60ddb4e865b0678e2 at 2025-06-26 3:30 PM
+[2025-06-25T15:56:06.075Z] [SUCCESS] Fetched appointments for patient=685c1bd60ddb4e865b0678e2
+[2025-06-25T15:57:04.423Z] [SUCCESS] User registered successfully: vijay.singh5@edisphere.com
+[2025-06-25T15:57:04.747Z] [SUCCESS] User logged in successfully and the data is returned: vijay.singh5@edisphere.com
+[2025-06-25T15:57:42.082Z] [SUCCESS] User logged in successfully and the data is returned: vijay.singh5@edisphere.com
+[2025-06-25T15:59:27.436Z] [SUCCESS] ✅ Profile completed for: vijay.singh@edisphere.com
+[2025-06-25T15:59:30.488Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: vijay2
+[2025-06-25T16:00:25.707Z] [SUCCESS] User logged in successfully and the data is returned: vijay.singh4@edisphere.com
+[2025-06-25T16:00:41.962Z] [SUCCESS] Fetched booked slots for doctor=6849c7f5adcc319d7724d3ef on 2025-06-30: 
+[2025-06-25T16:00:49.759Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-25T16:00:49.759Z] [INFO] 📩 [API] Incoming data - doctorId=6849c7f5adcc319d7724d3ef, patientId=685c1bd60ddb4e865b0678e2, date=2025-06-30, time=3:30 PM, reason=dd
+[2025-06-25T16:00:49.760Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-25T16:00:49.776Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=6849c7f5adcc319d7724d3ef, patient=685c1bd60ddb4e865b0678e2 at 2025-06-30 3:30 PM
+[2025-06-25T16:01:04.837Z] [SUCCESS] Fetched appointments for patient=685c1bd60ddb4e865b0678e2
+[2025-06-25T16:01:28.552Z] [SUCCESS] User logged in successfully and the data is returned: vijay.singh5@edisphere.com
+[2025-06-25T16:01:35.299Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: vijay2
+[2025-06-25T16:02:09.699Z] [SUCCESS] User logged in successfully and the data is returned: vijay.singh4@edisphere.com
+[2025-06-25T16:02:13.565Z] [SUCCESS] Fetched appointments for patient=685c1bd60ddb4e865b0678e2
+[2025-06-25T16:02:39.408Z] [SUCCESS] Fetched booked slots for doctor=6857e652c117678d77ca7cae on 2025-06-26: 
+[2025-06-25T16:02:46.124Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-25T16:02:46.124Z] [INFO] 📩 [API] Incoming data - doctorId=6857e652c117678d77ca7cae, patientId=685c1bd60ddb4e865b0678e2, date=2025-06-26, time=4:00 PM, reason=dd
+[2025-06-25T16:02:46.125Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-25T16:02:46.132Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=6857e652c117678d77ca7cae, patient=685c1bd60ddb4e865b0678e2 at 2025-06-26 4:00 PM
+[2025-06-25T16:02:51.363Z] [SUCCESS] Fetched appointments for patient=685c1bd60ddb4e865b0678e2
+[2025-06-25T16:03:17.010Z] [SUCCESS] Fetched booked slots for doctor=685c1c500ddb4e865b0678f2 on 2025-06-26: 
+[2025-06-25T16:03:24.169Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-25T16:03:24.170Z] [INFO] 📩 [API] Incoming data - doctorId=685c1c500ddb4e865b0678f2, patientId=685c1bd60ddb4e865b0678e2, date=2025-06-26, time=3:00 PM, reason=dd
+[2025-06-25T16:03:24.170Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-25T16:03:24.176Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=685c1c500ddb4e865b0678f2, patient=685c1bd60ddb4e865b0678e2 at 2025-06-26 3:00 PM
+[2025-06-25T16:03:27.899Z] [SUCCESS] Fetched appointments for patient=685c1bd60ddb4e865b0678e2
+[2025-06-25T16:03:56.104Z] [SUCCESS] User logged in successfully and the data is returned: vijay.singh5@edisphere.com
+[2025-06-25T16:04:00.769Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: vijay2

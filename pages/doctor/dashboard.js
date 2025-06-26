@@ -3,6 +3,8 @@ import styles from "@/styles/dashboard.module.css";
 import jwt_decode from "jwt-decode";
 import { useRouter } from "next/router";
 import { dbLogger } from "@/lib/dbLogger";
+import DoctorHeader from "@/components/doctorHeader";
+
 
 
 
@@ -13,7 +15,8 @@ export default function DoctorDashboard() {
   
 
   const [appointments, setAppointments] = useState({ today: [], upcoming: [] });
-  const [totalPatients, setTotalPatients] = useState(0);
+const [patients, setPatients] = useState([]); // ✅ correct for storing full list
+
   const [doctorName, setDoctorName] = useState("");
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("today");
@@ -78,7 +81,7 @@ export default function DoctorDashboard() {
         today: data.todayAppointments,
         upcoming: data.upcomingAppointments,
       });
-      setTotalPatients(data.totalPatients);
+setPatients(data.patients); // Now storing the array of patients ✅
       setDoctorName(data.doctorName);
       setLoading(false);
     } catch (err) {
@@ -102,6 +105,7 @@ export default function DoctorDashboard() {
 
   return (
     <div className={styles.main}>
+      <DoctorHeader />
       <div className={styles.dashboardContainer}>
         <header className={styles.header}>
           <h1>Welcome, Dr. {doctorName}</h1>
@@ -127,8 +131,8 @@ export default function DoctorDashboard() {
             }}
           >
             <h2>Total Patients</h2>
-            <p>{totalPatients}</p>
-          </div>
+              <p>{patients.length}</p> 
+            </div>
 
           <div
             className={styles.statCard}
@@ -191,18 +195,15 @@ export default function DoctorDashboard() {
 
           {/* PATIENT LIST */}
           {activeSection === "patients" && (
-            totalPatients === 0 ? (
+            patients.length === 0 ? (
               <p>No patients found.</p>
             ) : (
               <ul className={styles.appointmentsList}>
-                {[
-                  ...new Map(
-                    [...(appointments.today || []), ...(appointments.upcoming || [])]
-                      .map(appt => [appt.patientId?._id, appt.patientId])
-                  ).values()
-                ].map((patient) => (
-                  <li key={patient?._id || Math.random()} className={styles.appointmentItem}>
-                    <p><strong>Name:</strong> {patient?.name || "Unknown"}</p>
+                {patients.map((patient) => (
+                  <li key={patient._id} className={styles.appointmentItem}>
+                    <p><strong>Name:</strong> {patient.name}</p>
+                    <p><strong>Email:</strong> {patient.email}</p>
+                    {/* Add more details if needed */}
                   </li>
                 ))}
               </ul>

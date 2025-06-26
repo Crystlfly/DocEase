@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import { useEffect, useState} from "react";
 import styles from "@/styles/PatientLanding.module.css";
 import Link from "next/link";
 
+import PatientHeader from "@/components/patientHeader";
 export default function PatientLandingPage() {
-  const [patientName, setPatientName] = React.useState("");
-  // const [patientId, setPatientId] = React.useState("");
+  const [patientName, setPatientName] = useState("");
+  // const [patientId, setPatientId] = useState("");
+
+
   useEffect(() => {
     const name = localStorage.getItem("UserName");
     const id = localStorage.getItem("UserId");
@@ -13,8 +16,10 @@ export default function PatientLandingPage() {
       // setPatientId(id);
     }
   }, []);
+  
   return (
     <div className={styles.container}>
+    <PatientHeader />
       <h1 className={styles.welcome}>Welcome{patientName ? `, ${patientName}` : ""}!</h1>
       <div className={styles.cardContainer}>
         <Link href="/patient/book-appointment" className={styles.card}>
@@ -25,10 +30,10 @@ export default function PatientLandingPage() {
           <h2>My Appointments</h2>
           <p>View your upcoming and past appointments.</p>
         </Link>
-        <Link href="/login" className={styles.card}>
+        {/* <Link href="/login" className={styles.card}>
           <h2>Logout</h2>
           <p>Sign out of your account.</p>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ const niconne = Niconne({
 
 export default function LoginPage() {
   const router = useRouter();
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("patient");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");

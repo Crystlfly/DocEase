@@ -1,11 +1,39 @@
 .container {
-  padding: 3rem 2rem;
+  padding-bottom: 3rem ;
+  padding-left: 1rem ;
+  padding-right: 2rem ;
+  padding-top: 1rem ;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: url('/newBg.jpg') no-repeat center center/cover;
+  background: url('/inverted.jpg') no-repeat center center/cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.header {
+  width: 100%;
+  position: sticky;
+ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* vertically center the items */
+  padding-bottom: 3rem;;
+  /* background-color: white;  */
+  z-index: 10; /* ensure it stays above other content if sticky */
+}
+
+.sideIcon {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #cde9f7;
+  display: inline-block;
+  /* border: 10px solid #555; */
+
+}
+
+.userIcon {
+  color: #cde9f7; /* any color */
+  cursor: pointer;
 }
 
 .welcome {
@@ -56,6 +84,7 @@
   font-size: 1rem;
   color: #cde9f7;
 }
+
 
 @keyframes fadeIn {
   from {

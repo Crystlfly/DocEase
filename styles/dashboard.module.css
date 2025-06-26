@@ -1,7 +1,7 @@
 .main{
     background: url('/newBg.jpg') no-repeat center center/cover;
     min-height: 100vh;
-    display: flex;
+    /* display: flex; */
     /* justify-content: center; */
 
 }

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "@/styles/AppointmentHistory.module.css";
+import PatientHeader from "@/components/patientHeader";
+
 
 export default function AppointmentHistory() {
   const [appointments, setAppointments] = useState([]);
@@ -72,6 +74,7 @@ export default function AppointmentHistory() {
 
   return (
     <div className={styles.main}>
+      <PatientHeader />
       <div className={styles.container}>
         <h2 className={styles.heading}>Your Appointment History</h2>
 

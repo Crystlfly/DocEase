@@ -1,0 +1,81 @@
+/* styles/PatientHeader.module.css */
+
+.header {
+  width: 100%;
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding-bottom: 3rem; */
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 3rem;
+  z-index: 10;
+}
+
+.sideIcon {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #cde9f7;
+  display: inline-block;
+}
+
+.userIcon {
+  color: #cde9f7;
+  cursor: pointer;
+}
+.profileWrapper {
+  position: relative;
+}
+
+.profileCard {
+  position: absolute;
+  top: 120%; /* below the icon */
+  right: 0;
+  background: white;
+  color: black;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  min-width: 200px;
+}
+
+.profileCard p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.profileCard button {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  background: #4fa1eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.profileCard button:hover {
+  background: #367bc5;
+}
+.profileCard button.logoutBtn {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;;
+  padding: 0.3rem 0.8rem;
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.logoutBtn:hover {
+  background-color: #c62828;
+}
+
+
+

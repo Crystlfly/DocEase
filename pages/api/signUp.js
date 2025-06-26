@@ -1,5 +1,4 @@
-import { connectToDatabase } from "@/lib/mongodb";
-import User from "@/models/user";
+import * as db from"@/db";
 import bcrypt from "bcryptjs";
 import { logger } from "@/lib/logger";
 
@@ -12,41 +11,39 @@ export default async function handler(req, res) {
   const { name, email, phone, password, role } = req.body;
 
   try {
-    await connectToDatabase();
-
-    const existingUser = await User.findOne({ email });
-    
-    if (existingUser && existingUser.role.toLowerCase() === role.toLowerCase()) {
+    // console.log("Checking for existing user before with email:", email);
+    const existingUser = await db.findUserByEmailAndRole(email.toLowerCase(), role.toLowerCase());
+    // console.log("Existing user found:", existingUser);
+    // console.log("Checking for existing user after with email:", email);
+    if(existingUser){
+      console.log("if check Existing user found with email:", existingUser.email);
+    }
+    // console.log("Role being checked:", role.toLowerCase());
+    // console.log("Existing user role:", existingUser.role.toLowerCase());
+    // console.log("True/false check:", existingUser && existingUser.role.toLowerCase() === role.toLowerCase());
+    if (existingUser) {
+      console.log("User already exists with email:", email);
       return res.status(400).json({ message: "User already exists" });
     }
-
+    // console.log("email does not exist, proceeding with registration...", email);
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const timestampId = Date.now().toString();
-
     const newUserData = {
       name,
-      email,
-      phone,
+      email: email.toLowerCase(), // Ensure email is stored in lowercase
+      phone: phone.replace(/\D/g, ""),
       password: hashedPassword,
-      role,
-      profileCompleted: role.toLowerCase()==="doctor"? false:true,
+      role: role.toLowerCase(),
+      profileCompleted: role.toLowerCase() === "doctor" ? false : true,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
-
     if (role.toLowerCase() === "patient") {
       newUserData.pid = "P" + timestampId;
     } else if (role.toLowerCase() === "doctor") {
       newUserData.did = "D" + timestampId;
     }
-
-    const newUser = new User(newUserData);
-    newUser.role=role.toLowerCase();
-    newUser.email = email.toLowerCase(); // Ensure email is stored in lowercase
-    newUser.phone = phone.replace(/\D/g, ""); // Remove non-numeric characters from phone
-
-    await newUser.save();
+    await db.createUser(newUserData);
     logger.success(`User registered successfully: ${email}`);
     return res.status(201).json({ message: "User registered successfully" });
   } catch (error) {

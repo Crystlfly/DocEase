@@ -25,7 +25,7 @@ export default function Signup() {
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("patient");
   const router = useRouter(); // 
 
   const handleChange = (e) => {

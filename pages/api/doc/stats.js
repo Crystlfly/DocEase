@@ -1,12 +1,6 @@
-import { connectToDatabase } from "@/lib/mongodb";
-import Appointment from "@/models/appointment";
-import User from "@/models/user";
-import { logger } from "@/lib/logger";
-
+import * as db from "@/db"; // ← now uses your new interface
 
 export default async function handler(req, res) {
-  await connectToDatabase();
-
   const doctorEmail = req.query.email; // or from token/session
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -14,19 +8,11 @@ export default async function handler(req, res) {
   const tomorrow = new Date(today);
   tomorrow.setDate(today.getDate() + 1);
 
-  const todayAppointments = await Appointment.find({
-    doctorEmail,
-    date: { $gte: today, $lt: tomorrow },
-  });
+  const todayAppointments = await db.StatsgetTodaysAppointments(doctorEmail, today.toISOString());
 
-  const upcomingAppointments = await Appointment.find({
-    doctorEmail,
-    date: { $gte: tomorrow },
-  });
+  const upcomingAppointments = await db.StatsgetUpcomingAppointments(doctorEmail, tomorrow.toISOString());
 
-  const uniquePatients = await Appointment.distinct("patientEmail", {
-    doctorEmail,
-  });
+  const uniquePatients = await db.getUniquePatients(doctorEmail);
 
   res.json({
     todayAppointments,

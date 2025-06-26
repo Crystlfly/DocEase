@@ -1,5 +1,4 @@
-import { connectToDatabase } from "@/lib/mongodb";
-import Appointment from "@/models/appointment";
+import * as db from "@/db";
 import { logger } from "@/lib/logger";
 // import User from "@/models/user";
 import mongoose from "mongoose";
@@ -24,7 +23,6 @@ export default async function handler(req, res) {
   }
 
   try {
-    await connectToDatabase();
     console.log("✅ [DB] Connected to MongoDB");
 
     const objectPatientId = new mongoose.Types.ObjectId(String(patientId));
@@ -32,9 +30,7 @@ export default async function handler(req, res) {
     console.log("📅 [INFO] Today's date:", today);
 
     console.log("🔍 [DB] Fetching appointments for:", objectPatientId);
-    const appointments = await Appointment.find({ patientId: objectPatientId })
-      .populate("doctorId")
-      .sort({ date: 1, time: 1 });
+    const appointments = await db.getPatientAppointments(objectPatientId);
 
     console.log("✅ [DB] Appointments fetched:", appointments.length);
 
@@ -49,8 +45,8 @@ export default async function handler(req, res) {
           displayStatus = "today";
         } else if (appt.date < today && appt.status !== "completed") {
           console.log(`✅ [APPT] Completing appointment ${appt._id}`);
-          appt.status = "completed";
-          await appt.save();
+          await db.markAppointmentAsCompleted(appt);
+
           displayStatus = "completed";
         }
       } else {
