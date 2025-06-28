@@ -153,8 +153,8 @@ export async function getPatientAppointments(objectPatientId) {
   await connect();
   return await Appointment.find({ patientId: objectPatientId }).populate("doctorId").sort({ date: 1, time: 1 })
 }
-export async function markAppointmentAsCompleted(appointment) {
-  appointment.status = "completed";
+export async function markAppointmentAsExpired(appointment) {
+  appointment.status = "expired";
   await appointment.save();
 }
 
@@ -163,4 +163,16 @@ export async function cancelAppointment(appointmentId) {
   await connect();
   const appointment = await Appointment.findByIdAndUpdate(appointmentId, { status: "cancelled" });
   return appointment;
+}
+
+//~~markDone~~
+export async function findByIdAndUpdate(appointmentId) {
+  await connect();
+  return await Appointment.findByIdAndUpdate(appointmentId, { status: "completed" } );
+}
+
+//~~auth
+export async function getUserByEmail(email) {
+  await connect();
+  return await User.findOne({ email: email.toLowerCase() });
 }

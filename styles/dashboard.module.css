@@ -100,3 +100,49 @@
   font-size: 1rem;
   color: #334155;
 }
+.appointmentRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.patientInfo {
+  flex: 7; /* 70% */
+}
+
+.actions {
+  flex: 3; /* 30% */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.confirmButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.doneButton,
+.confirmButton,
+.cancelButton {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.doneButton {
+  background-color: #4caf50;
+  color: white;
+}
+
+.confirmButton {
+  background-color: #4caf50;
+  color: white;
+}
+
+.cancelButton {
+  background-color: #f44336;
+  color: white;
+}
+

@@ -452,3 +452,107 @@
 [2025-06-25T16:04:00.769Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: vijay2
 [2025-06-26T09:46:46.533Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
 [2025-06-26T09:46:52.708Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-26T10:20:04.317Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-26T10:36:33.071Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-26T11:15:18.028Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-26T11:15:46.228Z] [SUCCESS] ✅ Profile completed for: lalad@gmail.com
+[2025-06-26T11:15:49.131Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T07:24:46.977Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-27T07:24:52.908Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T07:25:33.330Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-27T07:25:47.267Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-27: 
+[2025-06-27T07:25:55.872Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-27T07:25:55.872Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-06-27, time=2:00 PM, reason=testing
+[2025-06-27T07:25:55.873Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-27T07:25:55.885Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-06-27 2:00 PM
+[2025-06-27T07:29:56.225Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-27T07:29:58.447Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T07:50:26.061Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T07:51:00.225Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T07:51:03.518Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T07:54:22.863Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T07:55:00.370Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T07:55:13.349Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T07:59:16.057Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:00:41.962Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:01:03.714Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:01:36.045Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:02:59.903Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:03:08.536Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:03:25.757Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:05:09.167Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:05:18.545Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:13:47.632Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:15:12.708Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:17:57.151Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:22:34.438Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:22:39.029Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:23:47.213Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:23:50.587Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:24:35.194Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:25:58.448Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:27:52.517Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:28:57.436Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:32:21.040Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:32:25.839Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:33:41.395Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:33:46.316Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:33:58.269Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:36:11.309Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:37:29.666Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:38:26.730Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:38:31.960Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:38:54.331Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:41:20.852Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:41:36.977Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:41:42.991Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:43:48.209Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:44:12.219Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:44:21.528Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:44:29.542Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:44:39.097Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:44:43.616Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:44:51.087Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:44:56.953Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:45:03.525Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:45:08.659Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:45:17.210Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T08:45:24.250Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T09:04:11.393Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T09:04:50.027Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T09:19:21.004Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T09:19:51.549Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-27T09:20:02.629Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-27: 
+[2025-06-27T09:20:12.055Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-27T09:20:12.055Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-06-27, time=3:00 PM, reason=testing
+[2025-06-27T09:20:12.055Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-27T09:20:12.061Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-06-27 3:00 PM
+[2025-06-27T09:20:36.995Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-27T09:20:39.213Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-06-27T09:21:01.662Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-27T09:21:05.206Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999
+[2025-06-27T09:33:04.601Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999
+[2025-06-27T16:02:21.365Z] [ERROR] Login error: TypeError: Cannot read properties of undefined (reading 'toLowerCase')
+[2025-06-27T16:04:38.934Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-27T16:12:11.425Z] [ERROR] Login error: TypeError: Cannot read properties of undefined (reading 'toLowerCase')
+[2025-06-27T16:16:49.826Z] [ERROR] Login error: TypeError: Cannot read properties of undefined (reading 'toLowerCase')
+[2025-06-27T16:20:22.086Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-27T16:20:53.435Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-27T16:33:38.996Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-27T16:33:38.996Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683dc342de82a9026f2ade1d, date=2025-06-28, time=3:30 PM, reason=checkup
+[2025-06-27T16:33:38.996Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-27T16:33:39.004Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683dc342de82a9026f2ade1d at 2025-06-28 3:30 PM
+[2025-06-27T18:33:39.261Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-27T18:33:47.646Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-28: 3:30 PM
+[2025-06-27T18:33:53.798Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-06-28, time=11:30 AM, reason=test
+[2025-06-27T18:33:53.797Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-27T18:33:53.798Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-27T18:33:53.821Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-06-28 11:30 AM
+[2025-06-28T08:27:42.981Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-28T08:27:47.830Z] [SUCCESS] Fetched appointments for patient=683eb6515293b1bf68919999
+[2025-06-28T08:28:05.687Z] [SUCCESS] Fetched booked slots for doctor=6849c7f5adcc319d7724d3ef on 2025-06-28: 
+[2025-06-28T08:28:13.274Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T08:28:13.274Z] [INFO] 📩 [API] Incoming data - doctorId=6849c7f5adcc319d7724d3ef, patientId=683eb6515293b1bf68919999, date=2025-06-28, time=2:30 PM, reason=lala
+[2025-06-28T08:28:13.275Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T08:28:13.300Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=6849c7f5adcc319d7724d3ef, patient=683eb6515293b1bf68919999 at 2025-06-28 2:30 PM
+[2025-06-28T08:29:09.701Z] [SUCCESS] Fetched booked slots for doctor=6849c7f5adcc319d7724d3ef on 2025-06-28: 2:30 PM

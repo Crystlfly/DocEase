@@ -92,7 +92,6 @@ export default function LoginPage() {
       setErrorMsg("Login failed. Please try again.");
     }
   };
-
   return (
     <>
       <Head>
@@ -176,16 +175,19 @@ export default function LoginPage() {
             <div className={styles.verticalLine}></div>
 
             <div className={styles.rightLogin}>
-              <button onClick={() => signIn("google")} className={styles.socialBtn}>
+              <button
+                onClick={() => {
+                  if (!role) {
+                    alert("Please select a role first!");
+                    return;
+                  }
+                  signIn("google", {
+                    callbackUrl: `/api/auth/callback/google?role=${role}`,
+                  });
+                }}
+                className={styles.socialBtn}
+              >
                 <FontAwesomeIcon icon={faGoogle} size="2x" style={{ color: "#a0d8f4" }} />
-              </button>
-
-              <button onClick={() => signIn("facebook")} className={styles.socialBtn}>
-                <FontAwesomeIcon icon={faFacebook} size="2x" style={{ color: "#a0d8f4" }} />
-              </button>
-
-              <button onClick={() => signIn("twitter")} className={styles.socialBtn}>
-                <FontAwesomeIcon icon={faSquareXTwitter} size="2x" style={{ color: "#a0d8f4" }} />
               </button>
             </div>
           </div>

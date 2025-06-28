@@ -35,7 +35,7 @@ export default function BookAppointment() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [bookedSlots, setBookedSlots] = useState([]);
-
+  const [appointmentDetails, setAppointmentDetails] = useState(null);
 
   // ✅ Correctly fetch doctors on first render
   useEffect(() => {
@@ -114,6 +114,7 @@ export default function BookAppointment() {
       if(response.ok){
         console.log("Booking appointment:", appointmentData);
         setSuccess("Appointment booked!");
+        setAppointmentDetails(appointmentData);
         setDate("");
         setTime("");
         setReason("");
@@ -242,6 +243,15 @@ export default function BookAppointment() {
                 Book Appointment
               </button>
               {success && <p style={{ color: "green", marginTop: "1rem" }}>{success}</p>}
+              {appointmentDetails && (
+                <div style={{ marginTop: "1rem", background: "#f0f0f0", padding: "1rem", borderRadius: "5px" }}>
+                  <h4>Appointment Details</h4>
+                  <p><strong>Doctor:</strong> {appointmentDetails.doctorName}</p>
+                  <p><strong>Date:</strong> {appointmentDetails.date}</p>
+                  <p><strong>Time:</strong> {appointmentDetails.time}</p>
+                  <p><strong>Reason:</strong> {appointmentDetails.reason}</p>
+                </div>
+              )}
 
             </div>
           </div>

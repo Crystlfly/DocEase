@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
-import styles from "@/styles/PatientLanding.module.css"; // Reuse existing styles
+import styles from "@/styles/header.module.css"; // Reuse existing styles
+
 
 
 export default function PatientHeader() {

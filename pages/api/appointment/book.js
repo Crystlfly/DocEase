@@ -36,7 +36,8 @@ export default async function handler(req, res) {
     await db.createAppointment(appointmentData);
     logger.success(`✅ [Booked] Appointment created for doctor=${doctorId}, patient=${patientId} at ${date} ${time}`);
     
-    return res.status(201).json({ message: "Appointment booked successfully" });
+    return res.status(201).json({ message: "Appointment booked successfully",
+  appointment: appointmentData, });
   } catch (err) {
     logger.error("🔥 [Server Error] Booking failed: " + err.message);
     return res.status(500).json({ message: "Server error" });

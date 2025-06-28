@@ -4,7 +4,9 @@ import jwt_decode from "jwt-decode";
 import { useRouter } from "next/router";
 import { dbLogger } from "@/lib/dbLogger";
 import DoctorHeader from "@/components/doctorHeader";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -20,6 +22,7 @@ const [patients, setPatients] = useState([]); // ✅ correct for storing full li
   const [doctorName, setDoctorName] = useState("");
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("today");
+  const [selectedPatient, setSelectedPatient]=useState(null);
   
   useEffect(() => {
   const token = localStorage.getItem('token');
@@ -95,14 +98,12 @@ setPatients(data.patients); // Now storing the array of patients ✅
 
   fetchDashboardData();
 }, []);
-
-
   // if (checkingAuth) return <p>Checking authentication...</p>;
   if (loading) {
     console.log("⏳ Waiting for data...");
     return <p>Loading...</p>;
   }
-
+  
   return (
     <div className={styles.main}>
       <DoctorHeader />
@@ -161,12 +162,68 @@ setPatients(data.patients); // Now storing the array of patients ✅
               <ul className={styles.appointmentsList}>
                 {appointments?.today?.map((appt) => (
                   <li key={appt._id} className={styles.appointmentItem}>
-                    <p><strong>Patient:</strong> {appt.patientId?.name || "Unknown"}</p>
-                    <p><strong>Date & Time:</strong> {new Date(`${appt.date} ${appt.time}`).toLocaleString('en-IN', {
-                      dateStyle: 'medium',
-                      timeStyle: 'short',
-                    })}</p>
-                    <p><strong>Reason:</strong> {appt.reason}</p>
+                    <div className={styles.appointmentRow}>
+                      <div className={styles.patientInfo}>
+                        <p><strong>Patient:</strong> {appt.patientId?.name || "Unknown"}</p>
+                        <p><strong>Date & Time:</strong> {new Date(`${appt.date} ${appt.time}`).toLocaleString('en-IN', {
+                          dateStyle: 'medium',
+                          timeStyle: 'short',
+                        })}</p>
+                        <p><strong>Reason:</strong> {appt.reason}</p>
+                      </div>
+                      <div className={styles.actions}>
+                        {selectedPatient === appt._id ? (
+                          <div className={styles.confirmButtons}>
+                            <button
+                              className={styles.cancelButton}
+                              onClick={() => setSelectedPatient(null)}
+                            >
+                              <FontAwesomeIcon icon={faCircleXmark} size="2x" className={styles.userIcon} />
+                            </button>
+                            <button
+                              className={styles.confirmButton}
+                              onClick={async () => {
+                                try {
+                                  const response = await fetch("/api/appointment/markDone", {
+                                    method: "POST",
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify({ appointmentId: appt._id }),
+                                  });
+                                  const result = await response.json();
+                                  if (response.ok) {
+                                    console.log("✅ Marked as done:", appt._id);
+                                    setSelectedPatient(null);
+
+                                    // Optionally update UI by removing this appointment
+                                    setAppointments((prev) => ({
+                                      ...prev,
+                                      today: prev.today.filter((a) => a._id !== appt._id),
+                                    }));
+                                  } else {
+                                    console.error("❌ Failed to mark as done:", result.error);
+                                  }
+                                } catch (err) {
+                                  console.error("❌ Error:", err.message);
+                                }
+                              }}
+
+                            >
+                            <FontAwesomeIcon icon={faCircleCheck} size="2x" className={styles.userIcon} />
+
+                            </button>
+                          </div>
+                        ) : (
+                          <button
+                            className={styles.doneButton}
+                            onClick={() => setSelectedPatient(appt._id)}
+                          >
+                            Mark as Done
+                          </button>
+                        )}
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>

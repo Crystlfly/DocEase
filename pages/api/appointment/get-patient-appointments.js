@@ -39,20 +39,20 @@ export default async function handler(req, res) {
     for (let appt of appointments) {
       let displayStatus = appt.status;
 
-      if (appt.status !== "cancelled") {
-        if (appt.date === today) {
-          console.log(`📆 [APPT] Appointment ${appt._id} is today`);
-          displayStatus = "today";
-        } else if (appt.date < today && appt.status !== "completed") {
-          console.log(`✅ [APPT] Completing appointment ${appt._id}`);
-          await db.markAppointmentAsCompleted(appt);
+      const isToday = appt.date === today;
 
-          displayStatus = "completed";
-        }
-      } else {
-        console.log(`🚫 [APPT] Skipping cancelled appointment ${appt._id}`);
+      if (appt.status === "cancelled") {
+        console.log(`🚫 [APPT] Cancelled appointment ${appt._id}`);
+      } else if (appt.status === "completed") {
+        console.log(`✅ [APPT] Already completed appointment ${appt._id}`);
+      } else if (isToday) {
+        console.log(`📆 [APPT] Appointment ${appt._id} is today`);
+        displayStatus = "today";
+      } else if (appt.date < today) {
+        console.log(`🕒 [APPT] Appointment ${appt._id} is in the past`);
+        await db.markAppointmentAsExpired(appt);
+        displayStatus = "expired";
       }
-
       formatted.push({
         _id: appt._id,
         doctorName: appt.doctorId.name,

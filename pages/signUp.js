@@ -9,6 +9,7 @@ import { Niconne } from 'next/font/google';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faSquareXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { signIn } from "next-auth/react";
 
 const niconne = Niconne({
   subsets: ['latin'],

@@ -14,6 +14,7 @@ export default function CompleteDoctorProfile() {
   // const [checkingAuth, setCheckingAuth] = useState(true);
   useEffect(() => {
     const token = localStorage.getItem('token');
+    
 
     if (!token) {
       router.replace('/login'); // Not logged in, redirect
@@ -31,7 +32,7 @@ export default function CompleteDoctorProfile() {
     //   router.replace('/login'); // Invalid token
     // }
   }, []);
-
+  
   const [formData, setFormData] = useState({
     email: "",
     specialization: "",
@@ -39,6 +40,15 @@ export default function CompleteDoctorProfile() {
     address: "",
     about: "",
   });
+
+  useEffect(() => {
+  const eml = localStorage.getItem("UserEmail"); // ✅ GOOD (inside useEffect)
+  setFormData((prev) => ({
+    ...prev,
+    email: eml || "",
+  }));
+}, []);
+
 
 
   const [imageFile, setImageFile] = useState(null);
@@ -135,7 +145,7 @@ export default function CompleteDoctorProfile() {
             />
           </div>
 
-          <input
+          {/* <input
             className={styles.inputField}
             type="email"
             name="email"
@@ -144,7 +154,7 @@ export default function CompleteDoctorProfile() {
             onChange={handleChange}
             required
             disabled={uploading}
-          />
+          /> */}
           <input
             type="text"
             className={styles.inputField}
