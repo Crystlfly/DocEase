@@ -47,3 +47,14 @@ a {
     color-scheme: dark;
   }
 }
+df-messenger {
+  --df-messenger-chat-width: 350px;   /* Width of chat window */
+  --df-messenger-chat-height: 200px;
+  --df-messenger-button-titlebar-color: #4db6ac; /* teal */
+  --df-messenger-send-icon: #00796b;
+  --df-messenger-bot-message: #e6f7ff;
+  --df-messenger-user-message: #cde7f5;
+  --df-messenger-font-color: #000;
+  --df-messenger-chat-background: #f8f9fa;
+  
+}

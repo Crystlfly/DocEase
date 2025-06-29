@@ -556,3 +556,73 @@
 [2025-06-28T08:28:13.275Z] [SUCCESS] 🔌 [DB] Database connected successfully
 [2025-06-28T08:28:13.300Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=6849c7f5adcc319d7724d3ef, patient=683eb6515293b1bf68919999 at 2025-06-28 2:30 PM
 [2025-06-28T08:29:09.701Z] [SUCCESS] Fetched booked slots for doctor=6849c7f5adcc319d7724d3ef on 2025-06-28: 2:30 PM
+[2025-06-28T09:57:22.653Z] [ERROR] Login error: TypeError: Cannot read properties of undefined (reading 'toLowerCase')
+[2025-06-28T09:57:32.681Z] [ERROR] Login error: TypeError: Cannot read properties of undefined (reading 'toLowerCase')
+[2025-06-28T10:04:05.380Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T10:04:05.380Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683dc342de82a9026f2ade1d, date=2025-06-29, time=3:00 PM, reason=swagger test
+[2025-06-28T10:04:05.380Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T10:04:05.399Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683dc342de82a9026f2ade1d at 2025-06-29 3:00 PM
+[2025-06-28T10:04:44.856Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T10:04:44.856Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683dc342de82a9026f2ade1d, date=2025-06-29, time=3:00 PM, reason=swagger test
+[2025-06-28T10:04:44.856Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T10:04:44.860Z] [ERROR] ⛔ [Conflict] Slot already booked for doctor=68454719c80a6ccad45dde1b on 2025-06-29 at 3:00 PM
+[2025-06-28T10:05:27.177Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-28T14:09:10.225Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-28: 10:00 AM,10:30 AM,11:00 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,4:00 PM
+[2025-06-28T14:12:32.793Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-28: 10:00 AM,10:30 AM,11:00 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,4:00 PM
+[2025-06-28T14:13:07.801Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-29: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:30 PM,4:00 PM
+[2025-06-28T14:13:17.955Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T14:13:17.955Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-06-29, time=12:30 PM, reason=lala
+[2025-06-28T14:13:17.955Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T14:13:17.971Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-06-29 12:30 PM
+[2025-06-28T14:14:15.159Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-06-28T14:14:28.807Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-30: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-06-28T14:14:34.980Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T14:14:34.980Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T14:14:34.980Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-06-30, time=3:00 PM, reason=lala
+[2025-06-28T14:14:34.998Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-06-30 3:00 PM
+[2025-06-28T14:25:47.021Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-29: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,2:00 PM,2:30 PM,3:30 PM,4:00 PM
+[2025-06-28T14:25:51.664Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-28: 10:00 AM,10:30 AM,11:00 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,4:00 PM
+[2025-06-28T14:27:44.281Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-28: 10:00 AM,10:30 AM,11:00 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,4:00 PM
+[2025-06-28T14:28:12.969Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-28: 10:00 AM,10:30 AM,11:00 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,4:00 PM
+[2025-06-28T14:29:18.253Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-28: 10:00 AM,10:30 AM,11:00 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,4:00 PM
+[2025-06-28T14:29:51.261Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-28: 10:00 AM,10:30 AM,11:00 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,4:00 PM
+[2025-06-28T14:29:55.782Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-30: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:30 PM,4:00 PM
+[2025-06-28T14:30:00.866Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T14:30:00.867Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-06-30, time=12:30 PM, reason=lol
+[2025-06-28T14:30:00.867Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T14:30:00.884Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-06-30 12:30 PM
+[2025-06-28T14:32:53.771Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-07-03: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-06-28T14:32:58.763Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T14:32:58.771Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-07-03, time=2:00 PM, reason=te
+[2025-06-28T14:32:58.771Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T14:32:58.812Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-07-03 2:00 PM
+[2025-06-28T14:35:52.733Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-07-02: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-06-28T14:35:56.650Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T14:35:56.650Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T14:35:56.650Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-07-02, time=11:30 AM, reason=yty
+[2025-06-28T14:35:56.669Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-07-02 11:30 AM
+[2025-06-28T14:36:16.665Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-07-04: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-06-28T14:36:19.708Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T14:36:19.708Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-07-04, time=11:30 AM, reason=yett
+[2025-06-28T14:36:19.709Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T14:36:19.721Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-07-04 11:30 AM
+[2025-06-28T14:37:54.203Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-30: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,2:00 PM,2:30 PM,3:30 PM,4:00 PM
+[2025-06-28T14:37:57.772Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T14:37:57.772Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-06-30, time=10:00 AM, reason=ewwe
+[2025-06-28T14:37:57.772Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T14:37:57.780Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-06-30 10:00 AM
+[2025-06-28T14:42:20.166Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-30: 10:30 AM,11:00 AM,11:30 AM,12:00 PM,2:00 PM,2:30 PM,3:30 PM,4:00 PM
+[2025-06-28T14:42:25.147Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-06-30, time=10:30 AM, reason=ugbuy
+[2025-06-28T14:42:25.147Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T14:42:25.147Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T14:42:25.170Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-06-30 10:30 AM
+[2025-06-28T14:44:54.552Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-07-01: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-06-28T14:44:58.953Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-07-01, time=12:00 PM, reason=wgw
+[2025-06-28T14:44:58.952Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T14:44:58.953Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T14:44:58.961Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-07-01 12:00 PM
+[2025-06-28T14:51:33.971Z] [SUCCESS] Fetched booked slots for doctor=68454719c80a6ccad45dde1b on 2025-06-29: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,2:00 PM,2:30 PM,3:30 PM,4:00 PM
+[2025-06-28T14:51:39.508Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-06-28T14:51:39.511Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-06-29, time=10:30 AM, reason=llalalal
+[2025-06-28T14:51:39.511Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-06-28T14:51:39.553Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-06-29 10:30 AM

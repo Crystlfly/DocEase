@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserDoctor } from "@fortawesome/free-solid-svg-icons";
 import PatientHeader from "@/components/patientHeader";
 
-
 const timeSlots = [
   "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
   "12:00 PM", "12:30 PM", "2:00 PM", "2:30 PM",
@@ -34,7 +33,7 @@ export default function BookAppointment() {
   const [patientId, setPatientId] = React.useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [bookedSlots, setBookedSlots] = useState([]);
+  const [availableSlots, setAvailableSlots] = useState([]);
   const [appointmentDetails, setAppointmentDetails] = useState(null);
 
   // ✅ Correctly fetch doctors on first render
@@ -57,31 +56,34 @@ export default function BookAppointment() {
   }, []);
 
   useEffect(() => {
-  const fetchBookedSlots = async () => {
-    if (!selectedDoctor || !date) return;
+    const fetchAvailableSlots = async () => {
+      if (!selectedDoctor || !date) return;
 
-    try {
-      const res = await fetch("/api/appointment/get-booked-slots", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ doctorId: selectedDoctor._id, date })
-      });
+      try {
+        const res = await fetch("/api/appointment/get-available-slots", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ doctorId: selectedDoctor._id, date })
+        });
 
-      const data = await res.json();
-      if (res.ok) {
-        setBookedSlots(data.bookedSlots || []);
-      } else {
-        console.error("Error:", data.message);
+        const data = await res.json();
+        if (res.ok) {
+          setAvailableSlots(data.availableSlots || []);
+        } else {
+          console.error("Error:", data.message);
+        }
+      } catch (err) {
+        console.error("Failed to fetch available slots:", err);
       }
-    } catch (err) {
-      console.error("Failed to fetch booked slots:", err);
-    }
-  };
+    };
 
-  fetchBookedSlots();
-}, [selectedDoctor, date]);
+    fetchAvailableSlots();
+  }, [selectedDoctor, date]);
+
+
+
 
 
   const handleSubmit = async (e) => {
@@ -110,11 +112,13 @@ export default function BookAppointment() {
         },
         body: JSON.stringify(appointmentData)
       });
-      
+      const data = await response.json(); // ✅ Extract response body
       if(response.ok){
         console.log("Booking appointment:", appointmentData);
         setSuccess("Appointment booked!");
-        setAppointmentDetails(appointmentData);
+        setAppointmentDetails({
+    ...appointmentData,
+    _id: data.appointmentID });
         setDate("");
         setTime("");
         setReason("");
@@ -218,25 +222,27 @@ export default function BookAppointment() {
                 <label>Time Slot:</label>
                 <select value={time} onChange={(e) => setTime(e.target.value)}>
                   <option value="">Select</option>
-                  {timeSlots.map((slot) => {
-                    const slot24 = convertTo24Hour(slot); // Convert to 24-hour
-                    const currentTime = new Date().toTimeString().slice(0, 5);
-                    const isPast = date === new Date().toISOString().split("T")[0] && slot24 < currentTime;
-                    const isDisabled = bookedSlots.includes(slot) || isPast;
-
-                  return (
-                    <option key={slot} value={slot} disabled={isDisabled}>
-                      {slot} {bookedSlots.includes(slot) ? " (Booked)" : ""}
-                      {/* {isPast ? " (Past)" : ""} */}
-                    </option>
-                  );
-                  })}
+                  {availableSlots.length > 0 ? (
+                    availableSlots.map((slot) => {
+                      const slot24 = convertTo24Hour(slot); // e.g., "14:00"
+                      const currentTime = new Date().toTimeString().slice(0, 5); // e.g., "13:25"
+                      const isToday = date === new Date().toISOString().split("T")[0];
+                      const isPast = isToday && slot24 < currentTime;
+                      return (
+                        <option key={slot} value={slot} disabled={isPast}>
+                          {slot}
+                        </option>
+                      );
+                    })
+                  ) : (
+                    <option disabled>No slots available</option>
+                  )}
                 </select>
               </div>
 
               <div className={styles.formGroup}>
                 <label>Reason:</label>
-                <input type="text" value={reason} onChange={(e) => setReason(e.target.value)} />
+                <textarea type="text" value={reason} onChange={(e) => setReason(e.target.value)} rows={5}cols={41} />
               </div>
 
               <button className={styles.button} onClick={handleSubmit}>
@@ -244,9 +250,10 @@ export default function BookAppointment() {
               </button>
               {success && <p style={{ color: "green", marginTop: "1rem" }}>{success}</p>}
               {appointmentDetails && (
-                <div style={{ marginTop: "1rem", background: "#f0f0f0", padding: "1rem", borderRadius: "5px" }}>
+                <div style={{ marginTop: "1rem",  padding: "1rem", borderRadius: "5px" }}>
                   <h4>Appointment Details</h4>
-                  <p><strong>Doctor:</strong> {appointmentDetails.doctorName}</p>
+                  <p><strong>Appointment ID:</strong> {appointmentDetails._id}</p>
+                  <p><strong>Doctor:</strong> {selectedDoctor.name}</p>
                   <p><strong>Date:</strong> {appointmentDetails.date}</p>
                   <p><strong>Time:</strong> {appointmentDetails.time}</p>
                   <p><strong>Reason:</strong> {appointmentDetails.reason}</p>

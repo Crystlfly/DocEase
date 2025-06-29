@@ -25,6 +25,7 @@
     "next": "15.3.3",
     "next-auth": "^4.24.11",
     "next-connect": "^1.0.0",
+    "openai": "^5.8.2",
     "react": "^19.0.0",
     "react-dom": "^19.1.0",
     "twilio": "^5.7.0"
