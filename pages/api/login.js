@@ -11,12 +11,17 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: "Method not allowed" });
   }
   await dbLogger("info", "Login API hit", { ip: req.headers["x-forwarded-for"] || req.socket.remoteAddress });
-  const { email, password, role } = req.body; // ⛔️ No need to receive profileCompleted
-  console.log("Received login request:", email, role);
+  const { email, password } = req.body; // ⛔️ No need to receive profileCompleted
+  console.log("Received login request:", email);
 
-  if(email===process.env.ADMIN_EMAIL && password===process.env.ADMIN_PASSWORD && role.toLowerCase() === "admin") {
+  if(email===process.env.ADMIN_EMAIL && password===process.env.ADMIN_PASSWORD) {
     logger.info("Admin login attempt with hardcoded credentials");
-    await dbLogger("info", "Admin login attempt with hardcoded credentials", { email, role });
+    await dbLogger("info", "Admin login attempt with hardcoded credentials", { email });
+    const token = jwt.sign(
+      { userId: "admin-id", roles: ["admin"] },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
     return res.status(200).json({
       message: "Login successful",
       user: {
@@ -24,20 +29,20 @@ export default async function handler(req, res) {
         name: "Admin User",
         email: process.env.ADMIN_EMAIL,
         phone: "000-000-0000",
-        role: "admin",
+        role: ["admin"],
         profileCompleted: true, // Admin profile is always complete
-        token: jwt.sign({ userId: "admin-id", role: "admin" }, process.env.JWT_SECRET, { expiresIn: '1d' })
+        token,
       },
     });
   }
 
   try {
     // Find user by email and role
-    const user = await db.findUserByEmailAndRole(email.toLowerCase(), role.toLowerCase());
+    const user = await db.findUserByEmail(email.toLowerCase());
 
     if (!user) {
-      logger.error(`User not found for email: ${email} and role: ${role}`);
-      await dbLogger("error", "User not found", { email, role });
+      logger.error(`User not found for email: ${email}`);
+      await dbLogger("error", "User not found", { email });
       return res.status(401).json({ message: "User doesn't exists" });
     }
 
@@ -47,17 +52,22 @@ export default async function handler(req, res) {
       logger.error("user's existing password", user.password);
       logger.error("Given password", password);
       logger.error(`Invalid password for user: ${email}`);
-      await dbLogger("error", "Invalid password attempt", { email, role });
+      await dbLogger("error", "Invalid password attempt", { email });
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
+    const roleDocs = await db.getUserRolesByUserId(user._id);
+    console.log("roleDocs",roleDocs);
+    if (roleDocs.length === 0 ) {
+      return res.status(403).json({ message: "No roles assigned to this user" });
+    }
     // Send back user info (omit password)
     const token = jwt.sign(
-      { userId: user._id, role: user.role },
+      { userId: user._id, roles: roleDocs.map(r => r.name || r.roleName) },
       process.env.JWT_SECRET,
       { expiresIn: '1d' }
     );
-    await dbLogger("info", "User logged in successfully", { email, role });
+    await dbLogger("info", "User logged in successfully", { email, roles: roleDocs.map(r => r.name || r.roleName) });
     const preId= user._id.toString();
     logger.success(`User logged in successfully and the data is returned: ${email}`);
     return res.status(200).json({
@@ -67,7 +77,7 @@ export default async function handler(req, res) {
         name: user.name,
         email: user.email,
         phone: user.phone,
-        role: user.role,
+        roles: roleDocs,
         profileCompleted: user.profileCompleted || false, // always return boolean
         token:token
       },

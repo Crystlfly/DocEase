@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from "next/head";
 import Link from "next/link";
 import styles from "@/styles/Home.module.css";
@@ -13,20 +14,8 @@ export default function Home() {
         <title>Welcome to DocEase</title>
         <meta name="description" content="Easily book appointments with trusted doctors" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
       </Head>
-      <df-messenger
-  intent="WELCOME"
-  chat-title="DocEase Assistant"
-  agent-id="eece573a-2c85-43f0-9074-9a7f503025ff"
-  language-code="en"
-  background-color="#eef7fa"
-  chat-icon="/docbot.png"
-  user-chat-color="#cde7f5"
-  bot-chat-color="#e6f2f9"
-  text-color="#333"
-  font-family="Segoe UI"
-></df-messenger>
+      
 
     
       <main className={styles.main}>

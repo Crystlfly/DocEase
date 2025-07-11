@@ -4,22 +4,23 @@ console.log("✅ [MODEL] User1 schema file loaded");
 
 const userSchema = new mongoose.Schema(
   {
-    pid: {
-      type: String,
-      required: function () {
-        const result = this.role?.toLowerCase() === "patient";
-        console.log(`🔍 [User Schema] pid required? ${result}`);
-        return result;
-      },
-    },
-    did: {
-      type: String,
-      required: function () {
-        const result = this.role?.toLowerCase() === "doctor";
-        console.log(`🔍 [User Schema] did required? ${result}`);
-        return result;
-      },
-    },
+    // pid: {
+    //   type: String,
+    //   required: function () {
+    //     // const result = this.role?.toLowerCase() === "patient";
+    //     const result=false;
+    //     console.log(`🔍 [User Schema] pid required? ${result}`);
+    //     return result;
+    //   },
+    // },
+    // did: {
+    //   type: String,
+    //   required: function () {
+    //     const result = this.role?.toLowerCase() === "doctor";
+    //     console.log(`🔍 [User Schema] did required? ${result}`);
+    //     return result;
+    //   },
+    // },
     name: {
       type: String,
       required: true,
@@ -31,16 +32,13 @@ const userSchema = new mongoose.Schema(
     },
     phone: {
       type: String,
-      required: true,
+      // required: true,
     },
     password: {
       type: String,
-      required: true,
+      // required: true,
     },
-    role: {
-      type: String,
-      required: true,
-    },
+
     profileImage: {
       type: String,
       // required: true,

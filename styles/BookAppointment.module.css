@@ -9,9 +9,38 @@
 .title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #fff;
+  color: #c8ebf0;
   margin-bottom: 1.5rem;
   text-align: center;
+}
+.searchBar {
+  text-align: center;
+}
+
+.searchInput {
+  padding: 0.5rem 1rem;
+  width: 80%;
+  max-width: 400px;
+  font-size: 1rem;
+  border: 2px solid #4fa1eb;
+  border-radius: 8px;
+}
+
+.cancelButtonWrapper{
+  position: relative;
+  
+  /* right: 12rem; */
+  /* z-index: 2;  */
+}
+
+.cancelButton{
+  position:absolute;
+  top:0%;
+  background: none;
+  border: none;           /* Remove border */
+  padding: 0;             /* Optional: remove extra space */
+  cursor: pointer;        /* Show pointer on hover */
+  color: #a0d8f4;
 }
 
 /* Flex layout for two panels */
@@ -21,6 +50,8 @@
   align-items: flex-start;
   gap: 2rem;
   flex-wrap: wrap;
+  padding-top: 1rem;;
+  
 }
 
 /* Left & Right pane */
@@ -102,6 +133,8 @@
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  
 }
 
 .formTitle {
@@ -115,6 +148,10 @@
   color: #4fa1eb;
   margin-bottom: 1rem;
   text-align: center;
+}
+
+.inputPos{
+  text-align: left;
 }
 
 .formGroup {
@@ -194,6 +231,16 @@
   object-fit: cover;     /* ✅ Fills container nicely */
   display: block;
   margin-top: 0.1rem;
+}
+.forTextArea{
+  /* padding: 3px;; */
+  /* padding: auto; */
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 6px;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 @keyframes fadeIn {

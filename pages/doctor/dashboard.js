@@ -7,6 +7,7 @@ import DoctorHeader from "@/components/doctorHeader";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import { useSession } from "next-auth/react";
 
 
 
@@ -23,8 +24,17 @@ const [patients, setPatients] = useState([]); // ✅ correct for storing full li
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("today");
   const [selectedPatient, setSelectedPatient]=useState(null);
+  const { data: session } = useSession();
   
   useEffect(() => {
+    if (session) {
+      // Store the JWT token in localStorage
+      const token = session?.token || session?.user?.accessToken;
+      if (token) {
+        localStorage.setItem("token", token);
+      }
+    }
+  
   const token = localStorage.getItem('token');
   // if (!token) {
   //   router.replace('/login');
@@ -81,11 +91,11 @@ const [patients, setPatients] = useState([]); // ✅ correct for storing full li
         logDashboardAccess();
 
       setAppointments({
-        today: data.todayAppointments,
-        upcoming: data.upcomingAppointments,
+        today: data.todayAppointments || [],
+        upcoming: data.upcomingAppointments || [],
       });
-setPatients(data.patients); // Now storing the array of patients ✅
-      setDoctorName(data.doctorName);
+setPatients(data.patients || []); // Now storing the array of patients ✅
+      setDoctorName(localStorage.getItem("UserName") || data.doctorName || "Doctor");
       setLoading(false);
     } catch (err) {
       console.error("❌ Error fetching dashboard data:", err);
@@ -97,7 +107,7 @@ setPatients(data.patients); // Now storing the array of patients ✅
   };
 
   fetchDashboardData();
-}, []);
+}, [session]);
   // if (checkingAuth) return <p>Checking authentication...</p>;
   if (loading) {
     console.log("⏳ Waiting for data...");

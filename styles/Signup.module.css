@@ -143,3 +143,9 @@
   gap: 8px;
   cursor: pointer;
 }
+.socialBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}

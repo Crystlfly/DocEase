@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook, faSquareXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 const niconne = Niconne({
   subsets: ['latin'],
@@ -49,7 +50,7 @@ export default function Signup() {
     const res = await fetch("/api/signUp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...formData, role }),
+      body: JSON.stringify({ ...formData }),
     });
 
     const data = await res.json();
@@ -58,41 +59,49 @@ export default function Signup() {
       setError(data.message || "Signup failed");
     } else {
       setSuccess("Signup successful! Redirecting you....");
+      localStorage.setItem("UserId", data.id);
+      localStorage.setItem("UserName", name);
+      localStorage.setItem("UserEmail", email);
+
+      // localStorage.setItem("UserId", loginData.user.id);
+      // localStorage.setItem("UserName", loginData.user.name);
+      // localStorage.setItem("UserEmail", loginData.user.email);
+      router.push("/PorD");
 
       // 🟢 Attempt login immediately after signup
-      const loginRes = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-          role: role
-        })
-      });
+      // const loginRes = await fetch("/api/login", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify({
+      //     email: formData.email,
+      //     password: formData.password,
+      //     role: role
+      //   })
+      // });
 
-      const loginData = await loginRes.json();
+      // const loginData = await loginRes.json();
 
-      if (loginRes.ok) {
-        localStorage.setItem("UserId", loginData.user.id);
-        localStorage.setItem("UserName", loginData.user.name);
-        localStorage.setItem("userRole", loginData.user.role);
-        localStorage.setItem("UserEmail", loginData.user.email);
-
-        if (role === "patient") {
-          router.push("/patient/dashboard");
-        } else if (role === "doctor") {
-          router.push("/doctor/complete-profile");
-        }
-      } else {
-        setError("Signup worked, but login failed.");
-      }
+      // if (loginRes.ok) {
+        
+      // } else {
+      //   setError("Signup worked, but login failed.");
+      // }
     }
   } catch (err) {
     setError("Something went wrong.");
   }
 };
+const handleGoogleSignIn = () => {
+    const selectedRole = role;
+
+    signIn("google", {
+      callbackUrl: `/PorD`,
+      // state: JSON.stringify({ role: selectedRole }),
+    });
+  };
+  const { data: session, status } = useSession();
 
 
   return (
@@ -110,7 +119,7 @@ export default function Signup() {
               <FontAwesomeIcon icon={faCircleUser} size="6x" className={styles.userIcon} />
 
               <form onSubmit={handleSubmit} className={styles.form}>
-                <div className={styles.radioGroup}>
+                {/* <div className={styles.radioGroup}>
                   <label className={styles.customradio}>
                     <input
                       type="radio"
@@ -133,7 +142,7 @@ export default function Signup() {
                     />
                     Patient
                   </label>
-                </div>
+                </div> */}
                 <input
                   className={styles.input}
                   type="text"
@@ -183,7 +192,18 @@ export default function Signup() {
 
               <div className={styles.verticalLine}></div>
               <div className={styles.rightLogin}>
-                <FontAwesomeIcon icon={faGoogle} size="2x" style={{ marginBottom: "20px", color: "#a0d8f4" }} />
+                <button
+                onClick={() => {
+                  if (!role) {
+                    alert("Please select a role first!");
+                    return;
+                  }
+                  handleGoogleSignIn();
+                }}
+                className={styles.socialBtn}
+              >
+                <FontAwesomeIcon icon={faGoogle} size="2x" style={{ color: "#a0d8f4" }} />
+              </button>
                 <FontAwesomeIcon icon={faFacebook} size="2x" style={{ marginBottom: "20px", color: "#a0d8f4" }} />
                 <FontAwesomeIcon icon={faSquareXTwitter} size="2x" style={{ marginBottom: "20px", color: "#a0d8f4" }} />
               </div>

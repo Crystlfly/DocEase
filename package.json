@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -25,14 +26,22 @@
     "next": "15.3.3",
     "next-auth": "^4.24.11",
     "next-connect": "^1.0.0",
-    "openai": "^5.8.2",
     "react": "^19.0.0",
     "react-dom": "^19.1.0",
     "twilio": "^5.7.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "@jest/globals": "^30.0.3",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
     "autoprefixer": "^10.4.21",
+    "babel-jest": "^30.0.2",
     "cross-env": "^7.0.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.0.3",
+    "jest-environment-jsdom": "^30.0.2",
     "postcss": "^8.5.4",
     "tailwindcss": "^4.1.8"
   },

@@ -9,6 +9,7 @@ import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import styles from "@/styles/CompleteProfile.module.css";
 import jwtDecode from 'jwt-decode';
 
+
 export default function CompleteDoctorProfile() {
   const router = useRouter();
   // const [checkingAuth, setCheckingAuth] = useState(true);

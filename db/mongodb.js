@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import User from "@/models/user";
 import Appointment from "@/models/appointment";
+import Role from "@/models/role";
+import Userrole from "@/models/userrole";
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -33,10 +35,56 @@ export async function connect() {
   cached.conn = await cached.promise;
   return cached.conn;
 }
+//{fetch role id}
+export async function fetchRoleId(role) {
+  const safeRole = String(role).toLowerCase();
+  console.log("🔍 Fetching role ID for:", safeRole);
+  return await Role.findOne({ role: safeRole }).select("_id");
+}
+export async function checkexistingUserinRoleTable(roleId, userId) {
+  return await Userrole.findOne({ roleId, userId }).select("userId");
+}
+export async function storeRole(userId, roleId) {
+  await connect();
+  const newUserRole = new Userrole({
+    userId,
+    roleId,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  });
+  return await newUserRole.save();
+}
+export async function getUserRolesByUserId(userId) {
+  try {
+    const userRoles = await Userrole.find({ userId }).populate("roleId");
+
+    // Extract role names
+    const roles = userRoles
+      .map(entry => entry.roleId?.role) // roleId is now populated with Role doc
+      .filter(Boolean); // remove undefined/null
+
+    return roles; // ['patient', 'doctor']
+  } catch (error) {
+    console.error("Error fetching roles for user:", error);
+    throw new Error("Could not fetch user roles");
+  }
+}
+
+export async function ensureUserHasRole(userId, roleName) {
+  const roleDoc = await Role.findOne({ role: roleName });
+  if (!roleDoc) throw new Error("Role not found");
+
+  const exists = await Userrole.findOne({ userId, roleId: roleDoc._id });
+  if (!exists) {
+    await Userrole.create({ userId, roleId: roleDoc._id });
+  }
+  return true;
+}
+
 //~~dashboard~~
 export async function getDoctorByEmail(email) {
   await connect();
-  return await User.findOne({ email, role: "doctor" });
+  return await User.findOne({ email });
 }
 
 // Get total patients for a doctor
@@ -47,8 +95,20 @@ export async function getPatientIdsByDoctor(doctorId) {
 
 export async function getPatientsByIds(patientIds) {
   await connect();
-  return await User.find({ _id: { $in: patientIds }, role: "patient" }).select("name email"); // fetch only needed fields
+  const roleId = await fetchRoleId("patient");
+
+  const userRoles = await Userrole.find({
+    roleId,
+    userId: { $in: patientIds },
+  }).select("userId");
+
+  // Step 3: Extract the userIds from the result
+  const filteredPatientIds = userRoles.map((ur) => ur.userId);
+
+  // Step 4: Get only those users from the User collection
+  return await User.find({ _id: { $in: filteredPatientIds } }).select("name email");
 }
+
 
 // Get today's appointments
 export async function getTodaysAppointments(doctorId, dateStr) {
@@ -64,8 +124,29 @@ export async function getUpcomingAppointments(doctorId, dateStr) {
 //~~complete-profile~~
 export async function UpdateDoctorProfile(email, profileData) {
   await connect();
+  const user = await User.findOne({ email: email.toLowerCase() });
+  if (!user) {
+    console.warn("No user found with the given email");
+    return null;
+  }
+
+  const role = await fetchRoleId("doctor");
+  if (!role) {
+    console.warn("Role 'doctor' not found in Role collection");
+    return null;
+  }
+
+  const hasDoctorRole = await Userrole.findOne({
+    userId: user._id,
+    roleId: role._id,
+  });
+  if (!hasDoctorRole) {
+    console.warn("User does not have doctor role");
+    return null;
+  }
+
   return await User.findOneAndUpdate(
-    { email: email.toLowerCase(), role: "doctor" },
+    { _id: user._id },
     {
       ...profileData,
       profileCompleted: true,
@@ -104,20 +185,49 @@ export async function getUniquePatients(doctorEmail) {
 //~~list-doc~~
 export async function fetchDoctors(){
   await connect();
-  const doctors=await User.find({ role: "doctor" }).select("name email phone profileCompleted specialization experience address about, profileImage");
+  const role = await fetchRoleId("doctor");
+  const userRoles = await Userrole.find({roleId:role._id}).select("userId");
+  const userIds = userRoles.map((ur) => ur.userId);
+  const doctors=await User.find({ _id: { $in: userIds } }).select("name email phone profileCompleted specialization experience address about profileImage");
   return doctors;
 }
 
 //~~list-patients~~
 export async function fetchPatients(){
   await connect();
-  const patients=await User.find({ role: "patient" }).select("name email phone");
+  const role = await fetchRoleId("patient");
+  const userRoles = await Userrole.find({roleId:role._id}).select("userId");
+  const userIds = userRoles.map((ur) => ur.userId);
+  const patients=await User.find({ _id: { $in: userIds } }).select("name email phone");
   return patients;
+}
+//~~login~~
+export async function findUserByEmail(email) {
+  await connect();
+  const user = await User.findOne({ email: email.toLowerCase() });
+
+  if (!user) return null;
+  const userRoles = await Userrole.find({ userId: user._id }).populate("roleId", "role");
+  const roles = userRoles.map((ur) => ur.roleId.role); // get role names like ['doctor', 'patient']
+  return {
+    ...user.toObject(),
+    roles, // attach roles as an array of role names
+  };
 }
 //~~signup~~
 export async function findUserByEmailAndRole(email,role){
-  await connect();
-  return await User.findOne({ email, role: role.toLowerCase() });
+  const user = await User.findOne({ email: email.toLowerCase() });
+  if (!user) return null;
+
+  const roleObj = await fetchRoleId(role);
+  const hasRole = await Userrole.findOne({
+    userId: user._id,
+    roleId: roleObj._id,
+  });
+
+  if (!hasRole) return null;
+
+  return user;
 }
 export async function createUser(userData){
   // try{

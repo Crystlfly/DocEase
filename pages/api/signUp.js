@@ -8,11 +8,11 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const { name, email, phone, password, role } = req.body;
+  const { name, email, phone, password } = req.body;
 
   try {
     // console.log("Checking for existing user before with email:", email);
-    const existingUser = await db.findUserByEmailAndRole(email.toLowerCase(), role.toLowerCase());
+    const existingUser = await db.getUserByEmail(email.toLowerCase());
     // console.log("Existing user found:", existingUser);
     // console.log("Checking for existing user after with email:", email);
     if(existingUser){
@@ -33,19 +33,22 @@ export default async function handler(req, res) {
       email: email.toLowerCase(), // Ensure email is stored in lowercase
       phone: phone.replace(/\D/g, ""),
       password: hashedPassword,
-      role: role.toLowerCase(),
-      profileCompleted: role.toLowerCase() === "doctor" ? false : true,
+      // profileCompleted: role.toLowerCase() === "doctor" ? false : true,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
-    if (role.toLowerCase() === "patient") {
-      newUserData.pid = "P" + timestampId;
-    } else if (role.toLowerCase() === "doctor") {
-      newUserData.did = "D" + timestampId;
-    }
-    await db.createUser(newUserData);
+    // if (role.toLowerCase() === "patient") {
+    //   newUserData.pid = "P" + timestampId;
+    // } else if (role.toLowerCase() === "doctor") {
+    //   newUserData.did = "D" + timestampId;
+    // }
+    const savedData=await db.createUser(newUserData);
     logger.success(`User registered successfully: ${email}`);
-    return res.status(201).json({ message: "User registered successfully" });
+    return res.status(201).json({ message: "User registered successfully", 
+        id: savedData._id,
+        name: savedData.name,
+        email: savedData.email,
+    });
   } catch (error) {
     console.error("Signup error:", error);
     logger.error(`Signup error: ${error}`);

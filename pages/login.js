@@ -3,7 +3,7 @@ console.log("🟢 [LoginPage] Component Loaded");
 
 import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect  } from "react";
 import { useRouter } from "next/router";
 import styles from "@/styles/Login.module.css";
 
@@ -14,6 +14,7 @@ import { faSquareXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 
 import { signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { Niconne } from 'next/font/google';
 import { dbLogger } from "@/lib/dbLogger";
 
@@ -32,8 +33,8 @@ export default function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("🔵 [Login Attempt] Role:", role, "| Email:", email);
-    await dbLogger("info", "Login attempt", { role, email });
+    console.log("🔵 [Login Attempt] Email:", email);
+    await dbLogger("info", "Login attempt", { email });
     setErrorMsg("");
 
     try {
@@ -42,44 +43,52 @@ export default function LoginPage() {
       const res = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, role }),
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
       console.log("🟡 [Login Response]:", data);
 
+      // if(res.status===403){
+      //   router.push("/PorD")
+      // }
+
       if (res.ok) {
         alert("Login successful!");
         localStorage.setItem("UserName", data.user.name);
-        localStorage.setItem("userRole", data.user.role);
+        // localStorage.setItem("userRole", data.user.role);
         localStorage.setItem("UserEmail", data.user.email);
         localStorage.setItem("UserId", data.user.id);
         localStorage.setItem("token", data.user.token); // Store JWT token
-        console.log("✅ [Login Success] LocalStorage populated");
-        await dbLogger("info", "Login successful", { email, role });
+        localStorage.setItem("userRoles", JSON.stringify(data.user.roles));
 
-        if (data.user.role.toLowerCase() === "doctor") {
-          if (data.user.profileCompleted === false) {
-            console.log("🛠️ Doctor profile not completed. Redirecting...");
-            await dbLogger("info", "Doctor profile not completed, redirecting to complete profile", { email });
-            router.push("/doctor/complete-profile");
-            return;
+        console.log("✅ [Login Success] LocalStorage populated");
+        await dbLogger("info", "Login successful", { email });
+        const roles = data.user.roles;
+        console.log("roles: ",roles)
+        if (roles.length === 1) {
+          const onlyRole = roles[0];
+
+          if (onlyRole === "doctor") {
+            // if (data.user.profileCompleted === false) {
+            //   console.log("🛠️ Doctor profile not completed. Redirecting...");
+            //   router.push("/doctor/complete-profile");
+            //   return;
+            // }
+            router.push("/doctor/dashboard");
+          } else if (onlyRole === "patient") {
+            router.push("/patient/dashboard");
+          } else if (onlyRole === "admin") {
+            router.push("/Admin/dashboard");
+          } else {
+            console.warn("⚠️ Unknown role received:", onlyRole);
+            setErrorMsg("Unknown user role");
           }
-          console.log("➡️ Redirecting to /doctor/dashboard");
-          await dbLogger("info", "Doctor logged in successfully", { email });
-          router.push("/doctor/dashboard");
-        } else if (data.user.role.toLowerCase() === "patient") {
-          console.log("➡️ Redirecting to /patient/dashboard");
-          await dbLogger("info", "Patient logged in successfully", { email });
-          router.push("/patient/dashboard");
-        } else if (data.user.role.toLowerCase() === "admin") {
-          console.log("➡️ Redirecting to /Admin/dashboard");
-          await dbLogger("info", "Admin logged in successfully", { email });
-          router.push("/Admin/dashboard");
-        } else {
-          console.warn("⚠️ Unknown user role:", data.user.role);
-          await dbLogger("error", "Unknown user role during login", { email, role: data.user.role });
-          setErrorMsg("Unknown user role");
+
+        } else if (roles.length > 1) {
+          // 🔁 More than one role → show pord page
+          console.log("🔄 Multiple roles detected. Redirecting to pord...");
+          router.push("/PorD");
         }
       } else {
         console.error("❌ Login failed:", data.message);
@@ -88,10 +97,31 @@ export default function LoginPage() {
       }
     } catch (err) {
       console.error("🔥 [Login Error]:", err.message);
-      await dbLogger("error", "Login API error", { email, role, error: err.message });
+      await dbLogger("error", "Login API error", { email,  error: err.message });
       setErrorMsg("Login failed. Please try again.");
     }
   };
+  const handleGoogleSignIn = () => {
+    const selectedRole = role;
+
+    signIn("google", {
+      callbackUrl: `/redirect`,
+      // state: JSON.stringify({ role: selectedRole }),
+    });
+  };
+  const { data: session, status } = useSession();
+
+useEffect(() => {
+  if (status === "authenticated" && session?.user) {
+    localStorage.setItem("user", JSON.stringify(session.user));
+    localStorage.setItem("UserName", session.user.name || "");
+    localStorage.setItem("UserEmail", session.user.email || "");
+    localStorage.setItem("UserId", session.user._id || "");
+    localStorage.setItem("userRole", session.user.role || "");
+    console.log("✅ [Google Login] Stored in localStorage:", session.user);
+  }
+}, [session, status]);
+
   return (
     <>
       <Head>
@@ -109,7 +139,7 @@ export default function LoginPage() {
               <FontAwesomeIcon icon={faCircleUser} size="6x" className={styles.userIcon} />
 
               <form className={styles.form} onSubmit={handleLogin}>
-                <div className={styles.radioGroup}>
+                {/* <div className={styles.radioGroup}>
                   <label className={styles.customradio}>
                     <input
                       type="radio"
@@ -143,7 +173,7 @@ export default function LoginPage() {
                     />
                     Admin
                   </label>
-                </div>
+                </div> */}
 
                 <input
                   type="email"
@@ -181,14 +211,14 @@ export default function LoginPage() {
                     alert("Please select a role first!");
                     return;
                   }
-                  signIn("google", {
-                    callbackUrl: `/api/auth/callback/google?role=${role}`,
-                  });
+                  handleGoogleSignIn();
                 }}
                 className={styles.socialBtn}
               >
                 <FontAwesomeIcon icon={faGoogle} size="2x" style={{ color: "#a0d8f4" }} />
               </button>
+              <FontAwesomeIcon icon={faFacebook} size="2x" style={{ marginBottom: "20px", color: "#a0d8f4" }} />
+              <FontAwesomeIcon icon={faSquareXTwitter} size="2x" style={{ marginBottom: "20px", color: "#a0d8f4" }} />
             </div>
           </div>
         </div>

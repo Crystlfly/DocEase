@@ -626,3 +626,124 @@
 [2025-06-28T14:51:39.511Z] [INFO] 📩 [API] Incoming data - doctorId=68454719c80a6ccad45dde1b, patientId=683eb6515293b1bf68919999, date=2025-06-29, time=10:30 AM, reason=llalalal
 [2025-06-28T14:51:39.511Z] [SUCCESS] 🔌 [DB] Database connected successfully
 [2025-06-28T14:51:39.553Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68454719c80a6ccad45dde1b, patient=683eb6515293b1bf68919999 at 2025-06-29 10:30 AM
+[2025-06-30T14:03:44.109Z] [SUCCESS] User logged in successfully and the data is returned: lalad@GMAIL.COM
+[2025-06-30T14:03:47.249Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-07-05T18:10:10.541Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-07-05T18:10:12.911Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-07-05T18:10:37.925Z] [INFO] Admin login attempt with hardcoded credentials
+[2025-07-05T18:10:43.789Z] [SUCCESS] Fetched logs successfully
+[2025-07-05T18:10:50.938Z] [SUCCESS] Fetched patients successfully
+[2025-07-05T18:11:00.757Z] [SUCCESS] Fetched patients successfully
+[2025-07-06T13:41:40.194Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-07-06T13:41:41.961Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-07-06T13:42:00.752Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-07-06T13:42:34.190Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-07-06T13:42:49.676Z] [SUCCESS] ✅ Dashboard data fetched successfully for doctor: lalad
+[2025-07-06T13:54:45.206Z] [ERROR] ❌ [API] Doctor not found for email: anusha.singh.hca@gmail.com
+[2025-07-06T14:35:03.917Z] [ERROR] ❌ [API] Doctor not found for email: anusha.singh.hca@gmail.com
+[2025-07-06T14:56:15.109Z] [ERROR] ❌ [API] Doctor not found for email: anusha.singh.hca@gmail.com
+[2025-07-06T14:58:21.659Z] [ERROR] ❌ [API] Doctor not found for email: anusha.singh.hca@gmail.com
+[2025-07-06T15:13:06.574Z] [ERROR] ❌ [API] Doctor not found for email: anusha.singh.hca@gmail.com
+[2025-07-06T15:16:25.115Z] [ERROR] ❌ [API] Doctor not found for email: anusha.singh.hca@gmail.com
+[2025-07-07T12:41:41.104Z] [SUCCESS] User registered successfully: anusha.singh.hcaaaaaaa@gmail.com
+[2025-07-07T12:41:41.596Z] [SUCCESS] User logged in successfully and the data is returned: anusha.singh.hcaaaaaaa@gmail.com
+[2025-07-08T06:47:55.422Z] [SUCCESS] User registered successfully: anusha.singh.hcaaaa@gmail.com
+[2025-07-08T06:47:55.794Z] [ERROR] User not found for email: anusha.singh.hcaaaa@gmail.com and role: patient
+[2025-07-08T06:52:00.777Z] [SUCCESS] User registered successfully: anusha.singh.hcaaaaaa@gmail.com
+[2025-07-08T07:00:06.502Z] [SUCCESS] User registered successfully: anusha.singh.hcaaaa@gmail.com
+[2025-07-08T07:01:28.148Z] [SUCCESS] User registered successfully: anusha.singh.hcaaaa@gmail.com
+[2025-07-08T11:11:16.208Z] [SUCCESS] User registered successfully: anusha.singh.hcaaa@gmail.com
+[2025-07-08T11:13:52.340Z] [SUCCESS] User registered successfully: anusha.singh.hcaaa@gmail.com
+[2025-07-08T11:17:18.598Z] [SUCCESS] User registered successfully: anusha.singh.hcaaa@gmail.com
+[2025-07-08T11:19:16.505Z] [ERROR] User role register error: TypeError: Cannot read properties of null (reading '_id')
+[2025-07-08T11:22:44.856Z] [SUCCESS] User registered successfully: anusha.singh.hcaaa@gmail.com
+[2025-07-08T11:22:58.360Z] [ERROR] User role register error: TypeError: Cannot read properties of null (reading '_id')
+[2025-07-08T11:23:45.503Z] [ERROR] User role register error: TypeError: Cannot read properties of null (reading '_id')
+[2025-07-08T11:48:02.542Z] [SUCCESS] User registered successfully: anusha.singh.hcaaa@gmail.com
+[2025-07-08T11:48:11.367Z] [ERROR] User role register error: TypeError: Cannot read properties of null (reading '_id')
+[2025-07-08T11:50:11.348Z] [ERROR] User role register error: TypeError: Cannot read properties of null (reading '_id')
+[2025-07-08T11:51:10.442Z] [ERROR] User role register error: TypeError: Cannot read properties of null (reading '_id')
+[2025-07-08T11:51:27.684Z] [ERROR] User role register error: TypeError: Cannot read properties of null (reading '_id')
+[2025-07-08T12:03:18.711Z] [SUCCESS] User role registered successfully: 686d0572e1b63a6f7231e74f
+[2025-07-08T12:25:19.230Z] [SUCCESS] User role registered successfully: 686d0572e1b63a6f7231e74f
+[2025-07-08T12:31:34.992Z] [SUCCESS] User role registered successfully: 686d0572e1b63a6f7231e74f
+[2025-07-08T12:31:43.537Z] [SUCCESS] User role registered successfully: 686d0572e1b63a6f7231e74f
+[2025-07-08T13:20:59.293Z] [SUCCESS] User role registered successfully: 686d0572e1b63a6f7231e74f
+[2025-07-09T05:06:01.966Z] [SUCCESS] User registered successfully: anusha.singh.hcaaa@gmail.com
+[2025-07-09T05:06:05.941Z] [SUCCESS] User role registered successfully: 686df8b9c0f91f033b841910
+[2025-07-09T05:06:57.862Z] [SUCCESS] User role registered successfully: 686df8b9c0f91f033b841910
+[2025-07-09T05:09:13.138Z] [SUCCESS] User role registered successfully: 686df8b9c0f91f033b841910
+[2025-07-09T05:31:18.847Z] [SUCCESS] User role registered successfully: 686df8b9c0f91f033b841910
+[2025-07-09T05:35:28.757Z] [SUCCESS] Fetched appointments for patient=686df8b9c0f91f033b841910
+[2025-07-09T05:35:35.130Z] [SUCCESS] User role registered successfully: 686df8b9c0f91f033b841910
+[2025-07-09T05:37:42.320Z] [SUCCESS] User logged in successfully and the data is returned: lalad@gmail.com
+[2025-07-09T08:35:09.115Z] [SUCCESS] User role registered successfully: 686a99f7ebd05a5426f54759
+[2025-07-09T08:35:22.671Z] [SUCCESS] User role registered successfully: 686a99f7ebd05a5426f54759
+[2025-07-09T11:53:39.219Z] [SUCCESS] User role registered successfully: 686a99f7ebd05a5426f54759
+[2025-07-09T12:06:21.864Z] [SUCCESS] User role registered successfully: 686a99f7ebd05a5426f54759
+[2025-07-09T12:07:00.413Z] [SUCCESS] User role registered successfully: 686a99f7ebd05a5426f54759
+[2025-07-09T13:23:52.635Z] [SUCCESS] User role registered successfully: 686a99f7ebd05a5426f54759
+[2025-07-09T13:23:59.216Z] [SUCCESS] User role registered successfully: 686a99f7ebd05a5426f54759
+[2025-07-09T13:27:47.974Z] [SUCCESS] User role registered successfully: 686a99f7ebd05a5426f54759
+[2025-07-09T13:31:37.748Z] [SUCCESS] User role registered successfully: 686a99f7ebd05a5426f54759
+[2025-07-09T13:32:18.424Z] [SUCCESS] User role registered successfully: 686a99f7ebd05a5426f54759
+[2025-07-09T13:34:23.003Z] [SUCCESS] User registered successfully: anusha.singh.hcaaa@gmail.com
+[2025-07-09T13:34:42.464Z] [SUCCESS] User role registered successfully: 686e6fde391f63ecd245558c
+[2025-07-09T14:10:07.709Z] [ERROR] User role register error: CastError: Cast to ObjectId failed for value "" (type string) at path "userId" for model "Userrole"
+[2025-07-09T14:10:11.565Z] [ERROR] User role register error: CastError: Cast to ObjectId failed for value "" (type string) at path "userId" for model "Userrole"
+[2025-07-09T14:46:55.307Z] [SUCCESS] User role registered successfully: 686e80d8391f63ecd24555a6
+[2025-07-09T14:47:04.270Z] [SUCCESS] User role registered successfully: 686e80d8391f63ecd24555a6
+[2025-07-09T15:04:55.342Z] [SUCCESS] User role registered successfully: 686e8508391f63ecd24555c2
+[2025-07-09T15:05:00.585Z] [SUCCESS] User role registered successfully: 686e8508391f63ecd24555c2
+[2025-07-09T15:11:32.705Z] [SUCCESS] User role registered successfully: 686e86a0391f63ecd24555dc
+[2025-07-09T15:24:44.588Z] [SUCCESS] User role registered successfully: 686e89b92ce218e98dd40860
+[2025-07-09T15:24:56.293Z] [SUCCESS] User role registered successfully: 686e89b92ce218e98dd40860
+[2025-07-09T16:48:42.819Z] [SUCCESS] User role registered successfully: 686e89b92ce218e98dd40860
+[2025-07-09T16:51:45.390Z] [SUCCESS] User role registered successfully: 686e9e1dc1eae0f179a288d6
+[2025-07-09T16:53:48.272Z] [SUCCESS] User role registered successfully: 686e9e96c1eae0f179a288f0
+[2025-07-09T16:54:38.037Z] [SUCCESS] User role registered successfully: 686e9ec6c1eae0f179a288fd
+[2025-07-09T18:11:21.328Z] [SUCCESS] User role registered successfully: 686eb0001d734ec99a7a6903
+[2025-07-09T18:14:31.804Z] [SUCCESS] User role registered successfully: 686eb0001d734ec99a7a6903
+[2025-07-10T13:01:26.801Z] [SUCCESS] User role registered successfully: 686eb0001d734ec99a7a6903
+[2025-07-10T13:25:10.314Z] [SUCCESS] User role registered successfully: 686eb0001d734ec99a7a6903
+[2025-07-10T13:26:02.797Z] [SUCCESS] User role registered successfully: 686eb0001d734ec99a7a6903
+[2025-07-10T13:42:23.796Z] [SUCCESS] Fetched booked slots for doctor=685c1c500ddb4e865b0678f2 on 2025-07-17: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-10T13:42:36.087Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-07-10T13:42:36.088Z] [INFO] 📩 [API] Incoming data - doctorId=685c1c500ddb4e865b0678f2, patientId=686eb0001d734ec99a7a6903, date=2025-07-17, time=12:30 PM, reason=ggggggggggggg
+[2025-07-10T13:42:36.088Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-07-10T13:42:36.104Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=685c1c500ddb4e865b0678f2, patient=686eb0001d734ec99a7a6903 at 2025-07-17 12:30 PM
+[2025-07-10T13:43:35.361Z] [SUCCESS] Fetched appointments for patient=686eb0001d734ec99a7a6903
+[2025-07-10T16:02:34.809Z] [SUCCESS] Fetched booked slots for doctor=6849c7f5adcc319d7724d3ef on 2025-07-11: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-10T16:05:01.370Z] [SUCCESS] Fetched booked slots for doctor=6849c7f5adcc319d7724d3ef on 2025-07-11: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-10T16:25:43.852Z] [SUCCESS] User role registered successfully: 686fc3dc1945c56ade656512
+[2025-07-10T16:40:40.451Z] [SUCCESS] User role registered successfully: 686fc3dc1945c56ade656512
+[2025-07-10T16:43:58.181Z] [ERROR] Doctor not found for email: anusha.singh.hca@gmail.com
+[2025-07-10T17:58:02.951Z] [SUCCESS] ✅ Profile completed for: anusha.singh.hca@gmail.com
+[2025-07-11T06:52:30.722Z] [ERROR] Login error: TypeError: _db__WEBPACK_IMPORTED_MODULE_0__.findUserByEmail is not a function
+[2025-07-11T09:18:15.284Z] [ERROR] Login error: TypeError: _db__WEBPACK_IMPORTED_MODULE_0__.findUserByEmail is not a function
+[2025-07-11T09:18:15.352Z] [ERROR] Login error: TypeError: _db__WEBPACK_IMPORTED_MODULE_0__.findUserByEmail is not a function
+[2025-07-11T10:29:39.425Z] [SUCCESS] User registered successfully: anusha.singh.hcaaa@gmail.com
+[2025-07-11T10:29:42.173Z] [SUCCESS] User role registered successfully: 6870e74ad93719ff1a009afc
+[2025-07-11T10:39:29.851Z] [SUCCESS] User registered successfully: anusha.singh.hcaaa@gmail.com
+[2025-07-11T10:40:33.466Z] [SUCCESS] User role registered successfully: 6870e9e1d93719ff1a009b4a
+[2025-07-11T10:41:09.750Z] [SUCCESS] User logged in successfully and the data is returned: anusha.singh.hcaaa@gmail.com
+[2025-07-11T10:42:41.721Z] [SUCCESS] User logged in successfully and the data is returned: anusha.singh.hcaaa@gmail.com
+[2025-07-11T10:44:48.739Z] [SUCCESS] User logged in successfully and the data is returned: anusha.singh.hcaaa@gmail.com
+[2025-07-11T11:12:18.051Z] [SUCCESS] User logged in successfully and the data is returned: anusha.singh.hcaaa@gmail.com
+[2025-07-11T11:29:01.232Z] [SUCCESS] User logged in successfully and the data is returned: anusha.singh.hcaaa@gmail.com
+[2025-07-11T11:36:18.804Z] [SUCCESS] User logged in successfully and the data is returned: anusha.singh.hcaaa@gmail.com
+[2025-07-11T11:44:07.234Z] [SUCCESS] User logged in successfully and the data is returned: anusha.singh.hcaaa@gmail.com
+[2025-07-11T11:47:43.796Z] [SUCCESS] User role registered successfully: 6870f9dd682931e2c4bcf22a
+[2025-07-11T11:48:18.107Z] [SUCCESS] User logged in successfully and the data is returned: anusha.singh.hcaaa@gmail.com
+[2025-07-11T11:48:28.707Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-12: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-11T11:50:42.674Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-12: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-11T11:50:44.717Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-12: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-11T12:08:49.701Z] [SUCCESS] Fetched appointments for patient=6870e9e1d93719ff1a009b4a
+[2025-07-11T12:08:52.358Z] [SUCCESS] Fetched appointments for patient=6870e9e1d93719ff1a009b4a
+[2025-07-11T12:08:59.976Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-17: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-11T12:09:05.995Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-07-11T12:09:05.995Z] [INFO] 📩 [API] Incoming data - doctorId=6870f9dd682931e2c4bcf22a, patientId=6870e9e1d93719ff1a009b4a, date=2025-07-17, time=12:30 PM, reason=testtt
+[2025-07-11T12:09:05.995Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-07-11T12:09:06.015Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=6870f9dd682931e2c4bcf22a, patient=6870e9e1d93719ff1a009b4a at 2025-07-17 12:30 PM
+[2025-07-11T12:09:10.486Z] [SUCCESS] Fetched appointments for patient=6870e9e1d93719ff1a009b4a
+[2025-07-11T13:39:06.717Z] [SUCCESS] User logged in successfully and the data is returned: anusha.singh.hcaaa@gmail.com

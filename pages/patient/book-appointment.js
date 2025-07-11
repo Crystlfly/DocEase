@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "@/styles/BookAppointment.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserDoctor } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import PatientHeader from "@/components/patientHeader";
 
 const timeSlots = [
@@ -24,7 +25,10 @@ function convertTo24Hour(timeStr) {
   return `${hours.toString().padStart(2, "0")}:${minutes}`;
 }
 
+
+
 export default function BookAppointment() {
+  const [searchTerm, setSearchTerm] = useState("");
   const [doctors, setDoctors] = useState([]);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
   const [date, setDate] = useState("");
@@ -35,6 +39,15 @@ export default function BookAppointment() {
   const [success, setSuccess] = useState("");
   const [availableSlots, setAvailableSlots] = useState([]);
   const [appointmentDetails, setAppointmentDetails] = useState(null);
+
+  const filteredDoctors = doctors.filter((doc) => {
+  const term = searchTerm.toLowerCase();
+  return (
+    doc.name?.toLowerCase().includes(term) ||
+    doc.specialization?.toLowerCase().includes(term) ||
+    doc.address?.toLowerCase().includes(term)
+  );
+});
 
   // ✅ Correctly fetch doctors on first render
   useEffect(() => {
@@ -91,7 +104,7 @@ export default function BookAppointment() {
     setError("");
     setSuccess("");
     if (!selectedDoctor || !date || !time || !reason) {
-      alert("Please fill all fields.");
+      setError("Please fill all fields."); 
       return;
     }
 
@@ -119,10 +132,13 @@ export default function BookAppointment() {
         setAppointmentDetails({
     ...appointmentData,
     _id: data.appointmentID });
+      setTimeout(() => {
+    setSelectedDoctor(null);
+  }, 2000);
         setDate("");
         setTime("");
         setReason("");
-        setSelectedDoctor(null);
+
       }else{
         setError("Failed to book appointment. Please try again.");
       }
@@ -135,10 +151,20 @@ export default function BookAppointment() {
     <div className={styles.container}>
       <PatientHeader />
       {!selectedDoctor ? (
+        <div className={styles.searchBar}>
+  <input
+    type="text"
+    placeholder="Search by name, specialization or address"
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    className={styles.searchInput}
+  />
+
         <div className={styles.fullWidthDoctorList}>
+          
           <h2 className={styles.title}>Available Doctors</h2>
           <div className={styles.cardGrid}>
-            {doctors.map((doc) => (
+{filteredDoctors.map((doc) => (
               <div
                 key={doc._id}
                 className={styles.card}
@@ -169,12 +195,25 @@ export default function BookAppointment() {
             ))}
           </div>
         </div>
+        </div>
+        
       ) : (
+        <div className={styles.searchBar}>
+            <input
+              type="text"
+              placeholder="Search by name, specialization or address"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className={styles.searchInput}
+            />
+          
+        
         <div className={styles.flexWrapper}>
+          
           <div className={styles.leftPane}>
             <h2 className={styles.title}>Available Doctors</h2>
             <div className={styles.cardGrid}>
-              {doctors.map((doc) => (
+{filteredDoctors.map((doc) => (
                 <div
                   key={doc._id}
                   className={`${styles.card} ${
@@ -208,60 +247,70 @@ export default function BookAppointment() {
           </div>
 
           <div className={styles.rightPane}>
+            
             <div className={styles.formContainer}>
-              <h3 className={styles.formTitle}>Book Appointment with </h3>
-              <h3 className={styles.doctorNameForm}>Dr. {selectedDoctor.name}</h3>
+              
+              <div className={styles.theForm}>
+                <h3 className={styles.formTitle}>Book Appointment with </h3>
+                <h3 className={styles.doctorNameForm}>Dr. {selectedDoctor.name}</h3>
 
-              <div className={styles.formGroup}>
-                <label>Date:</label>
-                <input type="date" value={date} onChange={(e) => setDate(e.target.value)} 
-                min={new Date().toISOString().split("T")[0]} />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label>Time Slot:</label>
-                <select value={time} onChange={(e) => setTime(e.target.value)}>
-                  <option value="">Select</option>
-                  {availableSlots.length > 0 ? (
-                    availableSlots.map((slot) => {
-                      const slot24 = convertTo24Hour(slot); // e.g., "14:00"
-                      const currentTime = new Date().toTimeString().slice(0, 5); // e.g., "13:25"
-                      const isToday = date === new Date().toISOString().split("T")[0];
-                      const isPast = isToday && slot24 < currentTime;
-                      return (
-                        <option key={slot} value={slot} disabled={isPast}>
-                          {slot}
-                        </option>
-                      );
-                    })
-                  ) : (
-                    <option disabled>No slots available</option>
-                  )}
-                </select>
-              </div>
-
-              <div className={styles.formGroup}>
-                <label>Reason:</label>
-                <textarea type="text" value={reason} onChange={(e) => setReason(e.target.value)} rows={5}cols={41} />
-              </div>
-
-              <button className={styles.button} onClick={handleSubmit}>
-                Book Appointment
-              </button>
-              {success && <p style={{ color: "green", marginTop: "1rem" }}>{success}</p>}
-              {appointmentDetails && (
-                <div style={{ marginTop: "1rem",  padding: "1rem", borderRadius: "5px" }}>
-                  <h4>Appointment Details</h4>
-                  <p><strong>Appointment ID:</strong> {appointmentDetails._id}</p>
-                  <p><strong>Doctor:</strong> {selectedDoctor.name}</p>
-                  <p><strong>Date:</strong> {appointmentDetails.date}</p>
-                  <p><strong>Time:</strong> {appointmentDetails.time}</p>
-                  <p><strong>Reason:</strong> {appointmentDetails.reason}</p>
+                <div className={styles.formGroup}>
+                  <label htmlFor="datee" className={styles.inputPos}>Date:</label>
+                  <input id="datee" type="date" value={date} onChange={(e) => setDate(e.target.value)} 
+                  min={new Date().toISOString().split("T")[0]} />
                 </div>
-              )}
 
+                <div className={styles.formGroup}>
+                  <label htmlFor="timee" className={styles.inputPos}>Time Slot:</label>
+                  <select id="timee" value={time} onChange={(e) => setTime(e.target.value)}>
+                    <option value="">Select</option>
+                    {availableSlots.length > 0 ? (
+                      availableSlots.map((slot) => {
+                        const slot24 = convertTo24Hour(slot); // e.g., "14:00"
+                        const currentTime = new Date().toTimeString().slice(0, 5); // e.g., "13:25"
+                        const isToday = date === new Date().toISOString().split("T")[0];
+                        const isPast = isToday && slot24 < currentTime;
+                        return (
+                          <option key={slot} value={slot} disabled={isPast}>
+                            {slot}
+                          </option>
+                        );
+                      })
+                    ) : (
+                      <option disabled>No slots available</option>
+                    )}
+                  </select>
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label htmlFor="reasonn" className={styles.inputPos}>Reason:</label>
+                  <textarea id="reasonn" type="text" className={styles.forTextArea}value={reason} onChange={(e) => setReason(e.target.value)} rows={5}cols={41} />
+                </div>
+
+                <button className={styles.button} onClick={handleSubmit}>
+                  Book Appointment
+                </button>
+                {success && <p style={{ color: "green", marginTop: "1rem" }}>{success}</p>}
+                {error && <p style={{ color: "red", marginTop: "1rem" }}>{error}</p>}
+                {appointmentDetails && (
+                  <div style={{ marginTop: "1rem",  padding: "1rem", borderRadius: "5px" }}>
+                    <h4>Appointment Details</h4>
+                    <p><strong>Appointment ID:</strong> {appointmentDetails._id}</p>
+                    <p><strong>Doctor:</strong> {selectedDoctor.name}</p>
+                    <p><strong>Date:</strong> {appointmentDetails.date}</p>
+                    <p><strong>Time:</strong> {appointmentDetails.time}</p>
+                    <p><strong>Reason:</strong> {appointmentDetails.reason}</p>
+                  </div>
+                )}
+              </div>
+              <div className={styles.cancelButtonWrapper}>
+            <button className={styles.cancelButton} onClick={() => setSelectedDoctor(null)}>
+                <FontAwesomeIcon icon={faXmark} />
+              </button>
+          </div>
             </div>
           </div>
+        </div>
         </div>
       )}
     </div>

@@ -25,7 +25,9 @@ export default async function handler(req, res) {
   
 
     // 1. Find the doctor by email
+    console.log("🔍 [DB] Fetching doctor by email:", email);
     const doctor = await db.getDoctorByEmail(email);
+    
     console.log("🔍 [DB] Doctor fetched:", doctor?.name || "Not found");
     // const doctor_id= localStorage.getItem("UserId");
     // const doctor_name= localStorage.getItem("UserName");
@@ -36,7 +38,11 @@ export default async function handler(req, res) {
 
     // 2. Get total patients linked to this doctor
     const patientIds = await db.getPatientIdsByDoctor(doctor._id);
-    const patientList = await db.getPatientsByIds(patientIds);
+    let patientList = [];
+    if (patientIds.length > 0) {
+      patientList = await db.getPatientsByIds(patientIds);
+    }
+
     const totalPatients = patientList.length;
     console.log(`📊 [Stats] Total unique patients: ${totalPatients}`);
 
