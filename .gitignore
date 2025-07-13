@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore Docker-related files
+Dockerfile
+
+# Ignore reference HTML file
+index.html

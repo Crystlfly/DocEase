@@ -6,8 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+    "lint": "next lint"
+    
+    
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
