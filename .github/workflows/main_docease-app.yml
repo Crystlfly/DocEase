@@ -9,6 +9,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write     # 🔥 REQUIRED for azure/login@v2 OIDC
+      contents: read      # 🔥 REQUIRED to access repo contents
 
     steps:
       - name: Checkout code
