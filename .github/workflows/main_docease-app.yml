@@ -1,4 +1,4 @@
-name: Build and deploy Node.js app to Azure Web App - docease-app
+name: Build and Deploy Node.js App to Azure Web App - docease-app
 
 on:
   push:
@@ -30,8 +30,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact
-          path: .next/ # or `out/` if you're using `next export`
-  
+          path: |
+            .next
+            public
+            package.json
+            node_modules
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -44,6 +47,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-artifact
+          path: build-artifact
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -58,4 +62,4 @@ jobs:
         with:
           app-name: 'docease-app'
           slot-name: 'Production'
-          package: .next/
+          package: build-artifact
