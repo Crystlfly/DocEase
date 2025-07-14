@@ -7,13 +7,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -26,28 +25,10 @@ jobs:
       - name: Build the app
         run: npm run build
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifact
-          path: |
-            .next
-            public
-            package.json
-            node_modules
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      id-token: write
-      contents: read
-
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build-artifact
-          path: build-artifact
+      - name: Prepare deploy folder
+        run: |
+          mkdir deploy
+          cp -r .next public package.json node_modules deploy/
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -58,8 +39,7 @@ jobs:
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
-        id: deploy-to-webapp
         with:
           app-name: 'docease-app'
           slot-name: 'Production'
-          package: build-artifact
+          package: deploy
