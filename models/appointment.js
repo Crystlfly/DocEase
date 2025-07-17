@@ -11,7 +11,12 @@ const appointmentSchema = new mongoose.Schema({
   patientId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User", // also pointing to User
-    required: true,
+    required: false,
+  },
+  guestUserId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User", // also pointing to User
+    required: false,
   },
   date: {
     type: String,

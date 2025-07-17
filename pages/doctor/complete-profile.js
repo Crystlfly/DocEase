@@ -17,10 +17,10 @@ export default function CompleteDoctorProfile() {
     const token = localStorage.getItem('token');
     
 
-    if (!token) {
-      router.replace('/login'); // Not logged in, redirect
-      return;
-    }
+    // if (!token) {
+    //   router.replace('/login'); // Not logged in, redirect
+    //   return;
+    // }
 
     // try {
     //   const decoded = jwtDecode(token);

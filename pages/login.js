@@ -113,11 +113,13 @@ export default function LoginPage() {
 
 useEffect(() => {
   if (status === "authenticated" && session?.user) {
-    localStorage.setItem("user", JSON.stringify(session.user));
-    localStorage.setItem("UserName", session.user.name || "");
-    localStorage.setItem("UserEmail", session.user.email || "");
-    localStorage.setItem("UserId", session.user._id || "");
-    localStorage.setItem("userRole", session.user.role || "");
+    if (!localStorage.getItem("UserId")) {
+      localStorage.setItem("user", JSON.stringify(session.user));
+      localStorage.setItem("UserName", session.user.name || "");
+      localStorage.setItem("UserEmail", session.user.email || "");
+      localStorage.setItem("UserId", session.user._id || "");
+      localStorage.setItem("userRole", session.user.role || "");
+    }
     console.log("✅ [Google Login] Stored in localStorage:", session.user);
   }
 }, [session, status]);

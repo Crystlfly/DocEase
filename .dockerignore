@@ -1,0 +1,11 @@
+# .dockerignore
+node_modules
+.next
+coverage
+.vscode
+npm-debug.log
+.git
+*.log
+.DS_Store
+Thumbs.db
+

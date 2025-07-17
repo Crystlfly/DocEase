@@ -15,7 +15,9 @@ export default function ChooseRole() {
       const session = await getSession();
       if (session && session.user?._id) {
         setUserId(session.user._id); // ✅ set it from session
-        localStorage.setItem("UserId", session.user._id); // optional
+        if (!localStorage.getItem("UserId")) {
+          localStorage.setItem("UserId", session.user.id);
+        }      
       } else {
         console.warn("⚠️ User session or ID missing");
       }

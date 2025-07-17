@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     }
     // console.log("email does not exist, proceeding with registration...", email);
     const hashedPassword = await bcrypt.hash(password, 10);
-    const timestampId = Date.now().toString();
+    // const timestampId = Date.now().toString();
     const newUserData = {
       name,
       email: email.toLowerCase(), // Ensure email is stored in lowercase
@@ -43,6 +43,18 @@ export default async function handler(req, res) {
     //   newUserData.did = "D" + timestampId;
     // }
     const savedData=await db.createUser(newUserData);
+
+    const guest = await db.find_guest_user( newUserData.email );
+    if (guest) {
+    // Migrate appointments
+    await db.updateAppointmentGuest(guest._id, savedData._id);
+
+    // Optional: remove guest entry
+    await db.removeGuestUser(guest._id);
+
+    console.log(`Migrated guest appointments to user ${savedData.email}`);
+  }
+
     logger.success(`User registered successfully: ${email}`);
     return res.status(201).json({ message: "User registered successfully", 
         id: savedData._id,

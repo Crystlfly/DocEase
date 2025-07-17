@@ -54,11 +54,13 @@ export default function Signup() {
     });
 
     const data = await res.json();
+    console.log("uid",data.id);
 
     if (!res.ok) {
       setError(data.message || "Signup failed");
     } else {
       setSuccess("Signup successful! Redirecting you....");
+      localStorage.clear();
       localStorage.setItem("UserId", data.id);
       localStorage.setItem("UserName", name);
       localStorage.setItem("UserEmail", email);

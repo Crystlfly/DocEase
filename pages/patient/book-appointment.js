@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserDoctor } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import PatientHeader from "@/components/patientHeader";
+import GuestHeader from "@/components/guestHeader";
 
 const timeSlots = [
   "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
@@ -39,6 +40,8 @@ export default function BookAppointment() {
   const [success, setSuccess] = useState("");
   const [availableSlots, setAvailableSlots] = useState([]);
   const [appointmentDetails, setAppointmentDetails] = useState(null);
+  const [guestEmail, setGuestEmail] = useState("");
+
 
   const filteredDoctors = doctors.filter((doc) => {
   const term = searchTerm.toLowerCase();
@@ -103,41 +106,49 @@ export default function BookAppointment() {
     e.preventDefault();
     setError("");
     setSuccess("");
-    if (!selectedDoctor || !date || !time || !reason) {
+    const isGuest = !patientId;
+    if (!selectedDoctor || !date || !time || !reason || (isGuest && !guestEmail)) {
       setError("Please fill all fields."); 
       return;
     }
 
-    const appointmentData = {
+    const payload  = {
       doctorId: selectedDoctor._id,
-      patientId: patientId, // Replace with real patient ID
       date,
       time,
       reason,
       status: "upcoming"
     };
+    
+    if (isGuest) {
+      payload.email = guestEmail;
+    } else {
+      payload.patientId = patientId;
+    }
     // Here you would typically send the appointmentData to your backend API
     try {
-      const response=await fetch("/api/appointment/book", {
+      const response=await fetch(isGuest ? "/api/appointment/guest-book" : "/api/appointment/book",{
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(appointmentData)
+        body: JSON.stringify(payload)
       });
       const data = await response.json(); // ✅ Extract response body
       if(response.ok){
-        console.log("Booking appointment:", appointmentData);
+        console.log("Booking appointment:", payload);
         setSuccess("Appointment booked!");
         setAppointmentDetails({
-    ...appointmentData,
-    _id: data.appointmentID });
+    ...payload,
+    _id: data.appointment?._id || data.appointmentID });
       setTimeout(() => {
-    setSelectedDoctor(null);
-  }, 2000);
+        setSelectedDoctor(null);
+      }, 2000);
         setDate("");
         setTime("");
         setReason("");
+        if (isGuest) setGuestEmail("");
+
 
       }else{
         setError("Failed to book appointment. Please try again.");
@@ -145,20 +156,23 @@ export default function BookAppointment() {
     }catch (error) {
         console.error("Error booking appointment:", error);
         setError("An error occurred while booking the appointment.");
-      } };
+      } 
+  };
+
+  const isGuest = typeof window !== "undefined" && !localStorage.getItem("UserId");
 
   return (
     <div className={styles.container}>
-      <PatientHeader />
+      {isGuest ? <GuestHeader /> : <PatientHeader />}
       {!selectedDoctor ? (
         <div className={styles.searchBar}>
-  <input
-    type="text"
-    placeholder="Search by name, specialization or address"
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    className={styles.searchInput}
-  />
+          <input
+            type="text"
+            placeholder="Search by name, specialization or address"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className={styles.searchInput}
+          />
 
         <div className={styles.fullWidthDoctorList}>
           
@@ -191,6 +205,10 @@ export default function BookAppointment() {
                     <span className={styles.key}>Address:</span>{" "}
                     <span className={styles.value}>{doc.address || "N.A."}</span>
                   </p>
+                  {/* <p>
+                    <span className={styles.key}>About the Doctor:</span>{" "}
+                    <span className={styles.value}>{doc.about || "N.A."}</span>
+                  </p> */}
               </div>
             ))}
           </div>
@@ -254,42 +272,58 @@ export default function BookAppointment() {
                 <h3 className={styles.formTitle}>Book Appointment with </h3>
                 <h3 className={styles.doctorNameForm}>Dr. {selectedDoctor.name}</h3>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="datee" className={styles.inputPos}>Date:</label>
-                  <input id="datee" type="date" value={date} onChange={(e) => setDate(e.target.value)} 
-                  min={new Date().toISOString().split("T")[0]} />
-                </div>
+                <form onSubmit={handleSubmit} className={styles.theForm}>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="datee" className={styles.inputPos}>Date:</label>
+                    <input id="datee" type="date" value={date} onChange={(e) => setDate(e.target.value)} 
+                    min={new Date().toISOString().split("T")[0]} />
+                  </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="timee" className={styles.inputPos}>Time Slot:</label>
-                  <select id="timee" value={time} onChange={(e) => setTime(e.target.value)}>
-                    <option value="">Select</option>
-                    {availableSlots.length > 0 ? (
-                      availableSlots.map((slot) => {
-                        const slot24 = convertTo24Hour(slot); // e.g., "14:00"
-                        const currentTime = new Date().toTimeString().slice(0, 5); // e.g., "13:25"
-                        const isToday = date === new Date().toISOString().split("T")[0];
-                        const isPast = isToday && slot24 < currentTime;
-                        return (
-                          <option key={slot} value={slot} disabled={isPast}>
-                            {slot}
-                          </option>
-                        );
-                      })
-                    ) : (
-                      <option disabled>No slots available</option>
-                    )}
-                  </select>
-                </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="timee" className={styles.inputPos}>Time Slot:</label>
+                    <select id="timee" value={time} onChange={(e) => setTime(e.target.value)}>
+                      <option value="">Select</option>
+                      {availableSlots.length > 0 ? (
+                        availableSlots.map((slot) => {
+                          const slot24 = convertTo24Hour(slot); // e.g., "14:00"
+                          const currentTime = new Date().toTimeString().slice(0, 5); // e.g., "13:25"
+                          const isToday = date === new Date().toISOString().split("T")[0];
+                          const isPast = isToday && slot24 < currentTime;
+                          return (
+                            <option key={slot} value={slot} disabled={isPast}>
+                              {slot}
+                            </option>
+                          );
+                        })
+                      ) : (
+                        <option disabled>No slots available</option>
+                      )}
+                    </select>
+                  </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="reasonn" className={styles.inputPos}>Reason:</label>
-                  <textarea id="reasonn" type="text" className={styles.forTextArea}value={reason} onChange={(e) => setReason(e.target.value)} rows={5}cols={41} />
-                </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="reasonn" className={styles.inputPos}>Reason:</label>
+                    <textarea id="reasonn" type="text" className={styles.forTextArea}value={reason} onChange={(e) => setReason(e.target.value)} rows={5}cols={41} />
+                  </div>
 
-                <button className={styles.button} onClick={handleSubmit}>
-                  Book Appointment
-                </button>
+                  {!patientId && (
+                    <div className={styles.formGroup}>
+                      <label htmlFor="guestEmail" className={styles.inputPos}>Your Email:</label>
+                      <input
+                        id="guestEmail"
+                        type="email"
+                        value={guestEmail}
+                        onChange={(e) => setGuestEmail(e.target.value)}
+                        required
+                      />
+                    </div>
+                  )}
+
+
+                  <button type="submit" className={styles.button} >
+                    Book Appointment
+                  </button>
+                </form>
                 {success && <p style={{ color: "green", marginTop: "1rem" }}>{success}</p>}
                 {error && <p style={{ color: "red", marginTop: "1rem" }}>{error}</p>}
                 {appointmentDetails && (

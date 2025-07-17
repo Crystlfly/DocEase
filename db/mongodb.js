@@ -3,6 +3,7 @@ import User from "@/models/user";
 import Appointment from "@/models/appointment";
 import Role from "@/models/role";
 import Userrole from "@/models/userrole";
+import GuestUser from "@/models/guestuser"
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -229,6 +230,23 @@ export async function findUserByEmailAndRole(email,role){
 
   return user;
 }
+export async function updateAppointmentGuest(guestId, newUserId) {
+  await connect();
+  const updatedAppointments = await Appointment.updateMany(
+    { guestUserId: guestId },
+    {
+      $set: { patientId: newUserId },
+      $unset: { guestUserId: "" },
+    }
+  );
+  return updatedAppointments;
+}
+
+export async function removeGuestUser(guestId){
+  await connect();
+  return await GuestUser.deleteOne({_id: guestId});
+}
+
 export async function createUser(userData){
   // try{
   // await connect();
@@ -241,6 +259,29 @@ export async function createUser(userData){
 }
 
 //~~Appointment~~
+// Guest user
+export async function find_guest_user(email){
+  await connect();
+  return GuestUser.findOne({ email: email.toLowerCase() });
+}
+export async function create_guest_user(email) {
+  await connect(); // optional if already connected
+  const guest = new GuestUser({ email });
+  return await guest.save();
+}
+
+export async function create_guest_appointment(guestId, doctorId, date, time, reason) {
+  await connect();
+  const newGuestAppointment= new Appointment({
+    doctorId,
+    guestUserId: guestId,
+    date,
+    time,
+    reason,
+    status: 'upcoming',
+  });
+  return await newGuestAppointment.save();
+}
 // Book an appointment
 export async function bookedSlot(doctorId, date, time){
   await connect();

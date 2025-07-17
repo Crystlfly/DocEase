@@ -9,8 +9,8 @@ services:
       - mongo
     environment:
       - MONGODB_URI=mongodb://mongo:27017/dapp
-    volumes:
-      - .:/app
+      - NODE_ENV=production
+    
 
   mongo:
     image: mongo

@@ -747,3 +747,31 @@
 [2025-07-11T12:09:06.015Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=6870f9dd682931e2c4bcf22a, patient=6870e9e1d93719ff1a009b4a at 2025-07-17 12:30 PM
 [2025-07-11T12:09:10.486Z] [SUCCESS] Fetched appointments for patient=6870e9e1d93719ff1a009b4a
 [2025-07-11T13:39:06.717Z] [SUCCESS] User logged in successfully and the data is returned: anusha.singh.hcaaa@gmail.com
+[2025-07-15T17:04:19.688Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-15: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-15T17:04:24.298Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-16: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-15T17:08:07.341Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-16: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:30 PM,4:00 PM
+[2025-07-15T17:15:30.598Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-16: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,2:00 PM,2:30 PM,3:30 PM,4:00 PM
+[2025-07-15T17:17:23.256Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-16: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,2:30 PM,3:30 PM,4:00 PM
+[2025-07-15T18:11:28.667Z] [SUCCESS] User registered successfully: lalad@gmail.com
+[2025-07-15T18:14:38.621Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-16: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-15T18:15:39.440Z] [ERROR] User not found for email: lalad@gmail.com
+[2025-07-15T18:15:57.742Z] [SUCCESS] User registered successfully: lalad@gmail.com
+[2025-07-15T18:17:45.325Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-16: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-15T18:18:13.960Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-16: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-15T18:18:53.078Z] [SUCCESS] User registered successfully: lalad@gmail.com
+[2025-07-15T18:23:30.035Z] [SUCCESS] Fetched booked slots for doctor=6870f9dd682931e2c4bcf22a on 2025-07-16: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:30 PM,4:00 PM
+[2025-07-15T18:24:15.914Z] [SUCCESS] User registered successfully: laladd@gmail.com
+[2025-07-15T18:28:30.784Z] [SUCCESS] User role registered successfully: 68769ccf204072a977608544
+[2025-07-15T18:37:27.631Z] [SUCCESS] User logged in successfully and the data is returned: laladd@gmail.com
+[2025-07-17T13:09:43.751Z] [SUCCESS] User registered successfully: mark@gmail.com
+[2025-07-17T13:10:17.303Z] [ERROR] Doctor not found for email: mark@gmail.com
+[2025-07-17T13:12:40.114Z] [SUCCESS] User registered successfully: mark@gmail.com
+[2025-07-17T13:12:49.107Z] [SUCCESS] User role registered successfully: 6870f9dd682931e2c4bcf22a
+[2025-07-17T13:15:56.263Z] [SUCCESS] User registered successfully: mark@gmail.com
+[2025-07-17T13:21:23.224Z] [SUCCESS] User registered successfully: mark@gmail.com
+[2025-07-17T14:23:42.666Z] [SUCCESS] User registered successfully: mark@gmail.com
+[2025-07-17T14:23:51.850Z] [SUCCESS] User role registered successfully: 6879076e878bdbd64083f330
+[2025-07-17T14:52:03.632Z] [SUCCESS] ✅ Profile completed for: mark@gmail.com
+[2025-07-17T15:02:43.376Z] [SUCCESS] User registered successfully: alex@gmail.com
+[2025-07-17T15:02:45.978Z] [SUCCESS] User role registered successfully: 68791093878bdbd64083f39e
+[2025-07-17T15:03:52.304Z] [SUCCESS] ✅ Profile completed for: alex@gmail.com
