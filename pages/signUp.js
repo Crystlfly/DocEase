@@ -59,11 +59,17 @@ export default function Signup() {
     if (!res.ok) {
       setError(data.message || "Signup failed");
     } else {
-      setSuccess("Signup successful! Redirecting you....");
+     setSuccess("Signup successful! Redirecting you....");
       localStorage.clear();
-      localStorage.setItem("UserId", data.id);
-      localStorage.setItem("UserName", name);
-      localStorage.setItem("UserEmail", email);
+
+      // Store signup data with "App" prefix
+      localStorage.setItem("AppUserId", data.id);
+      localStorage.setItem("AppUserName", name);
+      localStorage.setItem("AppUserEmail", email);
+
+      // Set auth method explicitly
+      localStorage.setItem("authMethod", "signup");
+
 
       // localStorage.setItem("UserId", loginData.user.id);
       // localStorage.setItem("UserName", loginData.user.name);
