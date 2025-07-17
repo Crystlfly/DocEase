@@ -55,16 +55,12 @@ export default function LoginPage() {
 
       if (res.ok) {
         alert("Login successful!");
-
-        // Use "App" prefixes to distinguish from Google logins
-        localStorage.setItem("AppUserName", data.user.name);
-        localStorage.setItem("AppUserEmail", data.user.email);
-        localStorage.setItem("AppUserId", data.user.id);
-        localStorage.setItem("AppUserRoles", JSON.stringify(data.user.roles));
-        localStorage.setItem("AppToken", data.user.token);
-
-        // Track which method is currently active
-        localStorage.setItem("authMethod", "signup");
+        localStorage.setItem("UserName", data.user.name);
+        // localStorage.setItem("userRole", data.user.role);
+        localStorage.setItem("UserEmail", data.user.email);
+        localStorage.setItem("UserId", data.user.id);
+        localStorage.setItem("token", data.user.token); // Store JWT token
+        localStorage.setItem("userRoles", JSON.stringify(data.user.roles));
 
         console.log("✅ [Login Success] LocalStorage populated");
         await dbLogger("info", "Login successful", { email });
@@ -117,19 +113,15 @@ export default function LoginPage() {
 
 useEffect(() => {
   if (status === "authenticated" && session?.user) {
-    const authMethod = localStorage.getItem("authMethod");
-    // Only set Google user data if no user is already logged in manually
-    if (!authMethod || authMethod === "google") {
-      localStorage.setItem("authMethod", "google");
-      localStorage.setItem("GoogleUserId", session.user._id || "");
-      localStorage.setItem("GoogleUserName", session.user.name || "");
-      localStorage.setItem("GoogleUserEmail", session.user.email || "");
-      localStorage.setItem("GoogleUserRole", session.user.role || "");
-      localStorage.setItem("GoogleUserData", JSON.stringify(session.user));
-      console.log("✅ [Google Login] Stored in localStorage:", session.user);
-    } else {
-      console.log("⚠️ Skipping Google login storage — already authenticated via:", authMethod);
+    if (!localStorage.getItem("UserId")) {
+      localStorage.setItem("user", JSON.stringify(session.user));
+      localStorage.setItem("UserName", session.user.name || "");
+      localStorage.setItem("UserEmail", session.user.email || "");
+      localStorage.setItem("UserId", session.user._id || "");
+      localStorage.setItem("userRole", session.user.role || "");
     }
+
+    console.log("✅ [Google Login] Stored in localStorage:", session.user);
   }
 }, [session, status]);
 

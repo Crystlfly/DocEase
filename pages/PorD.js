@@ -11,32 +11,18 @@ export default function ChooseRole() {
   const [userId, setUserId] = useState("");
 
   useEffect(() => {
-  async function loadUser() {
-    const session = await getSession();
-    if (session && session.user?._id) {
-      setUserId(session.user._id); // ✅ store in state if needed
-
-      const authMethod = localStorage.getItem("authMethod");
-
-      // Only save Google login data if no existing login or if already using Google
-      if (!authMethod || authMethod === "google") {
-        localStorage.setItem("GoogleUserId", session.user._id);
-        localStorage.setItem("GoogleUserName", session.user.name || "");
-        localStorage.setItem("GoogleUserEmail", session.user.email || "");
-        localStorage.setItem("authMethod", "google");
-
-        console.log("✅ [Google Session] Stored GoogleUserId:", session.user._id);
-      } else {
-        console.log("⛔ Ignored Google session: already logged in via", authMethod);
+    async function loadUser() {
+      const session = await getSession();
+      if (session && session.user?._id) {
+        setUserId(session.user._id); // ✅ set it from session
+        if (!localStorage.getItem("UserId")) {
+          localStorage.setItem("UserId", session.user.id);
+        }      } else {
+        console.warn("⚠️ User session or ID missing");
       }
-    } else {
-      console.warn("⚠️ User session or ID missing");
     }
-  }
-
-  loadUser();
-}, []);
-
+    loadUser();
+  }, []);
   
 
   const handleSelectRole = async (role) => {
