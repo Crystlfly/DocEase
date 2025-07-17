@@ -14,7 +14,6 @@ export default function RedirectPage() {
       router.replace("/login");
       return;
     }
-
     const roles = session.user.roles || [];
 
     if (roles.length === 0) {
