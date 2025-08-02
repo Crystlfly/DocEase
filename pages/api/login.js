@@ -63,11 +63,11 @@ export default async function handler(req, res) {
     }
     // Send back user info (omit password)
     const token = jwt.sign(
-      { userId: user._id, roles: roleDocs.map(r => r.name || r.roleName) },
+      { userId: user._id, roles: roleDocs },
       process.env.JWT_SECRET,
       { expiresIn: '1d' }
     );
-    await dbLogger("info", "User logged in successfully", { email, roles: roleDocs.map(r => r.name || r.roleName) });
+    await dbLogger("info", "User logged in successfully", { email, roleDocs });
     const preId= user._id.toString();
     logger.success(`User logged in successfully and the data is returned: ${email}`);
     return res.status(200).json({

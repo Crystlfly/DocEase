@@ -775,3 +775,26 @@
 [2025-07-17T15:02:43.376Z] [SUCCESS] User registered successfully: alex@gmail.com
 [2025-07-17T15:02:45.978Z] [SUCCESS] User role registered successfully: 68791093878bdbd64083f39e
 [2025-07-17T15:03:52.304Z] [SUCCESS] ✅ Profile completed for: alex@gmail.com
+[2025-07-17T16:24:19.529Z] [SUCCESS] User role registered successfully: 68791093878bdbd64083f39e
+[2025-07-21T15:33:03.169Z] [SUCCESS] Fetched booked slots for doctor=68791fe3e92cad65c9b36e2d on 2025-07-22: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-21T15:34:19.745Z] [SUCCESS] Fetched booked slots for doctor=68791fe3e92cad65c9b36e2d on 2025-07-22: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-21T15:34:23.647Z] [SUCCESS] Fetched booked slots for doctor=68791fe3e92cad65c9b36e2d on 2025-07-22: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-07-22T13:25:16.384Z] [SUCCESS] User registered successfully: E23CSEU1119@bennett.edu.in
+[2025-07-22T13:25:19.687Z] [SUCCESS] User role registered successfully: 687f913c391665efbeed21e1
+[2025-07-22T13:39:09.385Z] [SUCCESS] User registered successfully: anushasingh960@gmail.com
+[2025-07-22T13:39:10.717Z] [SUCCESS] User role registered successfully: 687f947d912e8e1b8843e26f
+[2025-07-22T15:32:47.503Z] [SUCCESS] User logged in successfully and the data is returned: anushasingh960@gmail.com
+[2025-08-01T08:00:11.151Z] [SUCCESS] User logged in successfully and the data is returned: e23Cseu1119@bennett.edu.in
+[2025-08-02T13:59:17.435Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T14:14:33.171Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T14:20:06.559Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T14:28:44.035Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T14:29:35.630Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T14:31:12.656Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T14:32:28.705Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T14:49:50.024Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T14:50:49.260Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T14:52:56.436Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T14:59:53.033Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T15:02:32.422Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-02T15:06:15.106Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com

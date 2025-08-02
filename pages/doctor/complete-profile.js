@@ -114,13 +114,14 @@ export default function CompleteDoctorProfile() {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>Complete Your Profile</h2>
+        <div className={styles.topBar}>
+          <h2 className={styles.heading}>Complete Your Profile</h2>
+          <Link href="/doctor/dashboard" className={styles.cancelButton}>
+            <FontAwesomeIcon icon={faXmark} />
+          </Link>
+        </div>
         <form onSubmit={handleSubmit} className={styles.form} encType="multipart/form-data">
-          <div className={styles.cancelButtonWrapper}>
-            <Link href="/doctor/dashboard" className={styles.cancelButton}>
-              <FontAwesomeIcon icon={faXmark} />
-            </Link>
-          </div>
+          
           {/* Custom Image Upload */}
           <div className={styles.avatarWrapper}>
             <label htmlFor="profile-upload" className={styles.avatarLabel}>

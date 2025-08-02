@@ -50,6 +50,18 @@
   border-color: #667eea;
 }
 
+.forgotPassword{
+  /* margin-bottom: 0.5rem; */
+  font-size: 0.8rem;
+  color: #a0d8f4;
+  text-align: right;
+}
+
+.forgotPassword:hover {
+  color: #667eea;
+  text-decoration: underline;
+}
+
 .button {
   padding: 0.75rem;
   background-color: #0a3990;
@@ -160,5 +172,59 @@
   border: none;
   cursor: pointer;
   margin-bottom: 20px;
+}
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .left, .MainRight {
+    width: 100%;
+  }
+
+  .left {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    padding-top: 0;
+  }
+
+  .MainRight {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .verticalLine {
+    display: none;
+  }
+
+  .right {
+    padding-right: 0;
+    width: 100%;
+  }
+
+  .rightLogin {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .input, .button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .form {
+    gap: 0.8rem;
+  }
 }
 

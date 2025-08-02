@@ -90,7 +90,10 @@ export default function LoginPage() {
           console.log("🔄 Multiple roles detected. Redirecting to pord...");
           router.push("/PorD");
         }
-      } else {
+      } else if (res.status === 403) {
+        router.push("/PorD");
+      }
+      else {
         console.error("❌ Login failed:", data.message);
         await dbLogger("error", "Login failed", { email, role, error: data.message });
         setErrorMsg(data.message || "Something went wrong");
@@ -194,6 +197,10 @@ useEffect(() => {
                   className={styles.input}
                   required
                 />
+
+                <Link href="/forgot-password" className={styles.forgotPassword}>
+                  Forgot Password?
+                </Link>
 
                 <button type="submit" className={styles.button}>Login</button>
 

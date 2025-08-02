@@ -149,3 +149,59 @@
   cursor: pointer;
   margin-bottom: 20px;
 }
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column-reverse;
+    width: 95%;
+  }
+
+  .left, .MainRight {
+    width: 100%;
+  }
+
+  .left {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    padding-top: 0;
+  }
+
+  .MainRight {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .right {
+    padding-right: 0;
+    width: 100%;
+  }
+
+  .rightLogin {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .input, .button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .form {
+    gap: 0.8rem;
+  }
+
+  .radioGroup {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

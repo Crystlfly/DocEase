@@ -30,7 +30,7 @@ export default function DoctorHeader() {
           });
 
           const data = await res.json();
-          console.log("Doctor data fetched:", data);
+          // console.log("Doctor data fetched:", data);
           if (res.ok) {
             setDoctorData(data.doctor);
           } else {

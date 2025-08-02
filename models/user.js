@@ -30,6 +30,13 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    resetToken: {
+      type: String,
+      // required: false, // Not required initially, only set when user requests password reset
+    },
+    resetTokenExpiry: {
+      type: Date
+    },
     phone: {
       type: String,
       // required: true,

@@ -202,6 +202,35 @@ export async function fetchPatients(){
   const patients=await User.find({ _id: { $in: userIds } }).select("name email phone");
   return patients;
 }
+//~~reset-password~~
+export async function findUserByResetToken(token) {
+  await connect();
+  return await User.findOne({ resetToken: token}&& {resetTokenExpiry: { $gt: new Date() } });
+}
+export async function updatePassword(userId, hashedPassword) {
+  await connect();
+  const user = await User.findById(userId);
+  if (!user) {
+    throw new Error("User not found");
+  }
+  user.password = hashedPassword;
+  user.resetToken = undefined;
+  user.resetTokenExpiry = undefined; 
+
+  await user.save();
+}
+//~~forgot-password~~
+export const saveResetToken = async (user, token, expiryMinutes = 15) => {
+  const expiry = new Date(Date.now() + 1000 * 60 * expiryMinutes);
+
+  user.resetToken = token;
+  user.resetTokenExpiry = expiry;
+
+  await user.save();
+
+  return { token, expiry };
+};
+
 //~~login~~
 export async function findUserByEmail(email) {
   await connect();

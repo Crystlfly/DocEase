@@ -146,3 +146,68 @@
   color: white;
 }
 
+@media (max-width: 768px) {
+  .statsSection {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .statCard {
+    width: 90%;
+  }
+
+  .appointmentsSection {
+    padding: 16px 20px;
+  }
+
+  .appointmentRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .patientInfo,
+  .actions {
+    flex: none;
+    width: 100%;
+  }
+
+  .actions {
+    justify-content: flex-start;
+  }
+
+  .confirmButtons {
+    flex-wrap: wrap;
+  }
+
+  .confirmButton,
+  .cancelButton,
+  .doneButton {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboardContainer {
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .header {
+    font-size: 1.2rem;
+  }
+
+  .statCard p {
+    font-size: 2rem;
+  }
+
+  .appointmentsSection h2 {
+    font-size: 1.1rem;
+  }
+
+  .appointmentItem p {
+    font-size: 0.95rem;
+  }
+}
