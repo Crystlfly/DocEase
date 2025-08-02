@@ -210,7 +210,14 @@ useEffect(() => {
               <p className={styles.link}>
                 Don't have an account? <Link href="/signUp">Sign up</Link>
               </p>
+
+              <div className={styles.demoCredentials}>
+                <p>Email: test@gmail.com</p>
+                <p>Password: test</p>
+              </div>
+            
             </div>
+
 
             <div className={styles.verticalLine}></div>
 
