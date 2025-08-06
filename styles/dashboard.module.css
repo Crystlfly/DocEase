@@ -146,6 +146,8 @@
   color: white;
 }
 
+
+
 @media (max-width: 768px) {
   .statsSection {
     flex-direction: column;

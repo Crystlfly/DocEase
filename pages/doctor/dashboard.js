@@ -7,6 +7,8 @@ import DoctorHeader from "@/components/doctorHeader";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+
+
 import { useSession } from "next-auth/react";
 
 
@@ -220,6 +222,7 @@ setPatients(data.patients || []); // Now storing the array of patients ✅
                               }}
 
                             >
+
                             <FontAwesomeIcon icon={faCircleCheck} size="2x" className={styles.userIcon} />
 
                             </button>

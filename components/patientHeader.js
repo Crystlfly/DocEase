@@ -5,7 +5,9 @@ import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import styles from "@/styles/PatientHeader.module.css"; // Reuse existing styles
-
+import { faUserInjured } from '@fortawesome/free-solid-svg-icons';
+import { faStethoscope } from '@fortawesome/free-solid-svg-icons';
+import Router from "next/router";
 
 
 export default function PatientHeader() {
@@ -26,6 +28,17 @@ export default function PatientHeader() {
     window.location.href = "/login";
   };
 
+  const registerDoctor = () => {
+    const rolesRaw=localStorage.getItem("userRoles");
+    if(rolesRaw.includes("doctor")) {
+      Router.push("/doctor/dashboard");
+    }
+    else{
+      Router.push("/PorD")
+
+    }
+  };
+
   return (
     <header className={styles.header}>
       <Link href="/patient/dashboard">
@@ -33,6 +46,8 @@ export default function PatientHeader() {
       </Link>
 
       <div className={styles.profileWrapper}>
+        <FontAwesomeIcon icon={faUserInjured} size="2x" className={styles.userIcon} title="Patient" onClick={() => Router.push("/patient/dashboard")}/>
+        <FontAwesomeIcon icon={faStethoscope} size="2x" className={styles.userIcon} title="Doctor" onClick={() => registerDoctor()}/>
         <FontAwesomeIcon
           icon={faCircleUser}
           size="2x"

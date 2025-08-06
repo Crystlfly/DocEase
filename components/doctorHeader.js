@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Router from "next/router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import styles from "@/styles/header.module.css"; // Reuse existing styles
+import { faUserInjured } from '@fortawesome/free-solid-svg-icons';
+import { faStethoscope } from '@fortawesome/free-solid-svg-icons';
 // import * as db from "@/db";
 
 
@@ -50,6 +53,17 @@ export default function DoctorHeader() {
     window.location.href = "/login";
   };
 
+  const registerPatient = () => {
+    const rolesRaw=localStorage.getItem("userRoles");
+    if(rolesRaw.includes("patient")) {
+      Router.push("/patient/dashboard");
+    }
+    else{
+      Router.push("/PorD")
+
+    }
+  };
+
   return (
     <header className={styles.header}>
       <Link href="/doctor/dashboard">
@@ -57,10 +71,13 @@ export default function DoctorHeader() {
       </Link>
 
       <div className={styles.profileWrapper}>
+        <FontAwesomeIcon icon={faUserInjured} size="2x" className={styles.userIcon} title="Patient" onClick={() => registerPatient()}/>
+        <FontAwesomeIcon icon={faStethoscope} size="2x" className={styles.userIcon} title="Doctor" onClick={() => Router.push("/doctor/dashboard")}/>
         <FontAwesomeIcon
           icon={faCircleUser}
           size="2x"
           className={styles.userIcon}
+          title="Profile"
           onClick={() => setShowProfile(!showProfile)}
         />
 

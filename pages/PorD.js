@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { getSession } from "next-auth/react";
 
+
 export default function ChooseRole() {
   const router = useRouter();
   const [isExiting, setIsExiting] = useState(false);
@@ -71,7 +72,7 @@ export default function ChooseRole() {
 
   return (
     <div className={`container ${isExiting ? (selectedRole === "doctor" ? "fade-out-doctor" : "fade-out-patient") : ""}`}>
-      <h1>Welcome! 👋</h1>
+      <h1>Welcome!</h1>
       <p>How would you like to use our platform?</p>
       {error && <p style={{ color: "red", marginTop: "1rem" }}>{error}</p>}
 {success && <p style={{ color: "green", marginTop: "1rem" }}>{success}</p>}
@@ -92,6 +93,7 @@ export default function ChooseRole() {
           text-align: center;
           padding: 3rem;
           transition: opacity 0.5s ease, transform 0.5s ease;
+          // background: url('/newBg.jpg') no-repeat center center/cover;
         }
 
         .fade-out-doctor {

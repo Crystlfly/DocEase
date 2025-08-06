@@ -23,6 +23,7 @@
 .userIcon {
   color: #cde9f7;
   cursor: pointer;
+  padding: 1rem;
 }
 .profileWrapper {
   position: relative;
