@@ -805,3 +805,4 @@
 [2025-08-04T05:02:16.752Z] [SUCCESS] User role registered successfully: 6879076e878bdbd64083f330
 [2025-08-05T04:12:19.435Z] [ERROR] User not found for email: max@gmail.com
 [2025-08-05T04:12:36.796Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-11T18:56:21.281Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com

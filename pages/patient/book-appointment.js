@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "@/styles/BookAppointment.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserDoctor } from "@fortawesome/free-solid-svg-icons";
@@ -41,6 +41,7 @@ export default function BookAppointment() {
   const [availableSlots, setAvailableSlots] = useState([]);
   const [appointmentDetails, setAppointmentDetails] = useState(null);
   const [guestEmail, setGuestEmail] = useState("");
+  const formRef = useRef(null)
 
 
   const filteredDoctors = doctors.filter((doc) => {
@@ -159,6 +160,16 @@ export default function BookAppointment() {
       } 
   };
 
+    function handleDoctorClick(doctor) {
+    setSelectedDoctor(doctor);
+    // Scroll after a small delay to ensure form is rendered
+    setTimeout(() => {
+      if (formRef.current) {
+        formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+  }
+
   const isGuest = typeof window !== "undefined" && !localStorage.getItem("UserId");
 
   return (
@@ -182,7 +193,7 @@ export default function BookAppointment() {
               <div
                 key={doc._id}
                 className={styles.card}
-                onClick={() => setSelectedDoctor(doc)}
+                onClick={() => handleDoctorClick(doc)}
               >
                 <div className={styles.doctorImage}>
                   {doc.profileImage ? (
@@ -237,7 +248,7 @@ export default function BookAppointment() {
                   className={`${styles.card} ${
                     selectedDoctor && selectedDoctor._id === doc._id ? styles.selectedCard : ""
                   }`}
-                  onClick={() => setSelectedDoctor(doc)}
+                  onClick={() => handleDoctorClick(doc)}
                 >
                   <div className={styles.doctorImage}>
                     {doc.profileImage ? (
@@ -266,7 +277,7 @@ export default function BookAppointment() {
 
           <div className={styles.rightPane}>
             
-            <div className={styles.formContainer}>
+            <div className={styles.formContainer} ref={formRef}>
               
               <div className={styles.theForm}>
                 <h3 className={styles.formTitle}>Book Appointment with </h3>
