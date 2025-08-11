@@ -80,7 +80,7 @@ This Code of Conduct is adapted from the [Contributor Covenant (v3.0)](https://w
 
 Enforcement guidelines inspired by [Mozilla’s code of conduct enforcement ladder](https://github.com/mozilla/diversity). 
 
-📌 Original work License under Creative Commons Attribution 4.0 International [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+📄 This project is licensed under the [MIT License](/DocEase/License).
 
 ---
 
