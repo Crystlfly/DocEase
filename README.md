@@ -26,58 +26,56 @@ It allows doctors and patients to register, book appointments, manage schedules,
 ##  Installation
 
 ### 1. Clone the repository
-git clone https://github.com/yourusername/docease.git
+git clone https://github.com/Crystlfly/docease.git
 cd docease
 
-2. Install dependencies
+###2. Install dependencies
 npm install
 
-4. Set up environment variables
+###3. Set up environment variables
 Create a file named .env.local in the root folder and copy the format from .env.example:
 
-# Project Name
-NAME=YourName
-
-# MongoDB connection string (Local or Atlas)
+```
+MongoDB connection string (Local or Atlas)
 MONGODB_URI=your_mongodb_connection_string
 
-# Google OAuth Credentials
+Google OAuth Credentials
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 
-# NextAuth configuration
+NextAuth configuration
 NEXTAUTH_SECRET=your_nextauth_secret
 NEXTAUTH_URL=http://localhost:3000
 
-# Cloudinary configuration
+ Cloudinary configuration
 CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
-# JWT configuration
+ JWT configuration
 JWT_SECRET=your_jwt_secret
 
-# Admin credentials
+ Admin credentials
 ADMIN_EMAIL=admin@example.com
 ADMIN_PASSWORD=Admin
 
-# Email service credentials
+ Email service credentials
 EMAIL_USER=youremail@example.com
 EMAIL_PASS=your_email_password
 
-# Resend API Key
+ Resend API Key
 RESEND_API_KEY=your_resend_api_key
 
-# Google OAuth Refresh Token for email sending (if applicable)
+ Google OAuth Refresh Token for email sending (if applicable)
 REFRESH_TOKEN=your_google_refresh_token
+```
 
-
-4. Start MongoDB locally
+### 4. Start MongoDB locally
 Make sure MongoDB is running:
 
   mongod
 Or use MongoDB Atlas and replace MONGODB_URI with your connection string.
 
-5. Run the development server
+### 5. Run the development server
 npm run dev
 Open http://localhost:3000 in your browser.
