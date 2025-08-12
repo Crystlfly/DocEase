@@ -29,10 +29,10 @@ It allows doctors and patients to register, book appointments, manage schedules,
 git clone https://github.com/Crystlfly/docease.git
 cd docease
 
-###2. Install dependencies
+### 2. Install dependencies
 npm install
 
-###3. Set up environment variables
+### 3. Set up environment variables
 Create a file named .env.local in the root folder and copy the format from .env.example:
 
 ```
