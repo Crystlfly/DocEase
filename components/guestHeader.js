@@ -7,7 +7,7 @@ import styles from "@/styles/PatientHeader.module.css"; // Reuse existing styles
 export default function GuestHeader() {
   return (
     <header className={styles.header}>
-      <Link href="http://localhost:3000">
+      <Link href="/">
         <h1 className={styles.sideIcon}>DocEase</h1>
       </Link>
 
