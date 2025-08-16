@@ -89,8 +89,8 @@
 }
 .btnPrimary:hover,
 .btnSecondary:hover {
-  background-color: #5de0e6;
-  color: #2d2d2d;
+  background-color: #7973e9;
+  color: white;
   box-shadow: 0 4px 16px rgba(77, 70, 229, 0.18);
   transform: translateY(-2px) scale(1.04);
 }
@@ -189,8 +189,8 @@
   }
 
   .card {
-  width: 98vw;
-  max-width: 98vw;
+    width: 98vw;
+    max-width: 98vw;
     padding: 2rem 1rem;
   }
 
