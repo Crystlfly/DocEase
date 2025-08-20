@@ -1,0 +1,55 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('/newBg.jpg') no-repeat center center/cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Main content card */
+.card {
+  background-color: rgba(255, 255, 255, 0.114); /* slightly translucent to match homepage vibe */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 750px; /* narrower than before */
+  width: 100%;
+  padding: 2rem 2.5rem;
+  overflow-y: auto;
+  color: #f0f0f0; /* text color slightly off-white for contrast */
+}
+
+/* Headings */
+.card h1 {
+  font-size: 3rem;
+  color: #a0d8f4; /* matches homepage titles/buttons */
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.card h2 {
+  font-size: 2rem;
+  color: #4fa1eb; /* matches homepage accent */
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* Paragraphs */
+.card p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #e0e0e0; /* readable on translucent card */
+}
+
+/* Last Updated line */
+.lastUpdated {
+  font-size: 0.9rem;
+  color: #f2ecec;
+  text-align: right;
+  margin-bottom: 1rem;
+}
