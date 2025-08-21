@@ -1,6 +1,6 @@
-import React from 'react'; // ✅ required
+import React from 'react'; 
 import Link from "next/link";
-import styles from "@/styles/PatientHeader.module.css"; // Reuse existing styles
+import styles from "@/styles/PatientHeader.module.css"; 
 
 
 
