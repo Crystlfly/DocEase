@@ -50,7 +50,9 @@ export default function Home() {
         <div>&copy; {new Date().getFullYear()} DocEase. All rights reserved.</div>
         <div className={styles.footerLinks}>
           <a href="/contact" tabIndex={0} aria-label="Contact Us" target="_blank" rel="noopener noreferrer">Contact Us</a>
-        <Link href="/privacy-policy" className="hover:underline"> Privacy Policy </Link>
+        <Link href="/privacy-policy" legacyBehavior>
+  <a className="hover:underline">Privacy Policy</a>
+</Link>
           <a href="/api-docs" tabIndex={0} aria-label="API Docs" target="_blank" rel="noopener noreferrer">API Docs</a>
         </div>
         <div className={styles.socialIcons}>

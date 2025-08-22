@@ -73,7 +73,7 @@ const PrivacyPolicy = () => {
         <h2>7. Contact Us</h2>
         <p>
           If you have any questions or concerns about this Privacy Policy, you can contact us at:<br />
-          📧 <a href="mailto:support@docease.com">support@docease.com</a>
+          📧 <a href="mailto:easeedoc@gmail.com">easeedoc@gmail.com</a>
         </p>
       </div>
     </div>
