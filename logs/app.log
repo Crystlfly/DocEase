@@ -806,5 +806,11 @@
 [2025-08-05T04:12:19.435Z] [ERROR] User not found for email: max@gmail.com
 [2025-08-05T04:12:36.796Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
 [2025-08-11T18:56:21.281Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
-[2025-08-20T10:01:32.991Z] [ERROR] Error fetching doctors: MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
-[2025-08-20T10:20:17.311Z] [ERROR] Error fetching doctors: MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+[2025-08-21T10:50:00.307Z] [SUCCESS] User logged in successfully and the data is returned: mark@gmail.com
+[2025-08-21T10:50:22.443Z] [SUCCESS] Fetched booked slots for doctor=68791093878bdbd64083f39e on 2025-08-21: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-08-21T10:50:26.652Z] [SUCCESS] Fetched booked slots for doctor=68791093878bdbd64083f39e on 2025-08-22: 10:00 AM,10:30 AM,11:00 AM,11:30 AM,12:00 PM,12:30 PM,2:00 PM,2:30 PM,3:00 PM,3:30 PM,4:00 PM
+[2025-08-21T10:50:33.646Z] [INFO] 📥 [API] Book Appointment - Request received
+[2025-08-21T10:50:33.647Z] [INFO] 📩 [API] Incoming data - doctorId=68791093878bdbd64083f39e, patientId=6879076e878bdbd64083f330, date=2025-08-22, time=10:30 AM, reason=test
+[2025-08-21T10:50:33.647Z] [SUCCESS] 🔌 [DB] Database connected successfully
+[2025-08-21T10:50:33.673Z] [SUCCESS] ✅ [Booked] Appointment created for doctor=68791093878bdbd64083f39e, patient=6879076e878bdbd64083f330 at 2025-08-22 10:30 AM
+[2025-08-21T10:50:40.951Z] [SUCCESS] Fetched appointments for patient=6879076e878bdbd64083f330
