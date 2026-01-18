@@ -5,6 +5,7 @@ import PatientHeader from "@/components/patientHeader";
 
 export default function AppointmentHistory() {
   const [appointments, setAppointments] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [showConfirm, setShowConfirm] = useState(false);
   const [selectedAppointmentId, setSelectedAppointmentId] = useState(null);
 
@@ -15,6 +16,7 @@ export default function AppointmentHistory() {
 
       if (!patientId) {
         console.warn("⚠️ [Client] No patientId found in localStorage.");
+        setLoading(false);
         return;
       }
 
@@ -39,6 +41,8 @@ export default function AppointmentHistory() {
       } catch (error) {
         console.error("🔥 [Client] Error while fetching appointments:", error.message);
         setAppointments([]);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -78,7 +82,12 @@ export default function AppointmentHistory() {
       <div className={styles.container}>
         <h2 className={styles.heading}>Your Appointment History</h2>
 
-        {appointments.length === 0 ? (
+        {loading ? (
+          <div className={styles.loading}>
+            {/* You can replace this with a spinner or skeleton component */}
+            <p>Fetching your appointments...</p>
+          </div>
+        ) : appointments.length === 0 ? (
           <p className={styles.noAppointments}>No appointments found.</p>
         ) : (
           appointments.map((a) => (
